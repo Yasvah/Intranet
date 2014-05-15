@@ -1,0 +1,546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{BC9CF8C2-33BD-45B5-9610-E9C5116540FA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>IntranetSerta</RootNamespace>
+    <AssemblyName>IntranetSerta</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IntranetSerta.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+    <IncludeIisSettings>false</IncludeIisSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IntranetSerta.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+    <IncludeIisSettings>true</IncludeIisSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.5.7.1213, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\AjaxControlToolkit.7.1213\lib\45\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin, Version=4.97.4951.28478, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\AjaxMin.4.97.4951.28483\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\HtmlAgilityPack.1.4.6\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\ReportViewer.Common.10.1.0.0\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\MicosoftReportViewerWebForms_v11.1.0.1\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Microsoft.WindowsAzure.ConfigurationManager.1.8.0.0\lib\net35-full\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=2.1.0.4, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\WindowsAzure.Storage.2.1.0.4\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Spatial, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\ErrorLog\error-2014-02-14140328Z-ba14378b-7116-451b-8b47-a38492e85c57.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-02-17154455Z-cbaa714b-e92f-43d5-9725-08c09309860e.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-02-17154527Z-cb820085-6a5a-4919-bd48-0b1bbae39b44.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-02-17160023Z-8f93d4f2-8773-4666-9e8c-ce4aaaab40d1.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-02-17160031Z-1e3907c0-b91a-4c24-8024-40e3477120c1.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-02-17160737Z-4504ba83-fb7e-49aa-a7a7-953c485ee5d4.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-02-17160814Z-aa5c6e9b-010a-4ed4-b985-770660f4850d.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-02-17160857Z-045a6b02-ffa6-4dd1-9d39-511c5cd2e2b1.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-02-17160950Z-4c53d3cc-7b91-4eec-8078-9cdf0146aed1.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-02-20150054Z-09adf78c-4afb-488c-a850-dbcb6dabf58f.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-14143950Z-ada11036-2b6f-46a6-b4bf-752a04455a1c.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-17084403Z-9d9f36fd-fcdb-4ca5-b990-ebbd170b1969.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-17132429Z-33bc1eed-141e-4410-8463-a70eafff7536.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-17143343Z-7fdff9f0-650a-485e-8b9d-2fbff2784449.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-17143607Z-ffa3f8c6-03eb-4d73-a0c3-6f82a351e487.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-17152903Z-a23ad49f-1eba-434c-aa67-10918b2d5020.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-17152919Z-c9d04f4b-a568-48d6-aa67-05672c6453b6.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-17153609Z-4f353d4c-504e-488e-8c48-be1405fbd779.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-17154532Z-289c4b5a-bf5d-43f0-b9b5-129866129e28.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-17161740Z-fb0e82b7-8c12-4676-a7f1-a173505732b8.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-17161808Z-e50899fe-ef59-4ed7-8a18-c9d0a0ddf70a.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18091931Z-5ab7dfe6-bfd6-4f01-909e-214dd1b2644a.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18091945Z-adc37f58-f40a-4a99-abd3-b7558752a1ac.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18131001Z-1a2b36c3-f9db-482e-95f1-75a5381609b3.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18132339Z-326be9bb-45e0-47d6-8909-e38afdd239a1.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18140439Z-8fe91b9e-677b-45c3-92ed-2f7d42245429.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18140443Z-46af49c5-81db-410e-967e-d4f962d0594b.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18140548Z-95a55116-0b68-4e27-8d7a-cd0bc5052cfd.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18140726Z-50592445-4b65-4a85-b3be-2dc3ec091828.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18153510Z-7c9e7bc8-ccbd-4a20-aaa9-64fa5e5ea029.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18153814Z-5e63ef27-7f5e-4698-a12f-a9cfc73d50d0.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18154112Z-e744b6b3-2a3b-4f1a-9a2a-11d1772ef8e6.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18154158Z-2855c629-430c-48bb-b509-38ff25eb0c76.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-18161710Z-7462a615-d165-4bc1-ab46-a83781139df0.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-19075920Z-f66ff741-3237-4ff4-b463-07ebcf3b0853.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-19080100Z-144b0687-d318-4854-8b3e-d07bcdf00cd5.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-19080123Z-67190b9b-53bf-4b04-b72e-2caeeb8611c3.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-19080154Z-fc21a158-af50-40e4-a458-5f121b04ad6e.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-19081203Z-2492b75b-beb0-458e-8f1e-12b4cc1b44da.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-19081413Z-92b2d92e-ff05-4d7d-bf5a-ec40f68cce6e.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20085015Z-fcc8cfe7-f5d3-443c-bc9e-83d76d2d60fe.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20085020Z-2664991c-8c5b-4bc2-a1fa-28de9aabd765.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20085021Z-601b5f12-6465-4928-b551-2adc7d77d57c.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20085021Z-e7196763-d88f-4c1f-ab26-40dcef1a4bc9.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20085022Z-48e34dde-5807-4d2c-8d70-7ecd3033d892.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20085022Z-d7c5953e-44ee-4459-9736-f45ae5768183.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20085023Z-11b269f7-909b-4930-bd49-937c5bb1a470.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20085023Z-f608f286-2561-4a49-8896-f3e267e5ff3e.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20100259Z-e2f30d82-8782-4578-b130-187e8a71bffa.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20142300Z-10b6ce42-311a-4436-b1e6-534cc4abf104.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20142359Z-9dc1319d-e6a9-448a-aea2-cc94537cbc7a.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20142430Z-3cd1e073-48ef-48ef-a658-202131b8590a.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20142515Z-91ab839b-af27-42fb-bd6e-aafd413ffeab.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-20142527Z-007011cc-ebe0-4722-92bf-470a62ec20f4.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21091352Z-f824ccce-e33b-4220-838b-3e9393f2e41f.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21091419Z-0a5f96b8-cf4b-4eb7-9598-c939fcae3f17.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21091446Z-80db6a39-c4ee-4c8e-8fb0-8469b6095add.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21091545Z-46dc6ea4-bf24-44b1-a414-4ad8cb04a5e5.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21091618Z-62920839-f8dc-46a0-9a4e-75a076ba4101.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21091648Z-2156ca6c-c161-40c5-ad00-bcf7b524e600.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21140748Z-37eeb151-aa5b-4dde-9303-f9058374c28b.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21140751Z-5205413b-0309-4b95-a7a2-34aab440fcaf.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21140802Z-7e727ff3-5892-4baf-9bc4-dd4ad34320a8.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21140925Z-4e47dafb-8bf2-46c7-88a8-eb6dbaf2deb2.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21151542Z-1b993098-25b9-488b-ba16-8841949a8b07.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21151742Z-72ade275-4eaa-4414-8bdf-91339de5f071.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21152403Z-f8a9a032-a651-4622-8bff-7bf436e2402b.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21152642Z-08520855-1524-48f0-9b58-bff4dc0593e8.xml" />
+    <Content Include="App_Data\ErrorLog\error-2014-03-21152737Z-0f15054d-5dc9-4dd3-8b0f-9d73e89a82ca.xml" />
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="App_Themes\Theme\Formulaire.css" />
+    <Content Include="App_Themes\Theme\HtmlViewer.css" />
+    <Content Include="App_Themes\Theme\LancherApp.css" />
+    <Content Include="App_Themes\Theme\Menu.css" />
+    <Content Include="App_Themes\Theme\ModalPopup.css" />
+    <Content Include="App_Themes\Theme\ReportViewer.css" />
+    <Content Include="img\26336.png" />
+    <Content Include="img\AnnuaireIcon.png" />
+    <Content Include="img\capteur.jpg" />
+    <Content Include="img\CommercialIndicatorReport.png" />
+    <Content Include="img\directoryPhone.png" />
+    <Content Include="img\DmIcon.gif" />
+    <Content Include="img\favicon.ico" />
+    <Content Include="img\fondVerin.jpg" />
+    <Content Include="img\home.png" />
+    <Content Include="img\IndicatorIcon.png" />
+    <Content Include="img\KelioIcon.jpg" />
+    <Content Include="img\LnIcon.png" />
+    <Content Include="img\loading2.gif" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\logoLQ.png" />
+    <Content Include="img\QMIcon.png" />
+    <Content Include="img\QualityIndicatorReport.png" />
+    <Content Include="img\ReportIcon.png" />
+    <Content Include="img\SupplierIndicatorReport.png" />
+    <Content Include="Script\jquery-2.0.3.js" />
+    <Content Include="View\Comptabilite\ComptabiliteFormulaire.aspx" />
+    <Content Include="img\ca.png" />
+    <Content Include="img\da.png" />
+    <Content Include="img\MenuBar.jpg" />
+    <Content Include="img\Menubar.png" />
+    <Content Include="img\menu_bg.gif" />
+    <Content Include="img\Photo-concours40.jpg" />
+    <Content Include="img\ua.png" />
+    <Content Include="license.txt" />
+    <Content Include="View\MigBaan\Clients\MappageClientsBaanVP.aspx" />
+    <Content Include="View\MigBaan\Fournisseurs\ReportFournisseurLastTransaction.aspx" />
+    <Content Include="View\MigBaan\Fournisseurs\ReportFournisseursPasDansSage.aspx" />
+    <Content Include="View\MigBaan\Fournisseurs\ReportFournisseursMatch.aspx" />
+    <Content Include="View\MigBaan\Fournisseurs\ReportFournisseursPasDansBaan.aspx" />
+    <Content Include="View\MigBaan\Fournisseurs\ReportFournisseursAjouterDansBaan.aspx" />
+    <Content Include="View\MigBaan\Fournisseurs\ReportFournisseursPresentDansQuelleTable.aspx" />
+    <Content Include="View\MovingHead\SupplierAssessment.js" />
+    <Content Include="View\MovingHead\SupplierAssessmentCOMMUN.aspx" />
+    <Content Include="View\MovingHead\SupplierAssessmentPNS.aspx" />
+    <Content Include="View\MovingHead\SupplierAssessmentSERTA.aspx" />
+    <Content Include="View\Home\Default.aspx" />
+    <Content Include="index.html" />
+    <Content Include="View\MovingHead\RapportAnalyseRetard.aspx" />
+    <Content Include="View\Comptabilite\RapportClientCompta.aspx" />
+    <Content Include="View\Shared\Download.aspx" />
+    <Content Include="View\Shared\ShowReport.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Code\Tools\FileLogin.vb" />
+    <Compile Include="App_GlobalResources\Web.sitemap.bg.designer.vb">
+      <DependentUpon>Web.sitemap.bg.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Web.sitemap.fr.designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Web.sitemap.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\Compatbilite\BO\Client.vb" />
+    <Compile Include="App_Code\Compatbilite\BO\GroupeClient.vb" />
+    <Compile Include="View\Comptabilite\ComptabiliteFormulaire.aspx.designer.vb">
+      <DependentUpon>ComptabiliteFormulaire.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Comptabilite\ComptabiliteFormulaire.aspx.vb">
+      <DependentUpon>ComptabiliteFormulaire.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Code\Compatbilite\DAL\DALClient.vb" />
+    <Compile Include="App_Code\Compatbilite\DAL\DALGroupeClient.vb" />
+    <Compile Include="App_Code\Compatbilite\Mgt\MgtClient.vb" />
+    <Compile Include="App_Code\Compatbilite\Mgt\MgtGroupeClient.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="View\MigBaan\Clients\MappageClientsBaanVP.aspx.designer.vb">
+      <DependentUpon>MappageClientsBaanVP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MigBaan\Clients\MappageClientsBaanVP.aspx.vb">
+      <DependentUpon>MappageClientsBaanVP.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseurLastTransaction.aspx.designer.vb">
+      <DependentUpon>ReportFournisseurLastTransaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseurLastTransaction.aspx.vb">
+      <DependentUpon>ReportFournisseurLastTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseursPasDansSage.aspx.designer.vb">
+      <DependentUpon>ReportFournisseursPasDansSage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseursPasDansSage.aspx.vb">
+      <DependentUpon>ReportFournisseursPasDansSage.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseursMatch.aspx.designer.vb">
+      <DependentUpon>ReportFournisseursMatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseursMatch.aspx.vb">
+      <DependentUpon>ReportFournisseursMatch.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseursPasDansBaan.aspx.designer.vb">
+      <DependentUpon>ReportFournisseursPasDansBaan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseursPasDansBaan.aspx.vb">
+      <DependentUpon>ReportFournisseursPasDansBaan.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseursAjouterDansBaan.aspx.designer.vb">
+      <DependentUpon>ReportFournisseursAjouterDansBaan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseursAjouterDansBaan.aspx.vb">
+      <DependentUpon>ReportFournisseursAjouterDansBaan.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseursPresentDansQuelleTable.aspx.designer.vb">
+      <DependentUpon>ReportFournisseursPresentDansQuelleTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MigBaan\Fournisseurs\ReportFournisseursPresentDansQuelleTable.aspx.vb">
+      <DependentUpon>ReportFournisseursPresentDansQuelleTable.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="View\MovingHead\SupplierAssessmentCOMMUN.aspx.designer.vb">
+      <DependentUpon>SupplierAssessmentCOMMUN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MovingHead\SupplierAssessmentCOMMUN.aspx.vb">
+      <DependentUpon>SupplierAssessmentCOMMUN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\MovingHead\SupplierAssessmentPNS.aspx.designer.vb">
+      <DependentUpon>SupplierAssessmentPNS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MovingHead\SupplierAssessmentPNS.aspx.vb">
+      <DependentUpon>SupplierAssessmentPNS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\MovingHead\SupplierAssessmentSERTA.aspx.designer.vb">
+      <DependentUpon>SupplierAssessmentSERTA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MovingHead\SupplierAssessmentSERTA.aspx.vb">
+      <DependentUpon>SupplierAssessmentSERTA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Home\Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home\Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\MovingHead\RapportAnalyseRetard.aspx.designer.vb">
+      <DependentUpon>RapportAnalyseRetard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MovingHead\RapportAnalyseRetard.aspx.vb">
+      <DependentUpon>RapportAnalyseRetard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Comptabilite\RapportClientCompta.aspx.designer.vb">
+      <DependentUpon>RapportClientCompta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Comptabilite\RapportClientCompta.aspx.vb">
+      <DependentUpon>RapportClientCompta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Shared\Download.aspx.designer.vb">
+      <DependentUpon>Download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Shared\Download.aspx.vb">
+      <DependentUpon>Download.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="View\Shared\SertaIntra.Master.designer.vb">
+      <DependentUpon>SertaIntra.Master</DependentUpon>
+    </Compile>
+    <Compile Include="View\Shared\SertaIntra.Master.vb">
+      <DependentUpon>SertaIntra.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Shared\ShowReport.aspx.designer.vb">
+      <DependentUpon>ShowReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Shared\ShowReport.aspx.vb">
+      <DependentUpon>ShowReport.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Web.sitemap.resx" />
+    <Content Include="App_GlobalResources\Web.sitemap.fr.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Web.sitemap.fr.designer.vb</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Web.sitemap.bg.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Web.sitemap.bg.designer.vb</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="View\Home\App_LocalResources\Default.aspx.resx" />
+    <Content Include="View\Shared\App_LocalResources\SertaIntra.Master.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\DownloadFile\Données clients.xlsx" />
+    <Content Include="App_Data\Trace\TextWriterOutput.log" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\Deployement serveur Développement.pubxml" />
+    <None Include="My Project\PublishProfiles\Dev.pubxml" />
+    <None Include="My Project\PublishProfiles\Intranet-SERTA-Dev.pubxml" />
+    <None Include="My Project\PublishProfiles\LocalFolder.pubxml" />
+    <None Include="My Project\PublishProfiles\Production.pubxml" />
+    <None Include="My Project\PublishProfiles\Serveur de Developpement.pubxml" />
+    <None Include="My Project\PublishProfiles\SERTAINtra.pubxml" />
+    <None Include="My Project\PublishProfiles\W08R2-UPDATE-Dev.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="View\Shared\SertaIntra.Master" />
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Supplier_Indicator\Supplier_Indicator.vbproj">
+      <Project>{5282c95b-c030-444e-8c35-4a60be28bf8f}</Project>
+      <Name>Supplier_Indicator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IntranetSerta.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <IncludeIisSettings>false</IncludeIisSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>IntranetSerta.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <IncludeIisSettings>false</IncludeIisSettings>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>6027</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3911/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

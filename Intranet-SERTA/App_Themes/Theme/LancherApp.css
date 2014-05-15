@@ -1,0 +1,76 @@
+﻿/*Code CSS pour le Fichier Index.html (HomePage du site intranet serta)*/
+
+body {
+    text-align:center;
+
+    background-image: url('../../img/26336.png');
+    font-family: Arial;
+    font-weight: bold;
+    color: #808080;
+    background-size: 70%;
+    margin: 0;
+    padding: 0;
+    font-size: small;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position-x:center;
+}
+
+/*Gestion des bouttons code genérer avec Button generator*/
+.myButton {
+    -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+    background: -moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background: -webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background: -o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background: -ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+    background-color: #ffffff;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    color: #666666;
+    font-family: Trebuchet MS;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 12px 22px;
+    min-width:135px;
+    min-height:100px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffffff;
+}
+.myButton img{
+    width:60px;
+    border:none;
+    
+}
+
+    .myButton:hover {
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f6f6f6), color-stop(1, #ffffff));
+        background: -moz-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+        background: -webkit-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+        background: -o-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+        background: -ms-linear-gradient(top, #f6f6f6 5%, #ffffff 100%);
+        background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f6f6f6', endColorstr='#ffffff',GradientType=0);
+        background-color: #f6f6f6;
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
+.center {
+    margin:1% 5% ;
+    width:90%;
+    display : inline-block
+}
+.bouton {
+    display : inline-block;
+    margin:2% 4%
+}

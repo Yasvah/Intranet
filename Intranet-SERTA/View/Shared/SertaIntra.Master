@@ -1,0 +1,44 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="SertaIntra.master.vb" Inherits="IntranetSerta.SertaIntra" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <link href="../../App_Themes/Theme/Menu.css" rel="stylesheet" type="text/css" media="all" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Indicateur SERTA</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="font">
+
+        <%-------------------------------------------------EN-TETE DE PAGE------------------------------------------%>
+        <form id="SertaIntra" runat="server" class="contour">
+            <div class="Header">
+                <div class="logo">
+                    <asp:Image ID="Logo" ImageUrl="~/img/logoLQ.png" runat="server" />
+                </div>
+                <div class="blockMenu">
+                    <div id="cssmenu">
+                        <%= Me.Menu%>
+                    </div>
+                </div>
+                <div class="login">
+                    Bienvenue :
+                <asp:LoginName ID="UserName" runat="server" />
+                </div>
+
+            </div>
+            <%-------------------------------------------------CONTENU DE LA PAGE------------------------------------------%>
+            <div id="contenu" class="contenu">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <asp:SiteMapDataSource ID="Web" runat="server" />
+
+        </form>
+    </div>
+    </body>
+</html>

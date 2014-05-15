@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="dbSupplierIndicator">
+  <DataContextMoniker Name="/dbSupplierIndicatorDataContext" />
+  <nestedChildShapes>
+    <classShape Id="9ab1a1d8-fdab-45ea-8c55-85244e5e6f49" absoluteBounds="0.875, 0.5, 2, 7.1553369140625">
+      <DataClassMoniker Name="/dbSupplierIndicatorDataContext/SUP_ASSESSMENT_SERTA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c3b3f136-ff7a-4090-b6e0-15a80b20d6d2" absoluteBounds="0.88999999999999968, 0.96, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="27beb410-2d96-431c-87eb-d272ab77c49b" absoluteBounds="3, 0.5, 2, 6.9630354817708326">
+      <DataClassMoniker Name="/dbSupplierIndicatorDataContext/SUP_ASSESSMENT_PNS" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d75f0c85-ce41-4b17-a14e-0a53bd13ed27" absoluteBounds="3.0149999999999997, 0.96, 1.9700000000000002, 6.403035481770833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5d9fa193-f437-4ea2-acac-b1623c351d2e" absoluteBounds="5.125, 0.5, 2, 7.1553369140625">
+      <DataClassMoniker Name="/dbSupplierIndicatorDataContext/SUP_ASSESSMENT_COMMUN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6f36693d-d0d6-4516-8f86-745db9c7176d" absoluteBounds="5.14, 0.96, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
