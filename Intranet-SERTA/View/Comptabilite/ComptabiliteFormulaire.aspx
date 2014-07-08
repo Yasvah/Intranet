@@ -4,18 +4,24 @@
     <link href="../../App_Themes/Theme/Formulaire.css" rel="stylesheet" type="text/css" media="all" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class ="container">
+    <div class="container">
         <span>Add a company Group :</span>
         <asp:TextBox ID="txtboxNomGroupe" runat="server"></asp:TextBox>
-        <asp:Button id="btnAjouterGroupe" runat="server" OnClick="btnAjouterGroupe_Click" Text="Add Groupe"/>
+        <asp:Button ID="btnAjouterGroupe" runat="server" OnClick="btnAjouterGroupe_Click" Text="Add Groupe" />
         <br />
-        <asp:GridView ID="Tableau" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+        <asp:GridView ID="Tableau"
+            runat="server"
+            AutoGenerateColumns="False"
+            CellPadding="4"
+            ForeColor="#333333"
+            GridLines="None">
+
             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
             <Columns>
 
                 <asp:TemplateField HeaderText="ID" InsertVisible="False">
                     <ItemTemplate>
-                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("Id")%>'></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text='<%# Eval("id")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -23,13 +29,13 @@
                     <ItemTemplate>
                         <asp:Label ID="lblcode" runat="server" Text='<%# Eval("code")%>'></asp:Label>
                     </ItemTemplate>
-                    <FooterTemplate> 
-                    <asp:TextBox ID="txt1" runat="server" ></asp:TextBox> 
-                </FooterTemplate>
-                </asp:TemplateField> 
+                    <FooterTemplate>
+                        <asp:TextBox ID="txt1" runat="server"></asp:TextBox>
+                    </FooterTemplate>
+                </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="Nom Client">
-                     <ItemTemplate>
+                    <ItemTemplate>
                         <asp:Label ID="Label3" runat="server" Text='<%# Eval("nom")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -37,10 +43,10 @@
                     <ItemTemplate>
                         <asp:Label ID="Label4" runat="server" Text='<%# Eval("nomGroupe")%>'></asp:Label>
                     </ItemTemplate>
-                   <EditItemTemplate>
-                       <asp:DropDownList ID="NewGroupe" runat="server" DataTextField="nomGroupe" DataValueField="id" AutoPostBack ="true" CausesValidation ="true" >
-                       </asp:DropDownList>
-                    </EditItemTemplate> 
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="NewGroupe" runat="server" DataTextField="nomGroupe" DataValueField="id" AutoPostBack="true" CausesValidation="true">
+                        </asp:DropDownList>
+                    </EditItemTemplate>
                     <FooterTemplate>
                         <asp:DropDownList ID="cmbNewType" runat="server" DataTextField="Typename" DataValueField="Id"></asp:DropDownList>
                     </FooterTemplate>
@@ -49,17 +55,17 @@
                 <asp:TemplateField HeaderText="Edit" ShowHeader="False" HeaderStyle-HorizontalAlign="Left">
                     <EditItemTemplate>
                         <asp:LinkButton ID="lbkUpdate" runat="server" CommandName="Update" Text="Update"></asp:LinkButton>
-                        <asp:LinkButton ID="lnkCancel" runat="server"  CommandName="Cancel" Text="Cancel"></asp:LinkButton>
+                        <asp:LinkButton ID="lnkCancel" runat="server" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:LinkButton ID="lnkAdd" runat="server" CausesValidation="False" CommandName="Insert" Text="Insert"></asp:LinkButton>
                     </FooterTemplate>
                     <ItemTemplate>
-                        <asp:LinkButton ID="lnkEdit" runat="server"  CommandName="Edit" Text="Edit"></asp:LinkButton>
+                        <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" Text="Edit"></asp:LinkButton>
                     </ItemTemplate>
 
-<HeaderStyle HorizontalAlign="Left"></HeaderStyle>
-                </asp:TemplateField> 
+                    <HeaderStyle HorizontalAlign="Left"></HeaderStyle>
+                </asp:TemplateField>
 
             </Columns>
             <EditRowStyle BackColor="#999999" />
@@ -75,5 +81,5 @@
         </asp:GridView>
         <br />
         <br />
-</div>
+    </div>
 </asp:Content>

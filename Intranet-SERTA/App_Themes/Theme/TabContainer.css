@@ -1,0 +1,55 @@
+﻿body {
+}
+
+
+
+
+.TabContainer_theme .ajax__tab_header {
+    font-family: "Helvetica Neue" , Arial, Sans-Serif;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+}
+
+    .TabContainer_theme .ajax__tab_header .ajax__tab_outer {
+    border-color: #222;
+    color: #000000;
+    padding-left: 10px;
+    margin-right: 3px;
+    border: solid 1px #5D7B9D;
+    border-radius: 5px 5px 0 0;
+    background-color: #F7F6F3;
+}
+
+    .TabContainer_theme .ajax__tab_header .ajax__tab_inner {
+    border-color: #F7F6F3;
+    color: #000000;
+    padding: 3px 10px 2px 0px;
+}
+
+.TabContainer_theme .ajax__tab_hover .ajax__tab_outer {
+    background-color: #5D7B9D;
+}
+
+.TabContainer_theme .ajax__tab_hover .ajax__tab_inner {
+    color: #000000;
+}
+
+.TabContainer_theme .ajax__tab_active .ajax__tab_outer {
+    border-bottom-color: #5D7B9D;
+    background-color: #5D7B9D;
+}
+
+.TabContainer_theme .ajax__tab_active .ajax__tab_inner {
+    color: #FFFFFF;
+    border-color: #333;
+}
+
+.TabContainer_theme .ajax__tab_body {
+    font-family: verdana,tahoma,helvetica;
+    font-size: 10pt;
+    background-color: #FFFFFF;
+    border-top-width: 0;
+    border: solid 1px #5D7B9D;
+    border-top-color: #5D7B9D;
+}

@@ -11,7 +11,7 @@
     </siteMapNode>
     <siteMapNode title="Comptabilité"  description="Formulaire de la comptabilité" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Comptabilite">
       <siteMapNode title="Chiffres d'affaires"  description="Formulaire et rapport sur le CA" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Comptabilite">
-        <siteMapNode url="~\View\Comptabilite\RapportClientCompta.aspx" title="Rapport CA Groupe Client" description="Rapport sur le Chiffre d'affraire par Groupe." roles="SERTA\groupe Info, Serta\Groupe Application Indicateurs Comptabilite" />
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilité/CA par Groupe client" title="Rapport CA Groupe Client" description="Rapport sur le Chiffre d'affraire par Groupe." roles="SERTA\groupe Info, Serta\Groupe Application Indicateurs Comptabilite" />
         <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilité/CA par Client "  title="Rapport CA Client" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Comptabilite"/>
         <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilité/CA par Pays"  title="Rapport CA par pays" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Comptabilite"/>
         <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilité/Risque client "  title="Rapport risque client" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Comptabilite"/>
@@ -20,13 +20,14 @@
     </siteMapNode>
     <siteMapNode title="Bureau d'étude"  description="Bureau d'étude" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE, SERTA\Groupe Application Indicateurs Commun">
       <siteMapNode title="Anomalie SERTA - PNS"  roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE">
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomalie poids SERTA - PNS"  title="Anomalie poids" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
+        <siteMapNode url="~/View/BE/LinkSertaPns.aspx"  title="Formulaire correspondace Serta/PNS" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
+        <!-- <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomalie poids SERTA - PNS"  title="Anomalie poids" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
         <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomalie Ref Vendu"  title="Anomalie reference vendu" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
         <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomalie reference SERTA - PNS"  title="Anomalie reference entre SERTA et PNS" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
         <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomalie tarif SERTA PNS"  title="Anomalie tarif" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
         <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomaly Statut Indice SERTA-PNS"  title="Anomalie statut et indice" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
         <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomaly UP SERTA-PNS"  title="Anomalie unité de production" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Double ref SERTA - PNS"  title="Anomalie doublon reference" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Double ref SERTA - PNS"  title="Anomalie doublon reference" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/> -->
       </siteMapNode>
       <siteMapNode title="Utilisation composant"  description="Rapports sur l'utilisation d'un composant ou d'un vérin" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Commun">
         <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Commun/Cas_d_emploi_d_un_composant"  title="Cas d'emploi d'un composant" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Commun"/>

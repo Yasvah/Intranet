@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 13.5, 12" name="ReferenceBaanTechnoclass">
+  <DataContextMoniker Name="/ReferenceBaanTechnoclassDataContext" />
+  <nestedChildShapes>
+    <classShape Id="51d5dfba-1120-4367-8999-95cf4eefb7ee" absoluteBounds="0.5, 1, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ReferenceBaanTechnoclassDataContext/T_ARTICLE_ART" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b731225a-5aa5-4653-99fb-b35e2b1263ab" absoluteBounds="0.51499999999999968, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d61d79bc-cdad-494f-8d98-1107ab059198" absoluteBounds="0.5, 2.875, 2, 8.8860498046875">
+      <DataClassMoniker Name="/ReferenceBaanTechnoclassDataContext/T_ARTICLE_STANDARD_AST" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3e96671a-2b36-444c-b37c-74fb101987a9" absoluteBounds="0.51500000000000012, 3.335, 1.9700000000000002, 8.3260498046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.5 : 2.57859537760417); (1.5 : 2.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ReferenceBaanTechnoclassDataContext/T_ARTICLE_ART/T_ARTICLE_ART_T_ARTICLE_STANDARD_AST" />
+      <nodes>
+        <classShapeMoniker Id="51d5dfba-1120-4367-8999-95cf4eefb7ee" />
+        <classShapeMoniker Id="d61d79bc-cdad-494f-8d98-1107ab059198" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="5fa64f03-6009-48ab-9720-5647fc0d5a40" absoluteBounds="4.125, 2.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ReferenceBaanTechnoclassDataContext/T_J_ART_ARP_JAA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="91c83d5f-dcc5-46bf-a57f-cd6552a6cd49" absoluteBounds="4.1400000000000006, 3.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.78929768880208); (5.125 : 1.78929768880208); (5.125 : 2.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ReferenceBaanTechnoclassDataContext/T_ARTICLE_ART/T_ARTICLE_ART_T_J_ART_ARP_JAA" />
+      <nodes>
+        <classShapeMoniker Id="51d5dfba-1120-4367-8999-95cf4eefb7ee" />
+        <classShapeMoniker Id="5fa64f03-6009-48ab-9720-5647fc0d5a40" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="eb74a7b0-0ca3-4c14-9c73-afc987e420e5" absoluteBounds="8.5, 2.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ReferenceBaanTechnoclassDataContext/T_ARTICLE_ARP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dd218662-02e8-48a2-abc8-df5a7f0a0104" absoluteBounds="8.515, 3.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.5 : 3.82774983723958); (6.125 : 3.82774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ReferenceBaanTechnoclassDataContext/T_ARTICLE_ARP/T_ARTICLE_ARP_T_J_ART_ARP_JAA" />
+      <nodes>
+        <classShapeMoniker Id="eb74a7b0-0ca3-4c14-9c73-afc987e420e5" />
+        <classShapeMoniker Id="5fa64f03-6009-48ab-9720-5647fc0d5a40" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a2bdc7af-f91b-44e4-a95d-f5452febe5fe" absoluteBounds="3.5, 6.25, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/ReferenceBaanTechnoclassDataContext/T_STATUT_JAA_JST" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0933858f-0d8a-4f12-aefb-8ccbaeea3976" absoluteBounds="3.515, 6.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.8125 : 6.25); (4.8125 : 5.03049967447917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ReferenceBaanTechnoclassDataContext/T_STATUT_JAA_JST/T_STATUT_JAA_JST_T_J_ART_ARP_JAA" />
+      <nodes>
+        <classShapeMoniker Id="a2bdc7af-f91b-44e4-a95d-f5452febe5fe" />
+        <classShapeMoniker Id="5fa64f03-6009-48ab-9720-5647fc0d5a40" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="ea2ce847-618a-48f7-b6b7-4abdb65e2436" absoluteBounds="6.25, 6.25, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/ReferenceBaanTechnoclassDataContext/T_SOURCE_JAA_JSR" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7cbf56df-a3b1-429f-9397-269f1f7c4dd8" absoluteBounds="6.265, 6.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.25 : 6.25); (7.25 : 4.46037725585937); (6.125 : 4.46037725585937)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ReferenceBaanTechnoclassDataContext/T_SOURCE_JAA_JSR/T_SOURCE_JAA_JSR_T_J_ART_ARP_JAA" />
+      <nodes>
+        <classShapeMoniker Id="ea2ce847-618a-48f7-b6b7-4abdb65e2436" />
+        <classShapeMoniker Id="5fa64f03-6009-48ab-9720-5647fc0d5a40" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="cbe4b516-0020-49e7-9b9e-2546e66b055d" absoluteBounds="11.25, 0.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/ReferenceBaanTechnoclassDataContext/T_TYPE_ARTICLE_TAP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e6066abb-b0a0-48fe-9b4c-9a00c3246e54" absoluteBounds="11.265, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(11.25 : 1.56814697265625); (9.5 : 1.56814697265625); (9.5 : 2.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ReferenceBaanTechnoclassDataContext/T_TYPE_ARTICLE_TAP/T_TYPE_ARTICLE_TAP_T_ARTICLE_ARP" />
+      <nodes>
+        <classShapeMoniker Id="cbe4b516-0020-49e7-9b9e-2546e66b055d" />
+        <classShapeMoniker Id="eb74a7b0-0ca3-4c14-9c73-afc987e420e5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="574af697-08d9-4fa5-97bf-8b7f410903ae" absoluteBounds="6.25, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ReferenceBaanTechnoclassDataContext/T_REFERENCES_FOB_RFO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="25370aff-002f-4bd9-94ad-0643e0739ecf" absoluteBounds="6.2650000000000006, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.33214884440104); (6.25 : 1.33214884440104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ReferenceBaanTechnoclassDataContext/T_ARTICLE_ART/T_ARTICLE_ART_T_REFERENCES_FOB_RFO" />
+      <nodes>
+        <classShapeMoniker Id="51d5dfba-1120-4367-8999-95cf4eefb7ee" />
+        <classShapeMoniker Id="574af697-08d9-4fa5-97bf-8b7f410903ae" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

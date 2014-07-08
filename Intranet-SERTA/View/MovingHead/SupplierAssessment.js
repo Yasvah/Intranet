@@ -61,7 +61,12 @@
     };
     //Calcule du delay de pénalité 2pts/% apres 10 jours de retard.
     delaysPenalty = function (value) {
-        return parseInt(value * -2)
+        if (value > 5) {
+            return -10
+        }
+        else {
+            return parseInt(value * -2)
+        }    
     };
     //Calcule de nombre de point pour la qualité de livraison
     deliveryQuality = function (value) {

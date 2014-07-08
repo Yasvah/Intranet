@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DW" Class="ReferenceBaanTechnoclassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=W08R2-UPDATE\RYBACK;Initial Catalog=DW;Integrated Security=True" SettingsObjectName="DataWareHouse.My.MySettings" SettingsPropertyName="DWConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="PRODUCTION.T_ARTICLE_ART" Member="T_ARTICLE_ART">
+    <Type Name="T_ARTICLE_ART">
+      <Column Name="ART_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ART_REFERENCE" Type="System.String" DbType="VarChar(16) NOT NULL" CanBeNull="false" />
+      <Column Name="ART_LIBELLE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ART_POIDS" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Association Name="T_ARTICLE_ART_T_ARTICLE_STANDARD_AST" Member="T_ARTICLE_STANDARD_AST" ThisKey="ART_ID" OtherKey="ART_ID" Type="T_ARTICLE_STANDARD_AST" Cardinality="One" />
+      <Association Name="T_ARTICLE_ART_T_J_ART_ARP_JAA" Member="T_J_ART_ARP_JAA" ThisKey="ART_ID" OtherKey="ART_ID" Type="T_J_ART_ARP_JAA" />
+      <Association Name="T_ARTICLE_ART_T_REFERENCES_FOB_RFO" Member="T_REFERENCES_FOB_RFO" ThisKey="ART_ID" OtherKey="ART_ID" Type="T_REFERENCES_FOB_RFO" />
+    </Type>
+  </Table>
+  <Table Name="PRODUCTION.T_ARTICLE_STANDARD_AST" Member="T_ARTICLE_STANDARD_AST">
+    <Type Name="T_ARTICLE_STANDARD_AST">
+      <Column Name="ART_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TAR_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GRA_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TYP_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="COS_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CSI_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TVA_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UTE_UNITE_STOCK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AST_DERNIER_INVENTAIRE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AST_STOCK_SECU" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="AST_STOCK_REEL" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="PCA_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SCO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MCO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AST_QTE_ECO_COMMANDE" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="AST_SEUIL_REAPPRO" Type="System.Single" DbType="Real NOT NULL" CanBeNull="false" />
+      <Column Name="AST_INTERVALLE_ORDRE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AST_DELAI_APPRO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AST_DELAI_SECU" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AST_POST_CONSO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AST_HORIZON_PLANIFICATION" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UTE_UNITE_ACHAT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UTE_UNITE_PRIX_ACHAT" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GSA_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AST_PRIX_ACHAT" Type="System.Decimal" DbType="SmallMoney NOT NULL" CanBeNull="false" />
+      <Column Name="AST_PRIX_MOYEN_ACHAT" Type="System.Decimal" DbType="SmallMoney NOT NULL" CanBeNull="false" />
+      <Column Name="AST_DERNIER_PRIX_ACHAT" Type="System.Decimal" DbType="SmallMoney NOT NULL" CanBeNull="false" />
+      <Column Name="FOB_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AST_CONSO_INFO" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="AST_CONSO_HISTO" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="AST_CONSO_PILOTE" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="AST_DATE_MAJ_ARTICLE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AST_APPRO_COMMUN_PNS_SERTA" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AST_APPRO_SERTA_PNS" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AST_APPRO_PNS_SERTA" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AST_QTE_CONSO_PNS_ANNEE_MOINS_1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="AST_BUDGET_PREVU_ANNEE_EN_COURS" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="AST_CONSO_ANNEE_EN_COURS" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="AST_PRIX_MOYEN_ACHAT_ANNEE_MOINS_1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="NAR_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AST_REF_VERIN_ACHETE" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="AST_CLIENT_PRINCIPAL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="T_ARTICLE_ART_T_ARTICLE_STANDARD_AST" Member="T_ARTICLE_ART" ThisKey="ART_ID" OtherKey="ART_ID" Type="T_ARTICLE_ART" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PRODUCTION_PNS.T_J_ART_ARP_JAA" Member="T_J_ART_ARP_JAA">
+    <Type Name="T_J_ART_ARP_JAA">
+      <Column Name="JAA_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ART_ID" Type="System.Int32" DbType="Int NOT NULL" IsReadOnly="true" CanBeNull="false" />
+      <Column Name="ARP_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="JST_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="JSR_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="JAA_DATE_CREATION" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="JAA_DATE_MAJ" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="T_ARTICLE_ART_T_J_ART_ARP_JAA" Member="T_ARTICLE_ART" ThisKey="ART_ID" OtherKey="ART_ID" Type="T_ARTICLE_ART" IsForeignKey="true" />
+      <Association Name="T_ARTICLE_ARP_T_J_ART_ARP_JAA" Member="T_ARTICLE_ARP" ThisKey="ARP_ID" OtherKey="ARP_ID" Type="T_ARTICLE_ARP" IsForeignKey="true" />
+      <Association Name="T_STATUT_JAA_JST_T_J_ART_ARP_JAA" Member="T_STATUT_JAA_JST" ThisKey="JST_ID" OtherKey="JST_ID" Type="T_STATUT_JAA_JST" IsForeignKey="true" />
+      <Association Name="T_SOURCE_JAA_JSR_T_J_ART_ARP_JAA" Member="T_SOURCE_JAA_JSR" ThisKey="JSR_ID" OtherKey="JSR_ID" Type="T_SOURCE_JAA_JSR" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PRODUCTION_PNS.T_ARTICLE_ARP" Member="T_ARTICLE_ARP">
+    <Type Name="T_ARTICLE_ARP">
+      <Column Name="ARP_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ARP_REFERENCE" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="ARP_LIBELLE" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ARP_INDICE" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+      <Column Name="ARP_STATUT" Type="System.String" DbType="Char(3)" CanBeNull="true" />
+      <Column Name="TAP_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ARP_REFERENCE_SERTA" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Association Name="T_ARTICLE_ARP_T_J_ART_ARP_JAA" Member="T_J_ART_ARP_JAA" ThisKey="ARP_ID" OtherKey="ARP_ID" Type="T_J_ART_ARP_JAA" />
+      <Association Name="T_TYPE_ARTICLE_TAP_T_ARTICLE_ARP" Member="T_TYPE_ARTICLE_TAP" ThisKey="TAP_ID" OtherKey="TAP_ID" Type="T_TYPE_ARTICLE_TAP" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="PRODUCTION_PNS.T_STATUT_JAA_JST" Member="T_STATUT_JAA_JST">
+    <Type Name="T_STATUT_JAA_JST">
+      <Column Name="JST_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JST_LIBELLE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="T_STATUT_JAA_JST_T_J_ART_ARP_JAA" Member="T_J_ART_ARP_JAA" ThisKey="JST_ID" OtherKey="JST_ID" Type="T_J_ART_ARP_JAA" />
+    </Type>
+  </Table>
+  <Table Name="PRODUCTION_PNS.T_SOURCE_JAA_JSR" Member="T_SOURCE_JAA_JSR">
+    <Type Name="T_SOURCE_JAA_JSR">
+      <Column Name="JSR_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JSR_LIBELLE" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="T_SOURCE_JAA_JSR_T_J_ART_ARP_JAA" Member="T_J_ART_ARP_JAA" ThisKey="JSR_ID" OtherKey="JSR_ID" Type="T_J_ART_ARP_JAA" />
+    </Type>
+  </Table>
+  <Table Name="PRODUCTION_PNS.T_TYPE_ARTICLE_TAP" Member="T_TYPE_ARTICLE_TAP">
+    <Type Name="T_TYPE_ARTICLE_TAP">
+      <Column Name="TAP_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TAP_CODE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="TAP_LIBELLE" Type="System.String" DbType="VarChar(60)" CanBeNull="true" />
+      <Association Name="T_TYPE_ARTICLE_TAP_T_ARTICLE_ARP" Member="T_ARTICLE_ARP" ThisKey="TAP_ID" OtherKey="TAP_ID" Type="T_ARTICLE_ARP" />
+    </Type>
+  </Table>
+  <Table Name="ACHAT.T_REFERENCES_FOB_RFO" Member="T_REFERENCES_FOB_RFO">
+    <Type Name="T_REFERENCES_FOB_RFO">
+      <Column Name="RFO_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RFO_REFERENCE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ART_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FOB_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="T_ARTICLE_ART_T_REFERENCES_FOB_RFO" Member="T_ARTICLE_ART" ThisKey="ART_ID" OtherKey="ART_ID" Type="T_ARTICLE_ART" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
