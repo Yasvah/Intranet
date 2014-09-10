@@ -52,8 +52,8 @@ Partial Public Class dbSupplierIndicatorDataContext
   #End Region
 	
 	Public Sub New()
-		MyBase.New("Data Source=W08R2-UPDATE\RYBACK;Initial Catalog=SUPPLIER_INDICATOR;Integrated Sec"& _ 
-				"urity=True", mappingSource)
+		MyBase.New("Data Source=W08R2-EAGLE;Initial Catalog=SUPPLIER_INDICATOR;Integrated Security=Tr"& _ 
+				"ue", mappingSource)
 		OnCreated
 	End Sub
 	

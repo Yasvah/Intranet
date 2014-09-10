@@ -60,7 +60,7 @@ Public Class DALClient
         End Try
     End Sub
 
-    Private _ctn As IDbConnection = New SqlConnection("Data Source=W08R2-UPDATE\RYBACK;Initial Catalog=DW;User Id=sa;Password=casey;")
+    Private _ctn As IDbConnection = New SqlConnection(ConfigurationManager.ConnectionStrings("DWConnectionString").ConnectionString)
 
     Public ReadOnly Property connexion() As IDbConnection
         Get

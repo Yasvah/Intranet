@@ -209,7 +209,7 @@
         <ajaxToolkit:TabPanel ID="TabPanelAnalyse" runat="server" HeaderText="Analyse des anomalies">
             <ContentTemplate>
                 <rsweb:ReportViewer ID="ReportViewer1" runat="server" ProcessingMode="Remote" SizeToReportContent="true" CssClass="reportViewer">
-                    <ServerReport ReportServerUrl="http://w08r2-update/ReportServer" ReportPath="/BE/AnomalieSynchroArticleSERTAPNS" />
+                    <ServerReport ReportServerUrl="http://W08R2-EAGLE/ReportServer/" ReportPath="/BE/AnomalieSynchroArticleSERTAPNS" />
                 </rsweb:ReportViewer>
             </ContentTemplate>
         </ajaxToolkit:TabPanel>

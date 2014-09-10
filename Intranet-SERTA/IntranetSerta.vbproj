@@ -94,6 +94,7 @@
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
@@ -109,6 +110,8 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -167,6 +170,7 @@
     <Content Include="img\ReportIcon.png" />
     <Content Include="img\SupplierIndicatorReport.png" />
     <Content Include="Script\jquery-2.0.3.js" />
+    <Content Include="View\BE\CasEmploiParComposant.aspx" />
     <Content Include="View\BE\LinkSertaPns.aspx" />
     <Content Include="View\Comptabilite\ComptabiliteFormulaire.aspx" />
     <Content Include="img\ca.png" />
@@ -212,6 +216,13 @@
     </Compile>
     <Compile Include="App_Code\Compatbilite\BO\Client.vb" />
     <Compile Include="App_Code\Compatbilite\BO\GroupeClient.vb" />
+    <Compile Include="View\BE\CasEmploiParComposant.aspx.designer.vb">
+      <DependentUpon>CasEmploiParComposant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\BE\CasEmploiParComposant.aspx.vb">
+      <DependentUpon>CasEmploiParComposant.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="View\BE\LinkSertaPns.aspx.designer.vb">
       <DependentUpon>LinkSertaPns.aspx</DependentUpon>
     </Compile>
@@ -382,7 +393,6 @@
     <Content Include="View\Shared\App_LocalResources\SertaIntra.Master.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Trace\TextWriterOutput.log" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -429,6 +439,7 @@
   <ItemGroup>
     <Folder Include="App_Data\DownloadFile\" />
     <Folder Include="App_Data\ErrorLog\" />
+    <Folder Include="App_Data\Trace\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -468,6 +479,9 @@
     <PlatformTarget>x86</PlatformTarget>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <IncludeIisSettings>false</IncludeIisSettings>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

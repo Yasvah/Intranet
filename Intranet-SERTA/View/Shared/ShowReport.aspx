@@ -20,7 +20,7 @@
     <%Else%>
     <asp:ScriptManager ID="ScriptManager" runat="server" />
     <rsweb:ReportViewer ID="ReportViewerControle" runat="server" ProcessingMode="Remote" SizeToReportContent="true" CssClass="reportViewer">
-        <ServerReport ReportServerUrl="http://w08r2-update/ReportServer/" />
+        <ServerReport ReportServerUrl="http://w08r2-EAGLE/ReportServer/" />
     </rsweb:ReportViewer>
     
    <%End If%>

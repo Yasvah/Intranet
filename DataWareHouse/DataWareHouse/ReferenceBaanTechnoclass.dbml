@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DW" Class="ReferenceBaanTechnoclassDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=W08R2-UPDATE\RYBACK;Initial Catalog=DW;Integrated Security=True" SettingsObjectName="DataWareHouse.My.MySettings" SettingsPropertyName="DWConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=W08R2-EAGLE;Initial Catalog=DW;User ID=sa" SettingsObjectName="DataWareHouse.My.MySettings" SettingsPropertyName="DWConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="PRODUCTION.T_ARTICLE_ART" Member="T_ARTICLE_ART">
     <Type Name="T_ARTICLE_ART">
       <Column Name="ART_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

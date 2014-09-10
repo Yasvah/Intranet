@@ -9,6 +9,6 @@
     <p>Cette liste est extraite de Sage. Elle est filtré sur les fournisseurs actif et ou la mention "A CREER DS BAAN" est présente dans le champs code barre ou commentaire</p>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <rsweb:ReportViewer ID="ReportViewerControl" runat="server" ProcessingMode="Remote" SizeToReportContent="true" AsyncRendering="true">
-        <ServerReport ReportPath="/Migration Baan/FournisseurAAjouterBaan" ReportServerUrl="http://W08R2-UPDATE/ReportServer" />
+        <ServerReport ReportPath="/Migration Baan/Fournisseur/FournisseurAAjouterBaan" ReportServerUrl="http://W08R2-EAGLE/ReportServer" />
     </rsweb:ReportViewer>
 </asp:Content>

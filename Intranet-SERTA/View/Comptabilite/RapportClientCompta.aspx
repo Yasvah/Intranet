@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div>
         <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Font-Size="8pt" ProcessingMode="Remote" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" Height="702px" Width="1303px">
-            <ServerReport ReportPath="/Comptabilité/CA par Client" ReportServerUrl="http://w08r2-update/ReportServer" />
+            <ServerReport ReportPath="/Comptabilité/CA par Client" ReportServerUrl="http://w08r2-EAGLE/ReportServer" />
         </rsweb:ReportViewer>
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     </div>

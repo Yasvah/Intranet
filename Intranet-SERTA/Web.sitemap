@@ -2,64 +2,57 @@
 <!--A vrai pour activivé la gestion des ressources (gestion multi-langue)-->
 <siteMap enableLocalization="true" >
   <siteMapNode resourceKey="homePage" title="HomePage" url="~/View/Home/Default.aspx" roles="*" >
-    <siteMapNode title="Moving Ahead" description="Liste des rapports" roles="SERTA\Groupe IntraSERTA MovingAhead FormPNS, SERTA\Groupe IntraSERTA MovingAhead FormSERTA, SERTA\Groupe Info">
-      <siteMapNode title="Formulaire" description="Formulaire Moving Ahead" roles="SERTA\Groupe IntraSERTA MovingAhead FormPNS, SERTA\Groupe IntraSERTA MovingAhead FormSERTA, SERTA\Groupe Info">
-        <siteMapNode url="~/View/MovingHead/SupplierAssessmentSERTA.aspx" title="Formulaire Supplier Performance SERTA" roles="SERTA\Groupe IntraSERTA MovingAhead FormSERTA, SERTA\Groupe Info" />
-        <siteMapNode url="~/View/MovingHead/SupplierAssessmentPNS.aspx" title="Formulaire Supplier Performance PNS" roles="SERTA\Groupe IntraSERTA MovingAhead FormPNS, SERTA\Groupe Info" />
-        <siteMapNode url="~/View/MovingHead/SupplierAssessmentCOMMUN.aspx" title="Formulaire Supplier Performance COMMUN" roles="SERTA\Groupe IntraSERTA MovingAhead FormPNS, SERTA\Groupe IntraSERTA MovingAhead FormSERTA, SERTA\Groupe Info" />
+    <siteMapNode title="Moving Ahead" description="Liste des rapports" roles="SERTA\Groupe Appli MovingAhead Formulaire PNS, SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info">
+      <siteMapNode title="Formulaire" description="Formulaire Moving Ahead" roles="SERTA\Groupe Appli MovingAhead Formulaire PNS, SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info">
+        <siteMapNode url="~/View/MovingHead/SupplierAssessmentSERTA.aspx" title="Formulaire Supplier Performance SERTA" roles="SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info" />
+        <siteMapNode url="~/View/MovingHead/SupplierAssessmentPNS.aspx" title="Formulaire Supplier Performance PNS" roles="SERTA\Groupe Appli MovingAhead Formulaire PNS, SERTA\Groupe Info" />
+        <siteMapNode url="~/View/MovingHead/SupplierAssessmentCOMMUN.aspx" title="Formulaire Supplier Performance COMMUN" roles="SERTA\Groupe Appli MovingAhead Formulaire PNS, SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info" />
       </siteMapNode>
     </siteMapNode>
-    <siteMapNode title="Comptabilité"  description="Formulaire de la comptabilité" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Comptabilite">
-      <siteMapNode title="Chiffres d'affaires"  description="Formulaire et rapport sur le CA" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Comptabilite">
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilité/CA par Groupe client" title="Rapport CA Groupe Client" description="Rapport sur le Chiffre d'affraire par Groupe." roles="SERTA\groupe Info, Serta\Groupe Application Indicateurs Comptabilite" />
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilité/CA par Client "  title="Rapport CA Client" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Comptabilite"/>
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilité/CA par Pays"  title="Rapport CA par pays" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Comptabilite"/>
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilité/Risque client "  title="Rapport risque client" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Comptabilite"/>
-        <siteMapNode url="~/View/Comptabilite/ComptabiliteFormulaire.aspx"  title="Gerer les groupes clients" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Comptabilite"/>
+    <siteMapNode title="Comptabilité"  description="Formulaire de la comptabilité" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur Comptabilite">
+      <siteMapNode title="Chiffres d'affaires"  description="Formulaire et rapport sur le CA" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur Comptabilite">
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilite/CA_par_Groupe_client" title="Rapport CA Groupe Client" description="Rapport sur le Chiffre d'affraire par Groupe." roles="SERTA\groupe Info, Serta\Groupe Appli DataWareHouse Indicateur Comptabilite" />
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilite/CA_par_Client "  title="Rapport CA Client" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur Comptabilite"/>
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilite/CA_par_Pays"  title="Rapport CA par pays" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur Comptabilite"/>
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Comptabilite/Risque_client "  title="Rapport risque client" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur Comptabilite"/>
+        <siteMapNode url="~/View/Comptabilite/ComptabiliteFormulaire.aspx"  title="Gerer les groupes clients" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur Comptabilite"/>
       </siteMapNode>
     </siteMapNode>
-    <siteMapNode title="Bureau d'étude"  description="Bureau d'étude" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE, SERTA\Groupe Application Indicateurs Commun">
-      <siteMapNode title="Anomalie SERTA - PNS"  roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE">
-        <siteMapNode url="~/View/BE/LinkSertaPns.aspx"  title="Formulaire correspondace Serta/PNS" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
-        <!-- <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomalie poids SERTA - PNS"  title="Anomalie poids" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomalie Ref Vendu"  title="Anomalie reference vendu" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomalie reference SERTA - PNS"  title="Anomalie reference entre SERTA et PNS" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomalie tarif SERTA PNS"  title="Anomalie tarif" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomaly Statut Indice SERTA-PNS"  title="Anomalie statut et indice" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Anomaly UP SERTA-PNS"  title="Anomalie unité de production" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/>
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Double ref SERTA - PNS"  title="Anomalie doublon reference" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE"/> -->
+    <siteMapNode title="Bureau d'étude"  description="Bureau d'étude" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs BE, SERTA\Groupe Appli DataWareHouse Indicateur BE CorrespondanceSERTAPNS, , SERTA\Groupe Appli DataWareHouse Indicateur BE CasEmploi">
+      <siteMapNode title="Anomalie SERTA - PNS"  roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur BE CorrespondanceSERTAPNS">
+        <siteMapNode url="~/View/BE/LinkSertaPns.aspx"  title="Formulaire correspondace Serta/PNS" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur BE CorrespondanceSERTAPNS"/>
       </siteMapNode>
-      <siteMapNode title="Utilisation composant"  description="Rapports sur l'utilisation d'un composant ou d'un vérin" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Commun">
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Commun/Cas_d_emploi_d_un_composant"  title="Cas d'emploi d'un composant" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Commun"/>
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Commun/Utilisation_Composant_par_Produit_Fini"  title="Utilisation d'un coposant par produit fini" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Commun"/>
+      <siteMapNode title="Utilisation composant"  description="Rapports sur l'utilisation d'un composant ou d'un vérin" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur BE CasEmploi">
+        <siteMapNode url="~/View/BE/CasEmploiParComposant.aspx"  title="Cas d'emploi d'un composant" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur BE CasEmploi"/>
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/BE/Utilisation_Composant_par_Produit_Fini"  title="Utilisation d'un composant par produit fini" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur BE CasEmploi"/>
       </siteMapNode>
     </siteMapNode>
-    <siteMapNode title="Achat"  description="Rapports Achat" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Achats">
-      <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Achats/Anomalie tarif fournisseur"  title="Anomalie des tarifs fournisseurs" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Achats"/>
+    <siteMapNode title="Achat"  description="Rapports Achat" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur Achat">
+      <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Achat/Anomalie tarif fournisseur"  title="Anomalie des tarifs fournisseurs" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Achats"/>
     </siteMapNode>
-    <siteMapNode title="Indicateur qualité clients"  description="Listes de rapport sur la qualité clients" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Qualité Clients">
-      <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Indicateurs qualite clients/Bilan indicateurs"  title="Bilans indicateurs" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Qualité Clients"/>
-      <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Indicateurs qualite clients/Correspondances clients"  title="Correspondances clients" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Qualité Clients"/>
-      <siteMapNode url="~/View/Shared/Download.aspx?nameFile=Données clients.xlsx"  title="Données clients" description="Fichier excel sur les données clients" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Qualité Clients"/>
+    <siteMapNode title="Indicateur qualité clients"  description="Listes de rapport sur la qualité clients" roles="SERTA\groupe Info, SERTA\Groupe Appli QualiteClient">
+      <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Indicateurs qualite clients/Bilan_indicateurs"  title="Bilans indicateurs" roles="SERTA\groupe Info, SERTA\Groupe Appli QualiteClient"/>
+      <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Indicateurs qualite clients/Correspondances_clients"  title="Correspondances clients" roles="SERTA\groupe Info, SERTA\Groupe Appli QualiteClient"/>
+      <siteMapNode url="~/View/Shared/Download.aspx?nameFile=Données clients.xlsx"  title="Données clients" description="Fichier excel sur les données clients" roles="SERTA\groupe Info, SERTA\Groupe Appli QualiteClient"/>
     </siteMapNode>
-    <siteMapNode title="Supervision"  description="Supervision machine atelier" roles="SERTA\groupe Info">
-      <siteMapNode title="Bras de vissage"  description="Bras de vissage" roles="SERTA\groupe Info">
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Supervision/Bras de vissage/Analyse temps" title="Analyse des temps" description="Rapport correspondance Baan et Sage." roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Supervision" />
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Supervision/Bras de vissage/Détail"  title="Détail" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Supervision"/>
-        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Supervision/Bras de vissage/Tableau de bord"  title="Tableau de bord" roles="SERTA\groupe Info, SERTA\Groupe Application Indicateurs Supervision"/>
+    <siteMapNode title="Supervision"  description="Supervision machine atelier" roles="SERTA\groupe Info, SERTA\Groupe Appli Supervision BrasVissage">
+      <siteMapNode title="Bras de vissage"  description="Bras de vissage" roles="SERTA\groupe Info, SERTA\Groupe Appli Supervision BrasVissage">
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Supervision/Bras de vissage/Analyse_temps" title="Analyse des temps" description="Rapport correspondance Baan et Sage." roles="SERTA\groupe Info, SERTA\Groupe Appli Supervision BrasVissage" />
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Supervision/Bras de vissage/Détail"  title="Détail" roles="SERTA\groupe Info, SERTA\Groupe Appli Supervision BrasVissage"/>
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Supervision/Bras de vissage/Tableau_de_bord"  title="Tableau de bord" roles="SERTA\groupe Info, SERTA\Groupe Appli Supervision BrasVissage"/>
       </siteMapNode>
     </siteMapNode>
-    <siteMapNode title="Migration Baan"  description="Migration de Baan" roles="SERTA\groupe Info, SERTA\Groupe IntraSERTA MigBaan Fournisseurs">
-      <siteMapNode title="Fournisseurs"  description="Aide Migration Baan sur les fournisseurs" roles="SERTA\groupe Info, SERTA\Groupe IntraSERTA MigBaan Fournisseurs">
-        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseursMatch.aspx" title="Rapport Correspondance fournisseurs Baan et Sage" description="Rapport correspondance Baan et Sage." roles="SERTA\groupe Info, SERTA\Groupe IntraSERTA MigBaan Fournisseurs" />
-        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseursPasDansBaan.aspx"  title="Liste Fournisseurs pas dans Baan" roles="SERTA\groupe Info, SERTA\Groupe IntraSERTA MigBaan Fournisseurs"/>
-        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseursPasDansSage.aspx"  title="Liste Fournisseurs pas dans Sage" roles="SERTA\groupe Info, SERTA\Groupe IntraSERTA MigBaan Fournisseurs"/>
-        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseursAjouterDansBaan.aspx"  title="Liste Fournisseurs à ajouter dans baan" roles="SERTA\groupe Info, SERTA\Groupe IntraSERTA MigBaan Fournisseurs"/>
-        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseurLastTransaction.aspx"  title="Date de dernière transaction d'un fournisseur" roles="SERTA\groupe Info, SERTA\Groupe IntraSERTA MigBaan Fournisseurs"/>
-        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseursPresentDansQuelleTable.aspx"  title="Liste de la présence d'un fournisseur dans baan" roles="SERTA\groupe Info, SERTA\Groupe IntraSERTA MigBaan Fournisseurs"/>
+    <siteMapNode title="Migration Baan"  description="Migration de Baan" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan">
+      <siteMapNode title="Fournisseurs"  description="Aide Migration Baan sur les fournisseurs" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan">
+        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseursMatch.aspx" title="Rapport Correspondance fournisseurs Baan et Sage" description="Rapport correspondance Baan et Sage." roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan" />
+        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseursPasDansBaan.aspx"  title="Liste Fournisseurs pas dans Baan" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan"/>
+        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseursPasDansSage.aspx"  title="Liste Fournisseurs pas dans Sage" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan"/>
+        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseursAjouterDansBaan.aspx"  title="Liste Fournisseurs à ajouter dans baan" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan"/>
+        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseurLastTransaction.aspx"  title="Date de dernière transaction d'un fournisseur" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan"/>
+        <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseursPresentDansQuelleTable.aspx"  title="Liste de la présence d'un fournisseur dans baan" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan"/>
       </siteMapNode>
-      <siteMapNode title="Clients"  description="Aide Migration Baan sur les clients" roles="SERTA\groupe Info, SERTA\Groupe IntraSERTA MigBaan Fournisseurs">
-        <siteMapNode url="~/View/MigBaan/Clients/MappageClientsBaanVP.aspx" title="Mappage Client Baan et vent Partner" description="Mappage Client Baan et vent Partner." roles="SERTA\groupe Info, SERTA\Groupe IntraSERTA MigBaan Fournisseurs" />
+      <siteMapNode title="Clients"  description="Aide Migration Baan sur les clients" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan">
+        <siteMapNode url="~/View/MigBaan/Clients/MappageClientsBaanVP.aspx" title="Mappage Client Baan et vent Partner" description="Mappage Client Baan et vent Partner." roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan" />
       </siteMapNode>
     </siteMapNode>
   </siteMapNode>

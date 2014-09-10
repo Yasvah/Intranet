@@ -13,6 +13,6 @@
     </p>
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
     <rsweb:ReportViewer ID="ReportViewerControl" runat="server" ProcessingMode="Remote" SizeToReportContent="true" AsyncRendering="true">
-        <ServerReport ReportPath="/Migration Baan/FournisseurPasDansSage" ReportServerUrl="http://W08R2-UPDATE/ReportServer" />
+        <ServerReport ReportPath="/Migration Baan/Fournisseur/FournisseurPasDansSage" ReportServerUrl="http://W08R2-EAGLE/ReportServer" />
     </rsweb:ReportViewer>
 </asp:Content>

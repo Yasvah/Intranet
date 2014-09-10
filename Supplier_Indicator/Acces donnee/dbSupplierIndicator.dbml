@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SUPPLIER_INDICATOR" Class="dbSupplierIndicatorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="ConnectionString" ConnectionString="Data Source=W08R2-UPDATE\RYBACK;Initial Catalog=SUPPLIER_INDICATOR;Integrated Security=True" Provider="System.Data.SqlClient" />
+  <Connection Mode="ConnectionString" ConnectionString="Data Source=W08R2-EAGLE;Initial Catalog=SUPPLIER_INDICATOR;Integrated Security=True" Provider="System.Data.SqlClient" />
   <Table Name="SERTA.T_SUP_ASSESSMENT_SUA" Member="SUP_ASSESSMENT_SERTA" AccessModifier="Internal">
     <Type Name="SUP_ASSESSMENT_SERTA" AccessModifier="Internal">
       <Column Name="SUA_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
