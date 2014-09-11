@@ -275,42 +275,6 @@ Partial Public Class SupplierAssessmentPNS
     Protected WithEvents LabelTotalQualite As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Contrôle LabelFirmOrderRequest.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelFirmOrderRequest As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Contrôle LabelFirmOrderValues.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelFirmOrderValues As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Contrôle LabelFirmOrderPoint.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelFirmOrderPoint As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Contrôle LabelFirmOrderCurrent.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelFirmOrderCurrent As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''Contrôle textboxLogisticRateValue.
     '''</summary>
     '''<remarks>
@@ -336,15 +300,6 @@ Partial Public Class SupplierAssessmentPNS
     '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
     '''</remarks>
     Protected WithEvents textboxLogisticRatePoint As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Contrôle LabelTargetRatePenality.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelTargetRatePenality As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Contrôle RangeValidator2.

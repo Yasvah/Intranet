@@ -172,30 +172,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr style="background-color: #f0f3f5;">
-                            <td rowspan="2">
-                                <span class="Label">Order horizon</span>
-                            </td>
-                            <td>Requested :
-                            </td>
-                            <td>
-                                <asp:Label ID="LabelFirmOrderRequest" runat="server" Text="N/A"></asp:Label>&nbsp;Week(s)
-                            </td>
-                            <td rowspan="2">
-                                <asp:Label ID="LabelFirmOrderValues" runat="server" Text="N/A"></asp:Label>
-                                &nbsp;Week(s)
-                            </td>
-                            <td rowspan="2">
-                                <asp:Label ID="LabelFirmOrderPoint" runat="server" Text="N/A"></asp:Label>&nbsp;%
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Current :    
-                            </td>
-                            <td>
-                                <asp:Label ID="LabelFirmOrderCurrent" runat="server" Text="N/A"></asp:Label>&nbsp;Week(s)
-                            </td>
-                        </tr>
                         <tr>
                             <td colspan="3">
                                 <span class="Label">Service rate : Objectif 95% on time</span>
@@ -208,11 +184,7 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="textboxLogisticRatePoint" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>/25
-                                <br />
-                                Penalty :&nbsp; 
-                            <asp:Label ID="LabelTargetRatePenality" runat="server" Text="N/A"></asp:Label>
-                                pts
-                                 <asp:RangeValidator CssClass="Validator" ID="RangeValidator2" ControlToValidate="textboxLogisticRateValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" Display="None" ErrorMessage="Please enter number between 0 and 100"></asp:RangeValidator>
+                                <asp:RangeValidator CssClass="Validator" ID="RangeValidator2" ControlToValidate="textboxLogisticRateValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" Display="None" ErrorMessage="Please enter number between 0 and 100"></asp:RangeValidator>
                                 <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" TargetControlID="RangeValidator2"></asp:ValidatorCalloutExtender>
                             </td>
                         </tr>
@@ -466,8 +438,7 @@
 
                 //Taux de service
                 $('#<%=textboxLogisticRateValue.ClientID%>').change(function () {
-                    $('#<%=textboxLogisticRatePoint.ClientID%>').val(tauxServiceAvecPenalite($('#<%=textboxLogisticRateValue.ClientID%>').val(), $('#<%=LabelFirmOrderPoint.ClientID%>').html()));
-                    $('#<%=LabelTargetRatePenality.ClientID%>').html(tauxServiceAvecPenalite($('#<%=textboxLogisticRateValue.ClientID%>').val(), $('#<%=LabelFirmOrderPoint.ClientID%>').html()) - tauxService($('#<%=textboxLogisticRateValue.ClientID%>').val()));
+                    $('#<%=textboxLogisticRatePoint.ClientID%>').val(tauxService($('#<%=textboxLogisticRateValue.ClientID%>').val()));
                     TotalLogistique();//recalcule le total
 
                 });
