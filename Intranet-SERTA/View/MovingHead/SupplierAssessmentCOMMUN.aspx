@@ -292,9 +292,7 @@
                         </td>
                         <td class="cellule">
                             <asp:TextBox ID="textboxLogisticRatePointPNS" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
-                            /25<br />
-                            Penalty : 
-                            <asp:Label ID="LabelTargetRatePenalityPNS" runat="server" Text="N/A"></asp:Label>pts
+                            /25
                         </td>
                         <td>
                             <asp:TextBox ID="textboxLogisticRateValueSERTA" runat="server" CausesValidation="True" CssClass="NumberBox" Enabled="False"></asp:TextBox>
@@ -303,9 +301,7 @@
                         </td>
                         <td>
                             <asp:TextBox ID="textboxLogisticRatePointSERTA" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
-                            /25<br />
-                            Penalty : 
-                            <asp:Label ID="LabelTargetRatePenalitySERTA" runat="server" Text="N/A"></asp:Label>pts
+                            /25
                         </td>
                     </tr>
                     <tr>

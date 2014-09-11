@@ -158,7 +158,6 @@ Public Class SupplierAssessmentCOMMUN
                 LabelLogisticRatePNS.Text = FormatPercent(assessmentAfficher.PrecalculedValue.DELAYS_UP_TO_DAYS_RATE, 0)
             End If
 
-            LabelTargetRatePenalityPNS.Text = assessmentAfficher.PenaltyPoint
 
             ChartHorizonOrderPNS.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("< 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_GREATER_THAN_12))
             ChartHorizonOrderPNS.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("11 - 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_11_TO_12))
@@ -228,7 +227,6 @@ Public Class SupplierAssessmentCOMMUN
             Else
                 LabelLogisticRateSERTA.Text = FormatPercent(assessmentAfficher.PrecalculedValue.DELAYS_UP_TO_DAYS_RATE, 0)
             End If
-            LabelTargetRatePenalitySERTA.Text = assessmentAfficher.PenaltyPoint
 
             ChartHorizonOrderSERTA.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("< 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_GREATER_THAN_12))
             ChartHorizonOrderSERTA.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("11 - 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_11_TO_12))

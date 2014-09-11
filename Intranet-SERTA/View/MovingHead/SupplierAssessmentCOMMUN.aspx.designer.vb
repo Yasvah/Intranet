@@ -563,15 +563,6 @@ Partial Public Class SupplierAssessmentCOMMUN
     Protected WithEvents textboxLogisticRatePointPNS As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Contrôle LabelTargetRatePenalityPNS.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelTargetRatePenalityPNS As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''Contrôle textboxLogisticRateValueSERTA.
     '''</summary>
     '''<remarks>
@@ -597,15 +588,6 @@ Partial Public Class SupplierAssessmentCOMMUN
     '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
     '''</remarks>
     Protected WithEvents textboxLogisticRatePointSERTA As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Contrôle LabelTargetRatePenalitySERTA.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelTargetRatePenalitySERTA As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Contrôle textboxFlexibilityPoint.
