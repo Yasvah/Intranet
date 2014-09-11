@@ -77,18 +77,4 @@
             return 0
         }
     };
-    //Calcule le taux de service avec les pénalité
-    tauxServiceAvecPenalite = function (targetRatePoint, firmOrderPoint) {
-        var temp
-        temp = parseInt((targetRatePoint * 5 * (1 + (firmOrderPoint / 100))) / 9 - (250 / 9));
-        if (temp > 25) {
-            temp = 25;
-        }
-        if (temp < 0) {
-            return 0;
-        }
-        else {
-            return parseInt(temp);
-        }
-    };
 })(jQuery)
