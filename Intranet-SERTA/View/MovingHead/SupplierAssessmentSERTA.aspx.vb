@@ -79,6 +79,10 @@ Public Class SupplierAssessmentSERTA
                 LabelLogisticRate.Text = FormatPercent(assessmentAfficher.PrecalculedValue.DELAYS_UP_TO_DAYS_RATE, 0)
             End If
 
+            LabelFirmOrderRequest.Text = assessmentAfficher.PrecalculedValue.FIRM_ORDER_REQUEST
+            LabelFirmOrderCurrent.Text = assessmentAfficher.PrecalculedValue.FIRM_ORDER_CURRENT
+            LabelFirmOrderValues.Text = assessmentAfficher.PrecalculedValue.FirmOrderValues
+            LabelFirmOrderPoint.Text = assessmentAfficher.PrecalculedValue.FirmOrderPoint
 
             ChartHorizonOrder.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("< 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_GREATER_THAN_12))
             ChartHorizonOrder.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("11 - 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_11_TO_12))

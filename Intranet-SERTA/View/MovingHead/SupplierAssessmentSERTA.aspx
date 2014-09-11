@@ -183,6 +183,29 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr style="background-color: #f0f3f5;">
+                        <td rowspan="2">
+                            <span class="Label">Ordre de vente</span>
+                        </td>
+                        <td>Requested :</td>
+                        <td>
+                            <asp:Label ID="LabelFirmOrderRequest" runat="server" Text="N/A"></asp:Label>
+                            Week(s)</td>
+                        <td rowspan="2">
+                            <asp:Label ID="LabelFirmOrderValues" runat="server" Text="N/A"></asp:Label>
+                            &nbsp;weeks</td>
+                        <td rowspan="2">
+                            <asp:Label ID="LabelFirmOrderPoint" runat="server" Text="N/A"></asp:Label>
+                            %</td>
+                    </tr>
+                    <tr>
+                        <td>Current :</td>
+                        <td>
+                            <asp:Label ID="LabelFirmOrderCurrent" runat="server" Text="N/A"></asp:Label>
+                            Week(s)
+
+                        </td>
+                    </tr>
                     <tr>
                         <td colspan="3">
                             <span class="Label">Taux de service : Objectif 95%</span>
@@ -454,7 +477,8 @@
 
             //Taux de service
             $('#<%=textboxLogisticRateValue.ClientID%>').change(function () {
-                $('#<%=textboxLogisticRatePoint.ClientID%>').val(tauxService($('#<%=textboxLogisticRateValue.ClientID%>').val()));
+                $('#<%=textboxLogisticRatePoint.ClientID%>').val(tauxServiceAvecPenalite($('#<%=textboxLogisticRateValue.ClientID%>').val(), $('#<%=LabelFirmOrderPoint.ClientID%>').html()));
+                $('#<%=LabelTargetRatePenality.ClientID%>').html(tauxServiceAvecPenalite($('#<%=textboxLogisticRateValue.ClientID%>').val(), $('#<%=LabelFirmOrderPoint.ClientID%>').html()) - tauxService($('#<%=textboxLogisticRateValue.ClientID%>').val()));
                 TotalLogistique();//recalcule le total
             });
 

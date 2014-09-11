@@ -83,8 +83,7 @@
                             <td colspan="2" class="cellule"">
                                 PNS
                             </td>
-                        <td colspan="2">
-                            SERTA
+                        <td colspan="2">SERTA
 
                         </td>
                     </tr>
@@ -272,6 +271,25 @@
                     </thead>
                     <tr>
                         <td>
+                            <span class="Label">Firm Order</span><br />
+                            Requested : &nbsp;
+                            <asp:Label ID="LabelFirmOrderRequest" runat="server" Text="N/A"></asp:Label>&nbsp;Week(s)<br />
+                            Current : &nbsp; <asp:Label ID="LabelFirmOrderCurrent" runat="server" Text="N/A"></asp:Label>
+                            &nbsp;Week(s)
+                        </td>
+                        <td>
+                            <asp:Label ID="LabelFirmOrderValues" runat="server" Text="N/A"></asp:Label>&nbsp;weeks    
+                        </td>
+                        <td class="cellule">
+                            <asp:Label ID="LabelFirmOrderPoint" runat="server" Text="N/A"></asp:Label>&nbsp;%
+                        </td>
+                        <td>&nbsp;</td>
+                        <td class="cellule">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
                             <span class="Label">Service rate : Objectif 95% on time</span>
                             <span class="labelInfo">50% = 0 point</span>
                         </td>
@@ -282,6 +300,8 @@
                         </td>
                         <td class="cellule">
                             <asp:TextBox ID="textboxLogisticRatePoint" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>/25<br />
+                            Penalty : 
+                            <asp:Label ID="LabelTargetRatePenality" runat="server" Text="N/A"></asp:Label>&nbsp;pts
                                 <asp:RangeValidator CssClass="Validator" ID="RangeValidator13" ControlToValidate="textboxLogisticRateValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" Display="None" ErrorMessage="Please enter number between 0 and 100"></asp:RangeValidator>
                             <asp:ValidatorCalloutExtender ID="RangeValidator13_ValidatorCalloutExtender" runat="server" TargetControlID="RangeValidator13"></asp:ValidatorCalloutExtender>
                         </td>
@@ -769,7 +789,8 @@
 
             //Taux de service
             $('#<%=textboxLogisticRateValue.ClientID%>').change(function () {
-                $('#<%=textboxLogisticRatePoint.ClientID%>').val(tauxService($('#<%=textboxLogisticRateValue.ClientID%>').val()));
+                $('#<%=textboxLogisticRatePoint.ClientID%>').val(tauxServiceAvecPenalite($('#<%=textboxLogisticRateValue.ClientID%>').val(), $('#<%=LabelFirmOrderPoint.ClientID%>').html()));
+                $('#<%=LabelTargetRatePenality.ClientID%>').html(tauxServiceAvecPenalite($('#<%=textboxLogisticRateValue.ClientID%>').val(), $('#<%=LabelFirmOrderPoint.ClientID%>').html()) - tauxService($('#<%=textboxLogisticRateValue.ClientID%>').val()));
                 TotalLogistique();//recalcule le total 
             });
 
@@ -853,16 +874,16 @@
             }
             else if (TmpTotalLogistique > 35) {
                 $('#<%=labelTotalLogistique.ClientID%>').html(35)
-            }
-            else {
-                $('#<%=labelTotalLogistique.ClientID%>').html(TmpTotalLogistique)
-            }
+        }
+        else {
+            $('#<%=labelTotalLogistique.ClientID%>').html(TmpTotalLogistique)
+        }
 
             TotalScore();//Appel le calcule du score total
         };
-    //Calcule le total du score competitivité
-    Totalcompetitiveness = function () {
-        var Improvementplan = parseInt(($('#<%=TextBoxImprovmentPlan.ClientID%>').val()));
+//Calcule le total du score competitivité
+Totalcompetitiveness = function () {
+    var Improvementplan = parseInt(($('#<%=TextBoxImprovmentPlan.ClientID%>').val()));
     var BusinessRelationship = parseInt(($('#<%=TextBoxBusinessRelationship.ClientID%>').val()));
     var ReactivityOnCommercial = parseInt(($('#<%=TextBoxOffersReactivity.ClientID%>').val()));
     var QualityOfTechnical = parseInt(($('#<%=TextBoxTechnicalAnswerQuality.ClientID%>').val()));
