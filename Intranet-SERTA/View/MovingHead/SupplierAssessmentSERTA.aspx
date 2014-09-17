@@ -203,6 +203,24 @@
                             pts
                         </td>
                     </tr>
+                     <tr>
+                        <td colspan="3">
+                            <span class="Label">Niveau des retards de livrraison</span>
+                            <span class="labelInfo">2pts par % retard au dela de 5 jours</span>
+
+                        </td>
+                        <td class="auto-style1">
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelValue" CausesValidation="True" runat="server" CssClass="NumberBox" AutoPostBack="false"></asp:TextBox>
+                            %
+                                <br />
+                            <asp:Label ID="LabelLogisticRate" runat="server" Text="" CssClass="precalcul"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelPoint" runat="server" CssClass="NumberBox" ></asp:TextBox>
+                            <asp:RangeValidator CssClass="Validator" ID="RangeValidator4" ControlToValidate="textboxDeliveryDelaysLevelValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" ErrorMessage="Please enter number between 0 and 100" Display="None"></asp:RangeValidator>
+                            <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender7" runat="server" TargetControlID="RangeValidator4"></asp:ValidatorCalloutExtender>
+                        </td>
+                    </tr>
                     <tr>
                         <td colspan="3">
                             <span class="Label">Flexibilité</span>
@@ -237,24 +255,6 @@
                                     </asp:ChartArea>
                                 </ChartAreas>
                             </asp:Chart>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">
-                            <span class="Label">Niveau des retards de livrraison</span>
-                            <span class="labelInfo">2pts par % retard au dela de 5 jours</span>
-
-                        </td>
-                        <td class="auto-style1">
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelValue" CausesValidation="True" runat="server" CssClass="NumberBox" AutoPostBack="false"></asp:TextBox>
-                            %
-                                <br />
-                            <asp:Label ID="LabelLogisticRate" runat="server" Text="" CssClass="precalcul"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelPoint" runat="server" CssClass="NumberBox" ></asp:TextBox>
-                            <asp:RangeValidator CssClass="Validator" ID="RangeValidator4" ControlToValidate="textboxDeliveryDelaysLevelValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" ErrorMessage="Please enter number between 0 and 100" Display="None"></asp:RangeValidator>
-                            <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender7" runat="server" TargetControlID="RangeValidator4"></asp:ValidatorCalloutExtender>
                         </td>
                     </tr>
                     <tr>

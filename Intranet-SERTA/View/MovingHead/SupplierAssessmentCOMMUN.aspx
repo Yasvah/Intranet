@@ -306,6 +306,40 @@
                     </tr>
                     <tr>
                         <td>
+                            <span class="Label">Delays penalty</span>
+                            <span class="labelInfo">2pts per day % of rate lines beyond 5 days</span>
+
+                        </td>
+                        <td>
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelValue" CausesValidation="True" runat="server" CssClass="NumberBox"></asp:TextBox>
+                            %
+                                <br />
+                            <asp:Label ID="LabelLogisticRate" runat="server" Text="N/A" CssClass="precalcul"></asp:Label>
+                        </td>
+                        <td class="cellule">
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelPoint" runat="server" CssClass="NumberBox"></asp:TextBox>
+                            <asp:RangeValidator CssClass="Validator" ID="RangeValidator14" ControlToValidate="textboxDeliveryDelaysLevelValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" ErrorMessage="Please enter number between 0 and 100" Display="None"></asp:RangeValidator>
+                            <asp:ValidatorCalloutExtender ID="RangeValidator14_ValidatorCalloutExtender" runat="server" TargetControlID="RangeValidator14"></asp:ValidatorCalloutExtender>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelValuePNS" runat="server" CausesValidation="True" CssClass="NumberBox" Enabled="False"></asp:TextBox>
+                            %&nbsp;<br />
+                            <asp:Label ID="LabelLogisticRatePNS" runat="server" CssClass="precalcul" Text="N/A"></asp:Label>
+                        </td>
+                        <td class="cellule">
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelPointPNS" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelValueSERTA" runat="server" CausesValidation="True" CssClass="NumberBox" Enabled="False"></asp:TextBox>
+                            %&nbsp;<br />
+                            <asp:Label ID="LabelLogisticRateSERTA" runat="server" CssClass="precalcul" Text="N/A"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelPointSERTA" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             <span class="Label">Flexibility</span>
                             <span class="labelInfo">-On firm orders<br />
                                 -On forecasts<br />
@@ -386,40 +420,6 @@
                                     </asp:ChartArea>
                                 </ChartAreas>
                             </asp:Chart>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="Label">Delays penalty</span>
-                            <span class="labelInfo">2pts per day % of rate lines beyond 5 days</span>
-
-                        </td>
-                        <td>
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelValue" CausesValidation="True" runat="server" CssClass="NumberBox"></asp:TextBox>
-                            %
-                                <br />
-                            <asp:Label ID="LabelLogisticRate" runat="server" Text="N/A" CssClass="precalcul"></asp:Label>
-                        </td>
-                        <td class="cellule">
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelPoint" runat="server" CssClass="NumberBox"></asp:TextBox>
-                            <asp:RangeValidator CssClass="Validator" ID="RangeValidator14" ControlToValidate="textboxDeliveryDelaysLevelValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" ErrorMessage="Please enter number between 0 and 100" Display="None"></asp:RangeValidator>
-                            <asp:ValidatorCalloutExtender ID="RangeValidator14_ValidatorCalloutExtender" runat="server" TargetControlID="RangeValidator14"></asp:ValidatorCalloutExtender>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelValuePNS" runat="server" CausesValidation="True" CssClass="NumberBox" Enabled="False"></asp:TextBox>
-                            %&nbsp;<br />
-                            <asp:Label ID="LabelLogisticRatePNS" runat="server" CssClass="precalcul" Text="N/A"></asp:Label>
-                        </td>
-                        <td class="cellule">
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelPointPNS" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelValueSERTA" runat="server" CausesValidation="True" CssClass="NumberBox" Enabled="False"></asp:TextBox>
-                            %&nbsp;<br />
-                            <asp:Label ID="LabelLogisticRateSERTA" runat="server" CssClass="precalcul" Text="N/A"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelPointSERTA" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
