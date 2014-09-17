@@ -635,13 +635,13 @@ Partial Public Class SupplierAssessmentCOMMUN
     Protected WithEvents textboxFlexibilityPointSERTA As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Contrôle ChartHorizonOrder.
+    '''Contrôle ChartHorizonOrderCommun.
     '''</summary>
     '''<remarks>
     '''Champ généré automatiquement.
     '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
     '''</remarks>
-    Protected WithEvents ChartHorizonOrder As Global.System.Web.UI.DataVisualization.Charting.Chart
+    Protected WithEvents ChartHorizonOrderCommun As Global.System.Web.UI.DataVisualization.Charting.Chart
 
     '''<summary>
     '''Contrôle ChartHorizonOrderPNS.

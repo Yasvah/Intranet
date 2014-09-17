@@ -109,7 +109,7 @@
                         <asp:Label ID="LabelPPM" runat="server" CssClass="precalcul">N/A</asp:Label>
                     </td>
                     <td class="cellule">
-                        <asp:TextBox runat="server" ID="textBoxIndicePPMNote" Enabled="false" CssClass="NumberBox"></asp:TextBox>/20<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="textBoxIndicePPMvalue" CssClass="Validator" Display="None" ErrorMessage="Champ incorrect :<br /> La valeur doit être un nombre positif." ValidationExpression="^(?=.*[0-9].*$)\d*$"></asp:RegularExpressionValidator>
+                        <asp:TextBox runat="server" ID="textBoxIndicePPMNote" CssClass="NumberBox"></asp:TextBox>/20<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="textBoxIndicePPMvalue" CssClass="Validator" Display="None" ErrorMessage="Champ incorrect :<br /> La valeur doit être un nombre positif." ValidationExpression="^(?=.*[0-9].*$)\d*$"></asp:RegularExpressionValidator>
                         <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="RegularExpressionValidator1"></asp:ValidatorCalloutExtender>
                     </td>
                     <td>
@@ -127,7 +127,7 @@
                         <asp:Label ID="LabelPPMSERTA" runat="server" CssClass="precalcul">N/A</asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="textBoxIndicePPMNoteSERTA" runat="server" Enabled="false" CausesValidation="True" CssClass="NumberBox"></asp:TextBox>
+                        <asp:TextBox ID="textBoxIndicePPMNoteSERTA" runat="server"  CausesValidation="True" CssClass="NumberBox"></asp:TextBox>
                         /20</td>
                 </tr>
                 <tr>
@@ -141,7 +141,7 @@
                         <asp:Label ID="LabelQncCount" runat="server" Text="N/A" CssClass="precalcul"></asp:Label>
                     </td>
                     <td class="cellule">
-                        <asp:TextBox ID="textBoxSinNBPoint" runat="server" Enabled="false" CssClass="NumberBox"></asp:TextBox>/20
+                        <asp:TextBox ID="textBoxSinNBPoint" runat="server" CssClass="NumberBox"></asp:TextBox>/20
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="textBoxSinNBValue" CssClass="Validator" Display="None" ErrorMessage="Champ incorrect :<br /> La valeur doit être un nombre positif." ValidationExpression="^(?=.*[0-9].*$)\d*$"></asp:RegularExpressionValidator>
                         <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="RegularExpressionValidator4"></asp:ValidatorCalloutExtender>
                     </td>
@@ -173,7 +173,7 @@
                         <asp:Label ID="LabelCustomerClaimCount" runat="server" Text="N/A" CssClass="precalcul"></asp:Label>
                     </td>
                     <td class="cellule">
-                        <asp:TextBox ID="textBoxCustomerClaimNBPoint" runat="server" Enabled="false" CssClass="NumberBox"></asp:TextBox>
+                        <asp:TextBox ID="textBoxCustomerClaimNBPoint" runat="server" CssClass="NumberBox"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" Display="None" ControlToValidate="textBoxCustomerClaimNBValue" CssClass="Validator" ErrorMessage="Champ incorrect :<br /> La valeur doit être un nombre positif." ValidationExpression="^(?=.*[0-9].*$)\d*$"></asp:RegularExpressionValidator>
                         <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="RegularExpressionValidator5"></asp:ValidatorCalloutExtender>
                     </td>
@@ -220,7 +220,7 @@
                     </td>
                     <td></td>
                     <td class="cellule">
-                        <asp:TextBox ID="textBoxBonusPPM" Enabled="false" runat="server" CssClass="NumberBox"></asp:TextBox>
+                        <asp:TextBox ID="textBoxBonusPPM"  runat="server" CssClass="NumberBox"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="cellule">
@@ -281,7 +281,7 @@
                             <asp:Label ID="LabelDelaysUpTo10DaysRate" runat="server" CssClass="precalcul">N/A</asp:Label>
                         </td>
                         <td class="cellule">
-                            <asp:TextBox ID="textboxLogisticRatePoint" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>/25<br />
+                            <asp:TextBox ID="textboxLogisticRatePoint" runat="server" CssClass="NumberBox"></asp:TextBox>/25<br />
                                 <asp:RangeValidator CssClass="Validator" ID="RangeValidator13" ControlToValidate="textboxLogisticRateValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" Display="None" ErrorMessage="Please enter number between 0 and 100"></asp:RangeValidator>
                             <asp:ValidatorCalloutExtender ID="RangeValidator13_ValidatorCalloutExtender" runat="server" TargetControlID="RangeValidator13"></asp:ValidatorCalloutExtender>
                         </td>
@@ -329,15 +329,17 @@
                             /8&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td colspan="2">
-                            <asp:Chart ID="ChartHorizonOrder" runat="server" CssClass="graphique">
+                        <td colspan="3">
+                            <asp:Chart ID="ChartHorizonOrderCommun" runat="server" CssClass="graphique" Width="477px">
+                                <Legends>
+                                    <asp:Legend Name="legend"></asp:Legend>
+                                </Legends>
                                 <Titles>
                                     <asp:Title Name="Titre" Text="Horizon Order"></asp:Title>
                                 </Titles>
                                 <Series>
-                                    <asp:Series ChartType="Bar" Name="SeriesHorizonOrder" IsValueShownAsLabel="true">
-                                    </asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderOnTime" IsValueShownAsLabel="true" LegendText="On time"></asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderNotOnTime" IsValueShownAsLabel="true" LegendText ="Not on time"></asp:Series>
                                 </Series>
                                 <ChartAreas>
                                     <asp:ChartArea Name="ChartArea1" BorderWidth="10">
@@ -355,8 +357,8 @@
                                     <asp:Title Name="Titre" Text="Horizon Order"></asp:Title>
                                 </Titles>
                                 <Series>
-                                    <asp:Series ChartType="Bar" Name="SeriesHorizonOrder" IsValueShownAsLabel="true" Color="OliveDrab">
-                                    </asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderOnTime" IsValueShownAsLabel="true" LegendText="On time"></asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderNotOnTime" IsValueShownAsLabel="true" LegendText="Not on time"></asp:Series>
                                 </Series>
                                 <ChartAreas>
                                     <asp:ChartArea Name="ChartArea1" BorderWidth="10">
@@ -373,8 +375,8 @@
                                     <asp:Title Name="Titre" Text="Horizon Order"></asp:Title>
                                 </Titles>
                                 <Series>
-                                    <asp:Series ChartType="Bar" Name="SeriesHorizonOrder" IsValueShownAsLabel="true" Color="OrangeRed">
-                                    </asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderOnTime" IsValueShownAsLabel="true" LegendText="On time"></asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderNotOnTime" IsValueShownAsLabel="true" LegendText="Not on time"></asp:Series>
                                 </Series>
                                 <ChartAreas>
                                     <asp:ChartArea Name="ChartArea1" BorderWidth="10">
@@ -399,7 +401,7 @@
                             <asp:Label ID="LabelLogisticRate" runat="server" Text="N/A" CssClass="precalcul"></asp:Label>
                         </td>
                         <td class="cellule">
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelPoint" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelPoint" runat="server" CssClass="NumberBox"></asp:TextBox>
                             <asp:RangeValidator CssClass="Validator" ID="RangeValidator14" ControlToValidate="textboxDeliveryDelaysLevelValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" ErrorMessage="Please enter number between 0 and 100" Display="None"></asp:RangeValidator>
                             <asp:ValidatorCalloutExtender ID="RangeValidator14_ValidatorCalloutExtender" runat="server" TargetControlID="RangeValidator14"></asp:ValidatorCalloutExtender>
                         </td>
@@ -431,7 +433,7 @@
                             <asp:Label ID="LabelLNCCount" runat="server" CssClass="precalcul">N/A</asp:Label>
                         </td>
                         <td class="cellule">
-                            <asp:TextBox ID="textboxDeliveryQualityPoint" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>/2
+                            <asp:TextBox ID="textboxDeliveryQualityPoint" runat="server" CssClass="NumberBox"></asp:TextBox>/2
                                 <asp:RangeValidator CssClass="Validator" ID="RangeValidator15" ControlToValidate="textboxDeliveryQualityValue" MinimumValue="0" MaximumValue="1000" Type="Integer" runat="server" ErrorMessage="Please enter a number" Display="None"></asp:RangeValidator>
                             <asp:ValidatorCalloutExtender ID="RangeValidator15_ValidatorCalloutExtender" runat="server" TargetControlID="RangeValidator15"></asp:ValidatorCalloutExtender>
                         </td>
@@ -736,6 +738,12 @@
         <script type="text/javascript" src="../../Script/jquery-2.0.3.js"></script>
         <script type="text/javascript" src="SupplierAssessment.js"></script>
         <script type="text/javascript">
+            //Evenement au moment de la fin du chargement
+            $(window).bind("load", function () {
+                TotalQuality();
+                TotalLogistique();
+                Totalcompetitiveness();
+            });
 
             //Gestion des evenements sur chaque champs modifié//
             //Changement Indice PPM
@@ -897,7 +905,7 @@ TotalScore = function () {
         $('#<%=LabelTotal.ClientID%>').html(TmpTotalscore)
     }
 };
-$(document).ready(TotalLogistique)
+            $(document).ready(TotalLogistique)
         </script>
     </div>
     <%----------- END JAVASCRIPT ----------%>
