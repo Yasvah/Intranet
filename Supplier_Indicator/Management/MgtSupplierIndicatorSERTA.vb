@@ -91,7 +91,7 @@ Public Class MgtSupplierIndicatorSERTA
     Public Sub Update(Assessment As T_SUP_ASSESSMENT_SUA_SERTA)
         Try
             Dim modificationAssessment As T_SUP_ASSESSMENT_SUA_SERTA = (From unAssessment In BaseSupplierAssessment.T_SUP_ASSESSMENT_SUA_SERTA
-                                                                 Where unAssessment.SUA_ID = Assessment.SUP_ID
+                                                                 Where unAssessment.SUA_ID = Assessment.SUA_ID
                                                                  Select unAssessment).First
 
             With modificationAssessment
@@ -125,6 +125,8 @@ Public Class MgtSupplierIndicatorSERTA
                 .SUA_COMMENT_GLOBAL = Assessment.SUA_COMMENT_GLOBAL
                 .SUA_TOTAL_POINT = Assessment.SUA_TOTAL_POINT
                 .SUA_TREND = Assessment.SUA_TREND
+                .SUA_QUALITY_IMPROVEMENT_PLAN = Assessment.SUA_QUALITY_IMPROVEMENT_PLAN
+                .SUA_LOGISTIC_IMPROVEMENT_PLAN = Assessment.SUA_LOGISTIC_IMPROVEMENT_PLAN
             End With
 
             BaseSupplierAssessment.SubmitChanges()

@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.25" name="dbSupplier_Indicator">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.625" name="dbSupplier_Indicator">
   <DataContextMoniker Name="/dbSupplier_IndicatorDataContext" />
   <nestedChildShapes>
-    <classShape Id="8e23acea-c8fb-4e87-9b80-900adad33719" absoluteBounds="5.5, 2.875, 2, 7.1553369140625">
+    <classShape Id="8e23acea-c8fb-4e87-9b80-900adad33719" absoluteBounds="5.5, 2.875, 2, 7.5399397786458326">
       <DataClassMoniker Name="/dbSupplier_IndicatorDataContext/T_SUP_ASSESSMENT_SUA_COMMON" />
       <nestedChildShapes>
-        <elementListCompartment Id="5cf7d3e4-51a8-4876-bf92-879330c4c442" absoluteBounds="5.515, 3.335, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5cf7d3e4-51a8-4876-bf92-879330c4c442" absoluteBounds="5.515, 3.335, 1.9700000000000002, 6.979939778645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0973581c-9abb-4fb4-a53a-c3ef65057873" absoluteBounds="3.125, 2.875, 2, 6.9630354817708326">
+    <classShape Id="0973581c-9abb-4fb4-a53a-c3ef65057873" absoluteBounds="3.125, 2.875, 2, 7.3476383463541648">
       <DataClassMoniker Name="/dbSupplier_IndicatorDataContext/T_SUP_ASSESSMENT_SUA_PNS" />
       <nestedChildShapes>
-        <elementListCompartment Id="d32af4e1-6574-4f9e-a6e5-c59c222e5b6b" absoluteBounds="3.14, 3.335, 1.9700000000000002, 6.403035481770833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d32af4e1-6574-4f9e-a6e5-c59c222e5b6b" absoluteBounds="3.14, 3.335, 1.9700000000000002, 6.7876383463541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="0dc2080e-7a5c-4bc6-b028-8a27e76f23f7" absoluteBounds="0.75, 2.875, 2, 7.1553369140625">
+    <classShape Id="0dc2080e-7a5c-4bc6-b028-8a27e76f23f7" absoluteBounds="0.75, 2.875, 2, 7.5399397786458326">
       <DataClassMoniker Name="/dbSupplier_IndicatorDataContext/T_SUP_ASSESSMENT_SUA_SERTA" />
       <nestedChildShapes>
-        <elementListCompartment Id="5128def7-7fce-4ac5-9b46-62836bd54c0d" absoluteBounds="0.76500000000000012, 3.335, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5128def7-7fce-4ac5-9b46-62836bd54c0d" absoluteBounds="0.76500000000000012, 3.335, 1.9700000000000002, 6.979939778645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

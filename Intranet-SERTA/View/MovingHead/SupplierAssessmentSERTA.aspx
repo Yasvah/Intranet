@@ -157,6 +157,15 @@
                                 <asp:TextBox ID="textBoxBonusPPM" runat="server" CssClass="NumberBox"  AutoPostBack="false"></asp:TextBox>
                             </td>
                         </tr>
+                        <tr>
+                            <td><span class="Label">Plan de progrès</span></td>
+                            <td></td>
+                            <td>
+                                <asp:TextBox ID="textBoxQualityImprovementPlan" runat="server" CssClass="NumberBox"  AutoPostBack="false"></asp:TextBox>/10
+                                <asp:RangeValidator CssClass="Validator" ID="RangeValidator13" ControlToValidate="textBoxQualityImprovementPlan" MinimumValue="0" MaximumValue="10" Type="Integer" runat="server" ErrorMessage="Please enter a number" Display="None"></asp:RangeValidator>
+                            <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender16" runat="server" TargetControlID="RangeValidator13"></asp:ValidatorCalloutExtender>
+                            </td>
+                        </tr>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -197,9 +206,6 @@
                             <asp:TextBox ID="textboxLogisticRatePoint" runat="server" CssClass="NumberBox" ></asp:TextBox>/25
                                 <asp:RangeValidator CssClass="Validator" ID="RangeValidator2" ControlToValidate="textboxLogisticRateValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" Display="None" ErrorMessage="Please enter number between 0 and 100"></asp:RangeValidator>
                             <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender5" runat="server" TargetControlID="RangeValidator2"></asp:ValidatorCalloutExtender>
-                            <br />
-                            Pénalité : 
-                            <asp:Label ID="LabelTargetRatePenality" runat="server" Text="N/A"></asp:Label>
                             pts
                         </td>
                     </tr>
@@ -209,7 +215,7 @@
                             <span class="labelInfo">2pts par % retard au dela de 5 jours</span>
 
                         </td>
-                        <td class="auto-style1">
+                        <td>
                             <asp:TextBox ID="textboxDeliveryDelaysLevelValue" CausesValidation="True" runat="server" CssClass="NumberBox" AutoPostBack="false"></asp:TextBox>
                             %
                                 <br />
@@ -240,12 +246,15 @@
                     <tr>
                         <td colspan="5" style="text-align:center;">
                             <asp:Chart ID="ChartHorizonOrder" runat="server" CssClass="graphique" Width="1100px">
+                                <Legends>
+                                    <asp:Legend Name="legend"></asp:Legend>
+                                </Legends>
                                 <Titles>
                                     <asp:Title Name="Titre" Text="Horizon de Commande"></asp:Title>
                                 </Titles>
                                 <Series>
-                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderOnTime" IsValueShownAsLabel="true" LegendText="On time"></asp:Series>
-                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderNotOnTime" IsValueShownAsLabel="true" LegendText="Not on time"></asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderOnTime" IsValueShownAsLabel="true" LegendText="On time" Color="LimeGreen"></asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderNotOnTime" IsValueShownAsLabel="true" LegendText="Not on time" Color="Orange"></asp:Series>
                                 </Series>
                                 <ChartAreas>
                                     <asp:ChartArea Name="ChartArea1" BorderWidth="10">
@@ -271,6 +280,18 @@
                             <asp:TextBox ID="textboxDeliveryQualityPoint" runat="server" CssClass="NumberBox" ></asp:TextBox>/2
                                 <asp:RangeValidator CssClass="Validator" ID="RangeValidator5" ControlToValidate="textboxDeliveryQualityValue" MinimumValue="0" MaximumValue="1000" Type="Integer" runat="server" ErrorMessage="Please enter a number" Display="None"></asp:RangeValidator>
                             <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender8" runat="server" TargetControlID="RangeValidator5"></asp:ValidatorCalloutExtender>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <span class="Label">Plan de progrès</span>
+                        </td>
+                        <td></td>
+                        <td>
+                            <asp:TextBox ID="textBoxLogisticImprovementPlan" runat="server" CssClass="NumberBox"  AutoPostBack="false"></asp:TextBox>/10
+                            <asp:RangeValidator CssClass="Validator" ID="RangeValidator1" ControlToValidate="textBoxLogisticImprovementPlan" MinimumValue="0" MaximumValue="10" Type="Integer" runat="server" ErrorMessage="Please enter a number" Display="None"></asp:RangeValidator>
+                            <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender15" runat="server" TargetControlID="RangeValidator1"></asp:ValidatorCalloutExtender>
+
                         </td>
                     </tr>
                 </tbody>
@@ -451,12 +472,17 @@
             $('#<%=textBoxCustomerClaimNBValue.ClientID%>').change(function () {
                 $('#<%=textBoxCustomerClaimNBPoint.ClientID%>').val(retourClient($('#<%=textBoxCustomerClaimNBValue.ClientID%>').val()));
             $('#<%=textBoxBonusPPM.ClientID%>').val(BonusPPM($('#<%=textBoxIndicePPMvalue.ClientID%>').val(), $('#<%=textBoxCustomerClaimNBValue.ClientID%>').val()));//calcule Bonus
-            TotalQuality();//recalcule le total
-        });
+                TotalQuality();//recalcule le total
+            });
+
+            //Changement Nombre de probleme qualité
+            $('#<%=textBoxQualityImprovementPlan.ClientID%>').change(function () {
+                TotalQuality();//recalcule le total
+            });
 
         //Réactivité 
         $('#<%=textBoxActionPlanReactivity.ClientID%>').change(function () {
-                TotalQuality();//recalcule le total
+            TotalQuality();//recalcule le total
             });
 
             //Taux de service
@@ -479,6 +505,11 @@
             //Qualité de livraison
             $('#<%=textboxDeliveryQualityValue.ClientID%>').change(function () {
                 $('#<%=textboxDeliveryQualityPoint.ClientID%>').val(deliveryQuality($('#<%=textboxDeliveryQualityValue.ClientID%>').val()));
+                TotalLogistique();//recalcule le total
+            });
+
+            //Plan de progres logistique
+            $('#<%=textBoxLogisticImprovementPlan.ClientID%>').change(function () {
                 TotalLogistique();//recalcule le total
             });
 
@@ -512,7 +543,7 @@
                 Totalcompetitiveness();//recalcule le total
             });
 
-            //Calcule le total de la partie Quality
+            //Calcule le Sous total et total de la partie Quality
             TotalQuality = function () {
                 var PPMNote = parseInt($('#<%=textBoxIndicePPMNote.ClientID%>').val());
                 var CustomerNBPoint = parseInt($('#<%=textBoxCustomerClaimNBPoint.ClientID%>').val());
@@ -523,32 +554,44 @@
                 if (TmpTotalQuality < 0) {
                     $('#<%=LabelTotalQualite.ClientID%>').html(0)
                 }
-                else if (TmpTotalQuality > 45) {
+                else if (TmpTotalQuality >= 45) {
                     $('#<%=LabelTotalQualite.ClientID%>').html(45)
             }
-            else {
-                $('#<%=LabelTotalQualite.ClientID%>').html(TmpTotalQuality)
+                else {
+                    if ((TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val())) > 45) {
+                        $('#<%=LabelTotalQualite.ClientID%>').html(45)
+                    }
+                    else {
+                        $('#<%=LabelTotalQualite.ClientID%>').html(TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val()))
+                    }                
             }
+            //Appel Score total
                 TotalScore();//Appel le calcule du score total
             };
 
-    //Calcule le total du score Logistique
-    TotalLogistique = function () {
-        var ServiceRate = parseInt(($('#<%=textboxLogisticRatePoint.ClientID%>').val()));
-        var flexibility = parseInt(($('#<%=textboxFlexibilityPoint.ClientID%>').val()));
-        var delaysPenality = parseInt(($('#<%=textboxDeliveryDelaysLevelPoint.ClientID%>').val()));
-        var deliveryQuality = parseInt(($('#<%=textboxDeliveryQualityPoint.ClientID%>').val()));
 
-        var TmpTotalLogistique = ServiceRate + flexibility + delaysPenality + deliveryQuality;
-        if (TmpTotalLogistique < 0) {
-            $('#<%=labelTotalLogistique.ClientID%>').html(0)
-        }
-        else if (TmpTotalLogistique > 35) {
-            $('#<%=labelTotalLogistique.ClientID%>').html(35)
-        }
-        else {
-            $('#<%=labelTotalLogistique.ClientID%>').html(TmpTotalLogistique)
-        }
+    //Calcule le total du score Logistique
+            TotalLogistique = function () {
+                var ServiceRate = parseInt(($('#<%=textboxLogisticRatePoint.ClientID%>').val()));
+                var flexibility = parseInt(($('#<%=textboxFlexibilityPoint.ClientID%>').val()));
+                var delaysPenality = parseInt(($('#<%=textboxDeliveryDelaysLevelPoint.ClientID%>').val()));
+                var deliveryQuality = parseInt(($('#<%=textboxDeliveryQualityPoint.ClientID%>').val()));
+
+                var TmpTotalLogistique = ServiceRate + flexibility + delaysPenality + deliveryQuality;
+                if (TmpTotalLogistique < 0) {
+                    $('#<%=labelTotalLogistique.ClientID%>').html(0)
+                }
+                else if (TmpTotalLogistique > 35) {
+                    $('#<%=labelTotalLogistique.ClientID%>').html(35)
+                }
+                else {
+                    if ((TmpTotalLogistique + parseInt($('#<%=textBoxLogisticImprovementPlan.ClientID%>').val())) > 35) {
+                        $('#<%=labelTotalLogistique.ClientID%>').html(35)
+                    }
+                    else {
+                        $('#<%=labelTotalLogistique.ClientID%>').html(TmpTotalLogistique + parseInt($('#<%=textBoxLogisticImprovementPlan.ClientID%>').val()))
+                    }
+                }
 
         TotalScore();//Appel le calcule du score total
     };

@@ -147,6 +147,15 @@
                                 <asp:TextBox ID="textBoxBonusPPM" runat="server" CssClass="NumberBox"></asp:TextBox>
                             </td>
                         </tr>
+                        <tr>
+                            <td><span class="Label">Improvement plan</span></td>
+                            <td></td>
+                            <td>
+                                <asp:TextBox ID="textBoxQualityImprovementPlan" runat="server" CssClass="NumberBox" AutoPostBack="false"></asp:TextBox>/10
+                                <asp:RangeValidator CssClass="Validator" ID="RangeValidator13" ControlToValidate="textBoxQualityImprovementPlan" MinimumValue="0" MaximumValue="10" Type="Integer" runat="server" ErrorMessage="Please enter a number" Display="None"></asp:RangeValidator>
+                                <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender16" runat="server" TargetControlID="RangeValidator13"></asp:ValidatorCalloutExtender>
+                            </td>
+                        </tr>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -234,8 +243,8 @@
                                         <asp:Title Name="Titre" Text="Order horizon"></asp:Title>
                                     </Titles>
                                     <Series>
-                                        <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderOnTime" IsValueShownAsLabel="true" LegendText="On time"></asp:Series>
-                                        <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderNotOnTime" IsValueShownAsLabel="true" LegendText ="Not on time"></asp:Series>
+                                        <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderOnTime" IsValueShownAsLabel="true" LegendText="On time" Color="LimeGreen"></asp:Series>
+                                        <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderNotOnTime" IsValueShownAsLabel="true" LegendText ="Not on time" Color="Orange"></asp:Series>
                                     </Series>
                                     <ChartAreas>
                                         <asp:ChartArea Name="ChartArea1" BorderWidth="10">
@@ -263,6 +272,18 @@
                                 <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender8" runat="server" TargetControlID="RangeValidator5"></asp:ValidatorCalloutExtender>
                             </td>
                         </tr>
+                         <tr>
+                        <td colspan="3">
+                            <span class="Label">Improvement plan</span>
+                        </td>
+                        <td></td>
+                        <td>
+                            <asp:TextBox ID="textBoxLogisticImprovementPlan" runat="server" CssClass="NumberBox"  AutoPostBack="false"></asp:TextBox>/10
+                            <asp:RangeValidator CssClass="Validator" ID="RangeValidator1" ControlToValidate="textBoxLogisticImprovementPlan" MinimumValue="0" MaximumValue="10" Type="Integer" runat="server" ErrorMessage="Please enter a number" Display="None"></asp:RangeValidator>
+                            <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender15" runat="server" TargetControlID="RangeValidator1"></asp:ValidatorCalloutExtender>
+
+                        </td>
+                    </tr>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -425,13 +446,13 @@
                 //Gestion des evenements sur chaque champs modifié//
                 //Changement Indice PPM
                 $('#<%=textBoxIndicePPMvalue.ClientID%>').change(function () {
-                    $('#<%=textBoxIndicePPMNote.ClientID%>').val(calculePPM($('#<%=textBoxIndicePPMvalue.ClientID%>').val()));
-                    $('#<%=textBoxBonusPPM.ClientID%>').val(BonusPPM($('#<%=textBoxIndicePPMvalue.ClientID%>').val(), $('#<%=textBoxCustomerClaimNBValue.ClientID%>').val())); //calcule Bonus
-                    TotalQuality();//recalcule le total
-                });
+                $('#<%=textBoxIndicePPMNote.ClientID%>').val(calculePPM($('#<%=textBoxIndicePPMvalue.ClientID%>').val()));
+                $('#<%=textBoxBonusPPM.ClientID%>').val(BonusPPM($('#<%=textBoxIndicePPMvalue.ClientID%>').val(), $('#<%=textBoxCustomerClaimNBValue.ClientID%>').val())); //calcule Bonus
+                TotalQuality();//recalcule le total
+            });
 
-                //Changement Nombre de probleme qualité
-                $('#<%=textBoxSinNBValue.ClientID%>').change(function () {
+            //Changement Nombre de probleme qualité
+            $('#<%=textBoxSinNBValue.ClientID%>').change(function () {
                     $('#<%=textBoxSinNBPoint.ClientID%>').val(qualityProblemes($('#<%=textBoxSinNBValue.ClientID%>').val()));
                 TotalQuality();//recalcule le total
             });
@@ -443,37 +464,46 @@
                 TotalQuality();//recalcule le total
             });
 
-            //Réactivité 
-            $('#<%=textBoxActionPlanReactivity.ClientID%>').change(function () {
+            //Changement Nombre de probleme qualité
+            $('#<%=textBoxQualityImprovementPlan.ClientID%>').change(function () {
+                    TotalQuality();//recalcule le total
+                });
+
+                //Réactivité 
+                $('#<%=textBoxActionPlanReactivity.ClientID%>').change(function () {
                     TotalQuality();//recalcule le total
                 });
 
                 //Taux de service
                 $('#<%=textboxLogisticRateValue.ClientID%>').change(function () {
                     $('#<%=textboxLogisticRatePoint.ClientID%>').val(tauxService($('#<%=textboxLogisticRateValue.ClientID%>').val()));
-                    TotalLogistique();//recalcule le total
+                TotalLogistique();//recalcule le total
+            });
 
-                });
-
-                //Flexibilité
-                $('#<%=textboxFlexibilityPoint.ClientID%>').change(function () {
+            //Flexibilité
+            $('#<%=textboxFlexibilityPoint.ClientID%>').change(function () {
                     TotalLogistique();//recalcule le total
                 });
 
                 //Pénalité de livraison
                 $('#<%=textboxDeliveryDelaysLevelValue.ClientID%>').change(function () {
                     $('#<%=textboxDeliveryDelaysLevelPoint.ClientID%>').val(delaysPenalty($('#<%=textboxDeliveryDelaysLevelValue.ClientID%>').val()));
-                    TotalLogistique();//recalcule le total
-                });
+                TotalLogistique();//recalcule le total
+            });
 
-                //Qualité de livraison
-                $('#<%=textboxDeliveryQualityValue.ClientID%>').change(function () {
+            //Qualité de livraison
+            $('#<%=textboxDeliveryQualityValue.ClientID%>').change(function () {
                     $('#<%=textboxDeliveryQualityPoint.ClientID%>').val(deliveryQuality($('#<%=textboxDeliveryQualityValue.ClientID%>').val()));
                 TotalLogistique();//recalcule le total
             });
 
-            //calcule reactivite 
-            $('#<%=TextBoxImprovmentPlan.ClientID%>').change(function () {
+            //Plan de progres logistique
+            $('#<%=textBoxLogisticImprovementPlan.ClientID%>').change(function () {
+                    TotalLogistique();//recalcule le total
+                });
+
+                //calcule reactivite 
+                $('#<%=TextBoxImprovmentPlan.ClientID%>').change(function () {
                     Totalcompetitiveness();//recalcule le total
                 });
 
@@ -502,49 +532,61 @@
                     Totalcompetitiveness();//recalcule le total
                 });
 
-                //Calcule le total de la partie Quality
+                //Calcule le Sous total et total de la partie Quality
                 TotalQuality = function () {
                     var PPMNote = parseInt($('#<%=textBoxIndicePPMNote.ClientID%>').val());
-                    var CustomerNBPoint = parseInt($('#<%=textBoxCustomerClaimNBPoint.ClientID%>').val());
-                    var SinNBPoint = parseInt($('#<%=textBoxSinNBPoint.ClientID%>').val());
-                    var BonusPPM = parseInt($('#<%=textBoxBonusPPM.ClientID%>').val());
-                    var ActionPlanReactivity = parseInt($('#<%=textBoxActionPlanReactivity.ClientID%>').val());
-                    var TmpTotalQuality = PPMNote + CustomerNBPoint + SinNBPoint + BonusPPM + ActionPlanReactivity;
-                    if (TmpTotalQuality < 0) {
-                        $('#<%=LabelTotalQualite.ClientID%>').html(0)
+                var CustomerNBPoint = parseInt($('#<%=textBoxCustomerClaimNBPoint.ClientID%>').val());
+                var SinNBPoint = parseInt($('#<%=textBoxSinNBPoint.ClientID%>').val());
+                var BonusPPM = parseInt($('#<%=textBoxBonusPPM.ClientID%>').val());
+                var ActionPlanReactivity = parseInt($('#<%=textBoxActionPlanReactivity.ClientID%>').val());
+                var TmpTotalQuality = PPMNote + CustomerNBPoint + SinNBPoint + BonusPPM + ActionPlanReactivity;
+                if (TmpTotalQuality < 0) {
+                    $('#<%=LabelTotalQualite.ClientID%>').html(0)
                 }
-                else if (TmpTotalQuality > 45) {
+                else if (TmpTotalQuality >= 45) {
                     $('#<%=LabelTotalQualite.ClientID%>').html(45)
                 }
                 else {
-                    $('#<%=LabelTotalQualite.ClientID%>').html(TmpTotalQuality)
+                    if ((TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val())) > 45) {
+                        $('#<%=LabelTotalQualite.ClientID%>').html(45)
+                    }
+                    else {
+                        $('#<%=LabelTotalQualite.ClientID%>').html(TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val()))
+                    }
                 }
-                    TotalScore();//Appel le calcule du score total
-                };
+                //Appel Score total
+                TotalScore();//Appel le calcule du score total
+            };
+
 
         //Calcule le total du score Logistique
         TotalLogistique = function () {
             var ServiceRate = parseInt(($('#<%=textboxLogisticRatePoint.ClientID%>').val()));
-            var flexibility = parseInt(($('#<%=textboxFlexibilityPoint.ClientID%>').val()));
-            var delaysPenality = parseInt(($('#<%=textboxDeliveryDelaysLevelPoint.ClientID%>').val()));
-            var deliveryQuality = parseInt(($('#<%=textboxDeliveryQualityPoint.ClientID%>').val()));
+                var flexibility = parseInt(($('#<%=textboxFlexibilityPoint.ClientID%>').val()));
+                var delaysPenality = parseInt(($('#<%=textboxDeliveryDelaysLevelPoint.ClientID%>').val()));
+                var deliveryQuality = parseInt(($('#<%=textboxDeliveryQualityPoint.ClientID%>').val()));
 
-            var TmpTotalLogistique = ServiceRate + flexibility + delaysPenality + deliveryQuality;
-            if (TmpTotalLogistique < 0) {
-                $('#<%=labelTotalLogistique.ClientID%>').html(0)
-            }
-            else if (TmpTotalLogistique > 35) {
-                $('#<%=labelTotalLogistique.ClientID%>').html(35)
-        }
-        else {
-            $('#<%=labelTotalLogistique.ClientID%>').html(TmpTotalLogistique)
-        }
+                var TmpTotalLogistique = ServiceRate + flexibility + delaysPenality + deliveryQuality;
+                if (TmpTotalLogistique < 0) {
+                    $('#<%=labelTotalLogistique.ClientID%>').html(0)
+                }
+                else if (TmpTotalLogistique > 35) {
+                    $('#<%=labelTotalLogistique.ClientID%>').html(35)
+                }
+                else {
+                    if ((TmpTotalLogistique + parseInt($('#<%=textBoxLogisticImprovementPlan.ClientID%>').val())) > 35) {
+                        $('#<%=labelTotalLogistique.ClientID%>').html(35)
+                    }
+                    else {
+                        $('#<%=labelTotalLogistique.ClientID%>').html(TmpTotalLogistique + parseInt($('#<%=textBoxLogisticImprovementPlan.ClientID%>').val()))
+                    }
+                }
 
-            TotalScore();//Appel le calcule du score total
-        };
-//Calcule le total du score competitivité
-Totalcompetitiveness = function () {
-    var Improvementplan = parseInt(($('#<%=TextBoxImprovmentPlan.ClientID%>').val()));
+                TotalScore();//Appel le calcule du score total
+            };
+        //Calcule le total du score competitivité
+        Totalcompetitiveness = function () {
+            var Improvementplan = parseInt(($('#<%=TextBoxImprovmentPlan.ClientID%>').val()));
     var BusinessRelationship = parseInt(($('#<%=TextBoxBusinessRelationship.ClientID%>').val()));
     var ReactivityOnCommercial = parseInt(($('#<%=TextBoxOffersReactivity.ClientID%>').val()));
     var QualityOfTechnical = parseInt(($('#<%=TextBoxTechnicalAnswerQuality.ClientID%>').val()));
@@ -557,10 +599,10 @@ Totalcompetitiveness = function () {
     }
     else if (TmpTotalcompetiviveness > 20) {
         $('#<%=LabelTatalCompetitiveness.ClientID%>').html(20)
-    }
-    else {
-        $('#<%=LabelTatalCompetitiveness.ClientID%>').html(TmpTotalcompetiviveness)
-    }
+        }
+        else {
+            $('#<%=LabelTatalCompetitiveness.ClientID%>').html(TmpTotalcompetiviveness)
+        }
 
     TotalScore();//Appel le calcule du score total
 };
@@ -578,10 +620,10 @@ TotalScore = function () {
     }
     else if (TmpTotalscore > 100) {
         $('#<%=LabelTotal.ClientID%>').html(100)
-    }
-    else {
-        $('#<%=LabelTotal.ClientID%>').html(TmpTotalscore)
-    }
+        }
+        else {
+            $('#<%=LabelTotal.ClientID%>').html(TmpTotalscore)
+        }
 };
 $(document).ready(TotalLogistique)
             </script>

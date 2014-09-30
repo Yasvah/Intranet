@@ -464,6 +464,51 @@ Partial Public Class SupplierAssessmentCOMMUN
     Protected WithEvents textBoxBonusPPMSERTA As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''Contrôle textBoxQualityImprovementPlan.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents textBoxQualityImprovementPlan As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Contrôle RangeValidator1.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents RangeValidator1 As Global.System.Web.UI.WebControls.RangeValidator
+
+    '''<summary>
+    '''Contrôle ValidatorCalloutExtender16.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents ValidatorCalloutExtender16 As Global.AjaxControlToolkit.ValidatorCalloutExtender
+
+    '''<summary>
+    '''Contrôle textBoxQualityImprovementPlanPNS.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents textBoxQualityImprovementPlanPNS As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Contrôle textBoxQualityImprovementPlanSERTA.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents textBoxQualityImprovementPlanSERTA As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''Contrôle LabelTotalQualite.
     '''</summary>
     '''<remarks>
@@ -858,6 +903,51 @@ Partial Public Class SupplierAssessmentCOMMUN
     '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
     '''</remarks>
     Protected WithEvents textboxDeliveryQualityPointSERTA As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Contrôle textBoxLogisticImprovementPlan.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents textBoxLogisticImprovementPlan As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Contrôle RangeValidator2.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents RangeValidator2 As Global.System.Web.UI.WebControls.RangeValidator
+
+    '''<summary>
+    '''Contrôle ValidatorCalloutExtender15.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents ValidatorCalloutExtender15 As Global.AjaxControlToolkit.ValidatorCalloutExtender
+
+    '''<summary>
+    '''Contrôle textBoxLogisticImprovementPlanPNS.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents textBoxLogisticImprovementPlanPNS As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Contrôle textBoxLogisticImprovementPlanSERTA.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents textBoxLogisticImprovementPlanSERTA As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''Contrôle labelTotalLogistique.

@@ -1,3 +1,17 @@
+Imports System.Configuration
+
+Partial Public Class dbSupplier_IndicatorDataContext
+    Public Sub New()
+        'Configuration de la chaine de connexion sur le fichier web.config
+        MyBase.New(System.Configuration.ConfigurationManager.ConnectionStrings("Supplier_IndicatorConnectionString").ConnectionString)
+        OnCreated()
+    End Sub
+End Class
+
+Partial Class dbSupplier_IndicatorDataContext
+
+End Class
+
 Partial Class T_SUP_ASSESSMENT_SUA_COMMON
     Implements ICloneable
 
@@ -10,14 +24,18 @@ Partial Class T_SUP_ASSESSMENT_SUA_COMMON
     ''' <remarks></remarks>
     Public ReadOnly Property PreCalcule As P_ASSESSMENT_VALUESResult
         Get
-            If _PreCalcule Is Nothing Then
-                Dim BaseSupplierAssessment As dbSupplier_IndicatorDataContext = New dbSupplier_IndicatorDataContext()
-                _PreCalcule = (From unPrecalcule In BaseSupplierAssessment.P_ASSESSMENT_VALUES(Me.SUP_ID, Me.SUA_QUARTER, "GROUP")
-                    Select unPrecalcule).First
-                Return _PreCalcule
-            Else
-                Return _PreCalcule
-            End If
+            Try
+                If _PreCalcule Is Nothing Then
+                    Dim BaseSupplierAssessment As dbSupplier_IndicatorDataContext = New dbSupplier_IndicatorDataContext()
+                    _PreCalcule = (From unPrecalcule In BaseSupplierAssessment.P_ASSESSMENT_VALUES(Me.SUP_ID, Me.SUA_QUARTER, "GROUP")
+                        Select unPrecalcule).First
+                    Return _PreCalcule
+                Else
+                    Return _PreCalcule
+                End If
+            Catch ex As Exception
+                Throw ex
+            End Try
         End Get
     End Property
 
@@ -58,7 +76,7 @@ Partial Class T_SUP_ASSESSMENT_SUA_COMMON
         Me.SUA_CUSTOMER_CLAIM_NB_POINT = 0
         Me.SUA_CUSTOMER_CLAIM_NB_VALUE = 0
         Me.SUA_DELIVERY_DELAYS_LEVEL_POINT = 0
-        Me.SUA_DELIVERY_QUALITY_POINT = 0
+        Me.SUA_DELIVERY_QUALITY_POINT = 2
         Me.SUA_DELIVERY_QUALITY_VALUE = 0
         Me.SUA_DELIVERY_DELAYS_LEVEL_POINT = 0
         Me.SUA_DELIVERY_DELAYS_LEVEL_VALUE = 0
@@ -76,6 +94,8 @@ Partial Class T_SUP_ASSESSMENT_SUA_COMMON
         Me.SUA_TECHNICAL_ANSWER_QUALITY_POINT = 0
         Me.SUA_TOTAL_POINT = 0
         Me.SUA_TREND = "1"
+        Me.SUA_LOGISTIC_IMPROVEMENT_PLAN = 0
+        Me.SUA_QUALITY_IMPROVEMENT_PLAN = 0
     End Sub
 End Class
 
@@ -102,7 +122,7 @@ Partial Class T_SUP_ASSESSMENT_SUA_SERTA
         End Get
     End Property
 
-     Private _OrderHorizon As List(Of P_ASSESSMENT_ORDER_HORIZONResult)
+    Private _OrderHorizon As List(Of P_ASSESSMENT_ORDER_HORIZONResult)
     ''' <summary>
     ''' Retourne les valeurs des horizons de livraison
     ''' </summary>
@@ -139,7 +159,7 @@ Partial Class T_SUP_ASSESSMENT_SUA_SERTA
         Me.SUA_CUSTOMER_CLAIM_NB_POINT = 0
         Me.SUA_CUSTOMER_CLAIM_NB_VALUE = 0
         Me.SUA_DELIVERY_DELAYS_LEVEL_POINT = 0
-        Me.SUA_DELIVERY_QUALITY_POINT = 0
+        Me.SUA_DELIVERY_QUALITY_POINT = 2
         Me.SUA_DELIVERY_QUALITY_VALUE = 0
         Me.SUA_DELIVERY_DELAYS_LEVEL_POINT = 0
         Me.SUA_DELIVERY_DELAYS_LEVEL_VALUE = 0
@@ -157,6 +177,8 @@ Partial Class T_SUP_ASSESSMENT_SUA_SERTA
         Me.SUA_TECHNICAL_ANSWER_QUALITY_POINT = 0
         Me.SUA_TOTAL_POINT = 0
         Me.SUA_TREND = "1"
+        Me.SUA_LOGISTIC_IMPROVEMENT_PLAN = 0
+        Me.SUA_QUALITY_IMPROVEMENT_PLAN = 0
     End Sub
 End Class
 
@@ -219,7 +241,7 @@ Partial Class T_SUP_ASSESSMENT_SUA_PNS
         Me.SUA_CUSTOMER_CLAIM_NB_POINT = 0
         Me.SUA_CUSTOMER_CLAIM_NB_VALUE = 0
         Me.SUA_DELIVERY_DELAYS_LEVEL_POINT = 0
-        Me.SUA_DELIVERY_QUALITY_POINT = 0
+        Me.SUA_DELIVERY_QUALITY_POINT = 2
         Me.SUA_DELIVERY_QUALITY_VALUE = 0
         Me.SUA_DELIVERY_DELAYS_LEVEL_POINT = 0
         Me.SUA_DELIVERY_DELAYS_LEVEL_VALUE = 0
@@ -237,6 +259,8 @@ Partial Class T_SUP_ASSESSMENT_SUA_PNS
         Me.SUA_TECHNICAL_ANSWER_QUALITY_POINT = 0
         Me.SUA_TOTAL_POINT = 0
         Me.SUA_TREND = "1"
+        Me.SUA_LOGISTIC_IMPROVEMENT_PLAN = 0
+        Me.SUA_QUALITY_IMPROVEMENT_PLAN = 0
     End Sub
 
 End Class

@@ -51,11 +51,6 @@ Partial Public Class dbSupplier_IndicatorDataContext
     End Sub
   #End Region
 	
-	Public Sub New()
-		MyBase.New(Global.Supplier_Indicator.My.MySettings.Default.SUPPLIER_INDICATORDevConnectionString1, mappingSource)
-		OnCreated
-	End Sub
-	
 	Public Sub New(ByVal connection As String)
 		MyBase.New(connection, mappingSource)
 		OnCreated
@@ -203,6 +198,10 @@ Partial Public Class T_SUP_ASSESSMENT_SUA_COMMON
 	
 	Private _SUA_TREND As System.Nullable(Of Char)
 	
+	Private _SUA_QUALITY_IMPROVEMENT_PLAN As System.Nullable(Of Byte)
+	
+	Private _SUA_LOGISTIC_IMPROVEMENT_PLAN As System.Nullable(Of Byte)
+	
     #Region "Définitions de méthodes d'extensibilité"
     Partial Private Sub OnLoaded()
     End Sub
@@ -341,6 +340,14 @@ Partial Public Class T_SUP_ASSESSMENT_SUA_COMMON
     Partial Private Sub OnSUA_TRENDChanging(value As System.Nullable(Of Char))
     End Sub
     Partial Private Sub OnSUA_TRENDChanged()
+    End Sub
+    Partial Private Sub OnSUA_QUALITY_IMPROVEMENT_PLANChanging(value As System.Nullable(Of Byte))
+    End Sub
+    Partial Private Sub OnSUA_QUALITY_IMPROVEMENT_PLANChanged()
+    End Sub
+    Partial Private Sub OnSUA_LOGISTIC_IMPROVEMENT_PLANChanging(value As System.Nullable(Of Byte))
+    End Sub
+    Partial Private Sub OnSUA_LOGISTIC_IMPROVEMENT_PLANChanged()
     End Sub
     #End Region
 	
@@ -880,6 +887,38 @@ Partial Public Class T_SUP_ASSESSMENT_SUA_COMMON
 		End Set
 	End Property
 	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SUA_QUALITY_IMPROVEMENT_PLAN", DbType:="TinyInt")>  _
+	Public Property SUA_QUALITY_IMPROVEMENT_PLAN() As System.Nullable(Of Byte)
+		Get
+			Return Me._SUA_QUALITY_IMPROVEMENT_PLAN
+		End Get
+		Set
+			If (Me._SUA_QUALITY_IMPROVEMENT_PLAN.Equals(value) = false) Then
+				Me.OnSUA_QUALITY_IMPROVEMENT_PLANChanging(value)
+				Me.SendPropertyChanging
+				Me._SUA_QUALITY_IMPROVEMENT_PLAN = value
+				Me.SendPropertyChanged("SUA_QUALITY_IMPROVEMENT_PLAN")
+				Me.OnSUA_QUALITY_IMPROVEMENT_PLANChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SUA_LOGISTIC_IMPROVEMENT_PLAN", DbType:="TinyInt")>  _
+	Public Property SUA_LOGISTIC_IMPROVEMENT_PLAN() As System.Nullable(Of Byte)
+		Get
+			Return Me._SUA_LOGISTIC_IMPROVEMENT_PLAN
+		End Get
+		Set
+			If (Me._SUA_LOGISTIC_IMPROVEMENT_PLAN.Equals(value) = false) Then
+				Me.OnSUA_LOGISTIC_IMPROVEMENT_PLANChanging(value)
+				Me.SendPropertyChanging
+				Me._SUA_LOGISTIC_IMPROVEMENT_PLAN = value
+				Me.SendPropertyChanged("SUA_LOGISTIC_IMPROVEMENT_PLAN")
+				Me.OnSUA_LOGISTIC_IMPROVEMENT_PLANChanged
+			End If
+		End Set
+	End Property
+	
 	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
 	
 	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
@@ -968,6 +1007,10 @@ Partial Public Class T_SUP_ASSESSMENT_SUA_PNS
 	Private _SUA_TOTAL_POINT As System.Nullable(Of Byte)
 	
 	Private _SUA_TREND As System.Nullable(Of Char)
+	
+	Private _SUA_QUALITY_IMPROVEMENT_PLAN As System.Nullable(Of Byte)
+	
+	Private _SUA_LOGISTIC_IMPROVEMENT_PLAN As System.Nullable(Of Byte)
 	
     #Region "Définitions de méthodes d'extensibilité"
     Partial Private Sub OnLoaded()
@@ -1103,6 +1146,14 @@ Partial Public Class T_SUP_ASSESSMENT_SUA_PNS
     Partial Private Sub OnSUA_TRENDChanging(value As System.Nullable(Of Char))
     End Sub
     Partial Private Sub OnSUA_TRENDChanged()
+    End Sub
+    Partial Private Sub OnSUA_QUALITY_IMPROVEMENT_PLANChanging(value As System.Nullable(Of Byte))
+    End Sub
+    Partial Private Sub OnSUA_QUALITY_IMPROVEMENT_PLANChanged()
+    End Sub
+    Partial Private Sub OnSUA_LOGISTIC_IMPROVEMENT_PLANChanging(value As System.Nullable(Of Byte))
+    End Sub
+    Partial Private Sub OnSUA_LOGISTIC_IMPROVEMENT_PLANChanged()
     End Sub
     #End Region
 	
@@ -1625,6 +1676,38 @@ Partial Public Class T_SUP_ASSESSMENT_SUA_PNS
 		End Set
 	End Property
 	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SUA_QUALITY_IMPROVEMENT_PLAN", DbType:="TinyInt")>  _
+	Public Property SUA_QUALITY_IMPROVEMENT_PLAN() As System.Nullable(Of Byte)
+		Get
+			Return Me._SUA_QUALITY_IMPROVEMENT_PLAN
+		End Get
+		Set
+			If (Me._SUA_QUALITY_IMPROVEMENT_PLAN.Equals(value) = false) Then
+				Me.OnSUA_QUALITY_IMPROVEMENT_PLANChanging(value)
+				Me.SendPropertyChanging
+				Me._SUA_QUALITY_IMPROVEMENT_PLAN = value
+				Me.SendPropertyChanged("SUA_QUALITY_IMPROVEMENT_PLAN")
+				Me.OnSUA_QUALITY_IMPROVEMENT_PLANChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SUA_LOGISTIC_IMPROVEMENT_PLAN", DbType:="TinyInt")>  _
+	Public Property SUA_LOGISTIC_IMPROVEMENT_PLAN() As System.Nullable(Of Byte)
+		Get
+			Return Me._SUA_LOGISTIC_IMPROVEMENT_PLAN
+		End Get
+		Set
+			If (Me._SUA_LOGISTIC_IMPROVEMENT_PLAN.Equals(value) = false) Then
+				Me.OnSUA_LOGISTIC_IMPROVEMENT_PLANChanging(value)
+				Me.SendPropertyChanging
+				Me._SUA_LOGISTIC_IMPROVEMENT_PLAN = value
+				Me.SendPropertyChanged("SUA_LOGISTIC_IMPROVEMENT_PLAN")
+				Me.OnSUA_LOGISTIC_IMPROVEMENT_PLANChanged
+			End If
+		End Set
+	End Property
+	
 	Public Event PropertyChanging As PropertyChangingEventHandler Implements System.ComponentModel.INotifyPropertyChanging.PropertyChanging
 	
 	Public Event PropertyChanged As PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
@@ -1715,6 +1798,10 @@ Partial Public Class T_SUP_ASSESSMENT_SUA_SERTA
 	Private _SUA_TOTAL_POINT As System.Nullable(Of Byte)
 	
 	Private _SUA_TREND As System.Nullable(Of Char)
+	
+	Private _SUA_QUALITY_IMPROVEMENT_PLAN As System.Nullable(Of Byte)
+	
+	Private _SUA_LOGISTIC_IMPROVEMENT_PLAN As System.Nullable(Of Byte)
 	
     #Region "Définitions de méthodes d'extensibilité"
     Partial Private Sub OnLoaded()
@@ -1854,6 +1941,14 @@ Partial Public Class T_SUP_ASSESSMENT_SUA_SERTA
     Partial Private Sub OnSUA_TRENDChanging(value As System.Nullable(Of Char))
     End Sub
     Partial Private Sub OnSUA_TRENDChanged()
+    End Sub
+    Partial Private Sub OnSUA_QUALITY_IMPROVEMENT_PLANChanging(value As System.Nullable(Of Byte))
+    End Sub
+    Partial Private Sub OnSUA_QUALITY_IMPROVEMENT_PLANChanged()
+    End Sub
+    Partial Private Sub OnSUA_LOGISTIC_IMPROVEMENT_PLANChanging(value As System.Nullable(Of Byte))
+    End Sub
+    Partial Private Sub OnSUA_LOGISTIC_IMPROVEMENT_PLANChanged()
     End Sub
     #End Region
 	
@@ -2389,6 +2484,38 @@ Partial Public Class T_SUP_ASSESSMENT_SUA_SERTA
 				Me._SUA_TREND = value
 				Me.SendPropertyChanged("SUA_TREND")
 				Me.OnSUA_TRENDChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SUA_QUALITY_IMPROVEMENT_PLAN", DbType:="TinyInt")>  _
+	Public Property SUA_QUALITY_IMPROVEMENT_PLAN() As System.Nullable(Of Byte)
+		Get
+			Return Me._SUA_QUALITY_IMPROVEMENT_PLAN
+		End Get
+		Set
+			If (Me._SUA_QUALITY_IMPROVEMENT_PLAN.Equals(value) = false) Then
+				Me.OnSUA_QUALITY_IMPROVEMENT_PLANChanging(value)
+				Me.SendPropertyChanging
+				Me._SUA_QUALITY_IMPROVEMENT_PLAN = value
+				Me.SendPropertyChanged("SUA_QUALITY_IMPROVEMENT_PLAN")
+				Me.OnSUA_QUALITY_IMPROVEMENT_PLANChanged
+			End If
+		End Set
+	End Property
+	
+	<Global.System.Data.Linq.Mapping.ColumnAttribute(Storage:="_SUA_LOGISTIC_IMPROVEMENT_PLAN", DbType:="TinyInt")>  _
+	Public Property SUA_LOGISTIC_IMPROVEMENT_PLAN() As System.Nullable(Of Byte)
+		Get
+			Return Me._SUA_LOGISTIC_IMPROVEMENT_PLAN
+		End Get
+		Set
+			If (Me._SUA_LOGISTIC_IMPROVEMENT_PLAN.Equals(value) = false) Then
+				Me.OnSUA_LOGISTIC_IMPROVEMENT_PLANChanging(value)
+				Me.SendPropertyChanging
+				Me._SUA_LOGISTIC_IMPROVEMENT_PLAN = value
+				Me.SendPropertyChanged("SUA_LOGISTIC_IMPROVEMENT_PLAN")
+				Me.OnSUA_LOGISTIC_IMPROVEMENT_PLANChanged
 			End If
 		End Set
 	End Property

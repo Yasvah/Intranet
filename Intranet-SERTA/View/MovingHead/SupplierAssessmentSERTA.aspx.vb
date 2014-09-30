@@ -46,6 +46,7 @@ Public Class SupplierAssessmentSERTA
             textBoxCustomerClaimNBPoint.Text = assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_POINT
             textBoxActionPlanReactivity.Text = assessmentAfficher.SUA_ACTION_PLAN_REACTIVITY_POINT
             textBoxBonusPPM.Text = assessmentAfficher.SUA_BONUS_500_PPM_POINT
+            textBoxQualityImprovementPlan.Text = IIf(assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN Is Nothing, "0", assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN)
             'LabelTotalQualite.Text = assessmentAfficher.SUA_
             ''****** FieldSet Logistique ********
             textboxLogisticRateValue.Text = assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_VALUE
@@ -55,6 +56,7 @@ Public Class SupplierAssessmentSERTA
             textboxDeliveryDelaysLevelPoint.Text = assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_POINT
             textboxDeliveryQualityValue.Text = assessmentAfficher.SUA_DELIVERY_QUALITY_VALUE
             textboxDeliveryQualityPoint.Text = assessmentAfficher.SUA_DELIVERY_QUALITY_POINT
+            textBoxLogisticImprovementPlan.Text = IIf(assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN Is Nothing, "0", assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN)
             'labelTotalLogistique.Text = assessmentAfficher.SUA_
             ''******** FielSet Compétitivité ********
             TextBoxImprovmentPlan.Text = assessmentAfficher.SUA_IMPROVMENT_PLAN_POINT
@@ -136,6 +138,8 @@ Public Class SupplierAssessmentSERTA
             assessmentAfficher.SUA_TECHNICAL_ANSWER_QUALITY_POINT = TextBoxTechnicalAnswerQuality.Text
             assessmentAfficher.SUA_TOTAL_POINT = LabelTotal.Text
             assessmentAfficher.SUA_TREND = RadioButtonListTrend.SelectedValue
+            assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN = textBoxLogisticImprovementPlan.Text
+            assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN = textBoxQualityImprovementPlan.Text
         Catch ex As Exception
             Throw ex
         End Try

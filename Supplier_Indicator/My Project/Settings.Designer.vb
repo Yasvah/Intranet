@@ -57,22 +57,11 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=W08R2-UPDATE\RYBACK;Initial Catalog=SUPPLIER_INDICATOR;Integrated Sec"& _ 
-            "urity=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=W08R2-UPDATE\Ryback;Initial Catalog=SUPPLIER_INDICATORDev;Integrated "& _ 
+            "Security=True")>  _
         Public ReadOnly Property SUPPLIER_INDICATORDevConnectionString() As String
             Get
                 Return CType(Me("SUPPLIER_INDICATORDevConnectionString"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=W08R2-UPDATE\RYBACK;Initial Catalog=SUPPLIER_INDICATORDev;Integrated "& _ 
-            "Security=True")>  _
-        Public ReadOnly Property SUPPLIER_INDICATORDevConnectionString1() As String
-            Get
-                Return CType(Me("SUPPLIER_INDICATORDevConnectionString1"),String)
             End Get
         End Property
     End Class

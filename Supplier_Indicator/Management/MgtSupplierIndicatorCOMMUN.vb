@@ -120,6 +120,8 @@
                 .SUA_COMMENT_GLOBAL = Assessment.SUA_COMMENT_GLOBAL
                 .SUA_TOTAL_POINT = Assessment.SUA_TOTAL_POINT
                 .SUA_TREND = Assessment.SUA_TREND
+                .SUA_QUALITY_IMPROVEMENT_PLAN = Assessment.SUA_QUALITY_IMPROVEMENT_PLAN
+                .SUA_LOGISTIC_IMPROVEMENT_PLAN = Assessment.SUA_LOGISTIC_IMPROVEMENT_PLAN
             End With
             BaseSupplierAssessment.SubmitChanges()
 
@@ -161,12 +163,15 @@
                                 Where unAssessment.SUP_ID = IdSupplier And unAssessment.SUA_QUARTER = quarter
                                Select unAssessment
             If trouverAssessment.Any Then
+                System.Diagnostics.Trace.WriteLine(trouverAssessment.First)
                 Return trouverAssessment.First
             Else
+                System.Diagnostics.Trace.WriteLine("Rien trouvé")
                 Return Nothing
             End If
         Catch ex As Exception
             Throw ex
+            System.Diagnostics.Trace.WriteLine(ex)
         End Try
     End Function
     ''' <summary>

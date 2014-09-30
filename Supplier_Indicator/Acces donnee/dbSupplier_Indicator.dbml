@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SUPPLIER_INDICATORDev" Class="dbSupplier_IndicatorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=W08R2-UPDATE\RYBACK;Initial Catalog=SUPPLIER_INDICATORDev;Integrated Security=True" SettingsObjectName="Supplier_Indicator.My.MySettings" SettingsPropertyName="SUPPLIER_INDICATORDevConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="COMMON.T_SUP_ASSESSMENT_SUA" Member="T_SUP_ASSESSMENT_SUA_COMMON">
     <Type Name="T_SUP_ASSESSMENT_SUA_COMMON">
       <Column Name="SUA_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -35,6 +34,8 @@
       <Column Name="SUA_COMMENT_GLOBAL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SUA_TOTAL_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="SUA_TREND" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="SUA_QUALITY_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="PNS.T_SUP_ASSESSMENT_SUA" Member="T_SUP_ASSESSMENT_SUA_PNS">
@@ -71,6 +72,8 @@
       <Column Name="SUA_COMMENT_GLOBAL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="SUA_TOTAL_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="SUA_TREND" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="SUA_QUALITY_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="SERTA.T_SUP_ASSESSMENT_SUA" Member="T_SUP_ASSESSMENT_SUA_SERTA">
@@ -108,6 +111,8 @@
       <Column Name="SUA_COMMENT_GLOBAL" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="SUA_TOTAL_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="SUA_TREND" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="SUA_QUALITY_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="COMMON.P_ASSESSMENT_VALUES" Method="P_ASSESSMENT_VALUES">
