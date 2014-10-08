@@ -8,6 +8,12 @@
         <siteMapNode url="~/View/MovingHead/SupplierAssessmentPNS.aspx" title="Formulaire Supplier Performance PNS" roles="SERTA\Groupe Appli MovingAhead Formulaire PNS, SERTA\Groupe Info" />
         <siteMapNode url="~/View/MovingHead/SupplierAssessmentCOMMUN.aspx" title="Formulaire Supplier Performance COMMUN" roles="SERTA\Groupe Appli MovingAhead Formulaire PNS, SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info" />
       </siteMapNode>
+      <!--
+      <siteMapNode title="Indicateur" description="Indicateur Moving Ahead" roles="SERTA\Groupe Appli MovingAhead Formulaire PNS, SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info">
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Supplier performance/Moving_ahead_performance" title="Indicateur Supplier Performance SERTA" roles="SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info" />
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Supplier performance/Delivery_detail_group" title="Formulaire Supplier Performance SERTA" roles="SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info" />
+      </siteMapNode>
+      -->
     </siteMapNode>
     <siteMapNode title="Comptabilité"  description="Formulaire de la comptabilité" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur Comptabilite">
       <siteMapNode title="Chiffres d'affaires"  description="Formulaire et rapport sur le CA" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur Comptabilite">

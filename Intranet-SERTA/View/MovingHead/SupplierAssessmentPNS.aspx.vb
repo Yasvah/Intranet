@@ -38,36 +38,36 @@ Public Class SupplierAssessmentPNS
             End If
             ''*****FieldSet Qualité ******
             Dim assessmentAfficher As T_SUP_ASSESSMENT_SUA_PNS = CType(Session("assessmentAfficher"), T_SUP_ASSESSMENT_SUA_PNS)
-            textBoxIndicePPMvalue.Text = assessmentAfficher.SUA_INDICE_PPM_VALUE
-            textBoxIndicePPMNote.Text = assessmentAfficher.SUA_INDICE_PPM_POINT
-            textBoxSinNBValue.Text = assessmentAfficher.SUA_SIN_NB_VALUE
-            textBoxSinNBPoint.Text = assessmentAfficher.SUA_SIN_NB_POINT
-            textBoxCustomerClaimNBValue.Text = assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_VALUE
-            textBoxCustomerClaimNBPoint.Text = assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_POINT
-            textBoxActionPlanReactivity.Text = assessmentAfficher.SUA_ACTION_PLAN_REACTIVITY_POINT
-            textBoxBonusPPM.Text = assessmentAfficher.SUA_BONUS_500_PPM_POINT
+            textBoxIndicePPMvalue.Text = IfNull(assessmentAfficher.SUA_INDICE_PPM_VALUE)
+            textBoxIndicePPMNote.Text = IfNull(assessmentAfficher.SUA_INDICE_PPM_POINT)
+            textBoxSinNBValue.Text = IfNull(assessmentAfficher.SUA_SIN_NB_VALUE)
+            textBoxSinNBPoint.Text = IfNull(assessmentAfficher.SUA_SIN_NB_POINT)
+            textBoxCustomerClaimNBValue.Text = IfNull(assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_VALUE)
+            textBoxCustomerClaimNBPoint.Text = IfNull(assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_POINT)
+            textBoxActionPlanReactivity.Text = IfNull(assessmentAfficher.SUA_ACTION_PLAN_REACTIVITY_POINT)
+            textBoxBonusPPM.Text = IfNull(assessmentAfficher.SUA_BONUS_500_PPM_POINT)
             textBoxQualityImprovementPlan.Text = IIf(assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN Is Nothing, "0", assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN)
             'LabelTotalQualite.Text = assessmentAfficher.SUA_
             ''****** FieldSet Logistique ********
-            textboxLogisticRateValue.Text = assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_VALUE
-            textboxLogisticRatePoint.Text = assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_POINT
-            textboxFlexibilityPoint.Text = assessmentAfficher.SUA_FLEXIBILITY_POINT
-            textboxDeliveryDelaysLevelValue.Text = assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_VALUE
-            textboxDeliveryDelaysLevelPoint.Text = assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_POINT
-            textboxDeliveryQualityValue.Text = assessmentAfficher.SUA_DELIVERY_QUALITY_VALUE
-            textboxDeliveryQualityPoint.Text = assessmentAfficher.SUA_DELIVERY_QUALITY_POINT
+            textboxLogisticRateValue.Text = IfNull(assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_VALUE)
+            textboxLogisticRatePoint.Text = IfNull(assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_POINT)
+            textboxFlexibilityPoint.Text = IfNull(assessmentAfficher.SUA_FLEXIBILITY_POINT)
+            textboxDeliveryDelaysLevelValue.Text = IfNull(assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_VALUE)
+            textboxDeliveryDelaysLevelPoint.Text = IfNull(assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_POINT)
+            textboxDeliveryQualityValue.Text = IfNull(assessmentAfficher.SUA_DELIVERY_QUALITY_VALUE)
+            textboxDeliveryQualityPoint.Text = IfNull(assessmentAfficher.SUA_DELIVERY_QUALITY_POINT)
             textBoxLogisticImprovementPlan.Text = IIf(assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN Is Nothing, "0", assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN)
             'labelTotalLogistique.Text = assessmentAfficher.SUA_
             ''******** FielSet Compétitivité ********
-            TextBoxImprovmentPlan.Text = assessmentAfficher.SUA_IMPROVMENT_PLAN_POINT
-            TextBoxBusinessRelationship.Text = assessmentAfficher.SUA_BUSINESS_RELATIONSHIP_POINT
-            TextBoxFinancialSituation.Text = assessmentAfficher.SUA_FINANCIAL_SITUATION_POINT
-            TextBoxOffersReactivity.Text = assessmentAfficher.SUA_OFFERS_REACTIVITY_POINT
-            TextBoxTechnicalAnswerQuality.Text = assessmentAfficher.SUA_TECHNICAL_ANSWER_QUALITY_POINT
-            TextBoxIsoCertification.Text = assessmentAfficher.SUA_ISO_CERTFICATION_POINT
+            TextBoxImprovmentPlan.Text = IfNull(assessmentAfficher.SUA_IMPROVMENT_PLAN_POINT)
+            TextBoxBusinessRelationship.Text = IfNull(assessmentAfficher.SUA_BUSINESS_RELATIONSHIP_POINT)
+            TextBoxFinancialSituation.Text = IfNull(assessmentAfficher.SUA_FINANCIAL_SITUATION_POINT)
+            TextBoxOffersReactivity.Text = IfNull(assessmentAfficher.SUA_OFFERS_REACTIVITY_POINT)
+            TextBoxTechnicalAnswerQuality.Text = IfNull(assessmentAfficher.SUA_TECHNICAL_ANSWER_QUALITY_POINT)
+            TextBoxIsoCertification.Text = IfNull(assessmentAfficher.SUA_ISO_CERTFICATION_POINT)
             'LabelTatalCompetitiveness.Text = assessmentAfficher.SUA_
             ''************* FielSet Notation *************
-            LabelTotal.Text = assessmentAfficher.SUA_TOTAL_POINT
+            LabelTotal.Text = IfNull(assessmentAfficher.SUA_TOTAL_POINT)
             RadioButtonListTrend.SelectedValue = assessmentAfficher.SUA_TREND
             TextBoxCommentDetail.Text = assessmentAfficher.SUA_COMMENT_DETAIL
             TextBoxCommentClassification.Text = assessmentAfficher.SUA_COMMENT_CLASSIFICATION
@@ -183,6 +183,19 @@ Public Class SupplierAssessmentPNS
             Throw ex
         End Try
     End Sub
+    ''' <summary>
+    ''' Retourne 0 si la valeur est null
+    ''' </summary>
+    ''' <param name="Objet"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Private Function IfNull(Objet As Object)
+        If Objet Is Nothing Then
+            Return 0
+        Else
+            Return Objet
+        End If
+    End Function
 #End Region
 
     Protected Sub btDelete_Click(sender As Object, e As EventArgs) Handles btDelete.Click
