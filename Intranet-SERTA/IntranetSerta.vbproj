@@ -400,6 +400,7 @@
     <None Include="My Project\PublishProfiles\Deployement serveur Développement.pubxml" />
     <None Include="My Project\PublishProfiles\Dev.pubxml" />
     <None Include="My Project\PublishProfiles\Intranet-SERTA-Dev.pubxml" />
+    <None Include="My Project\PublishProfiles\IntranetSERTA-PROD.pubxml" />
     <None Include="My Project\PublishProfiles\LocalFolder.pubxml" />
     <None Include="My Project\PublishProfiles\Production.pubxml" />
     <None Include="My Project\PublishProfiles\Serveur de Developpement.pubxml" />
