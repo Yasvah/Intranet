@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SUPPLIER_INDICATORDev" Class="dbSupplier_IndicatorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="COMMON.T_SUP_ASSESSMENT_SUA" Member="T_SUP_ASSESSMENT_SUA_COMMON">
+    <Type Name="T_SUP_ASSESSMENT_SUA_COMMON">
+      <Column Name="SUA_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUP_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SUA_QUARTER" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SUA_FORM" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="SUA_INDICE_PPM_VALUE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUA_INDICE_PPM_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_SIN_NB_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_SIN_NB_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_CUSTOMER_CLAIM_NB_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_CUSTOMER_CLAIM_NB_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_ACTION_PLAN_REACTIVITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_BONUS_500_PPM_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_RATE_TARGET_95_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_RATE_TARGET_95_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_FLEXIBILITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_DELAYS_LEVEL_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_DELAYS_LEVEL_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_QUALITY_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_QUALITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_PRICE_COMPETITIVENESS_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_PRICE_COMPETITIVENESS_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_IMPROVMENT_PLAN_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_BUSINESS_RELATIONSHIP_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_FINANCIAL_SITUATION_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_OFFERS_REACTIVITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_TECHNICAL_ANSWER_QUALITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_ISO_CERTFICATION_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_COMMENT" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_COMMENT_DETAIL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_COMMENT_CLASSIFICATION" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_COMMENT_GLOBAL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_TOTAL_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_TREND" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="SUA_QUALITY_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="PNS.T_SUP_ASSESSMENT_SUA" Member="T_SUP_ASSESSMENT_SUA_PNS">
+    <Type Name="T_SUP_ASSESSMENT_SUA_PNS">
+      <Column Name="SUA_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUP_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SUA_QUARTER" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SUA_INDICE_PPM_VALUE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUA_INDICE_PPM_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_SIN_NB_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_SIN_NB_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_CUSTOMER_CLAIM_NB_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_CUSTOMER_CLAIM_NB_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_ACTION_PLAN_REACTIVITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_BONUS_500_PPM_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_RATE_TARGET_95_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_RATE_TARGET_95_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_FLEXIBILITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_DELAYS_LEVEL_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_DELAYS_LEVEL_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_QUALITY_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_QUALITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_PRICE_COMPETITIVENESS_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_PRICE_COMPETITIVENESS_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_IMPROVMENT_PLAN_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_BUSINESS_RELATIONSHIP_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_FINANCIAL_SITUATION_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_OFFERS_REACTIVITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_TECHNICAL_ANSWER_QUALITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_ISO_CERTFICATION_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_COMMENT" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_COMMENT_DETAIL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_COMMENT_CLASSIFICATION" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_COMMENT_GLOBAL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_TOTAL_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_TREND" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="SUA_QUALITY_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="SERTA.T_SUP_ASSESSMENT_SUA" Member="T_SUP_ASSESSMENT_SUA_SERTA">
+    <Type Name="T_SUP_ASSESSMENT_SUA_SERTA">
+      <Column Name="SUA_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUP_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SUA_QUARTER" Type="System.String" DbType="Char(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SUA_FORM" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="SUA_INDICE_PPM_VALUE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUA_INDICE_PPM_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_SIN_NB_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_SIN_NB_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_CUSTOMER_CLAIM_NB_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_CUSTOMER_CLAIM_NB_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_ACTION_PLAN_REACTIVITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_BONUS_500_PPM_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_RATE_TARGET_95_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_RATE_TARGET_95_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_FLEXIBILITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_DELAYS_LEVEL_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_DELAYS_LEVEL_POINT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_QUALITY_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_DELIVERY_QUALITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_PRICE_COMPETITIVENESS_VALUE" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_PRICE_COMPETITIVENESS_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_IMPROVMENT_PLAN_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_BUSINESS_RELATIONSHIP_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_FINANCIAL_SITUATION_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_OFFERS_REACTIVITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_TECHNICAL_ANSWER_QUALITY_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_ISO_CERTFICATION_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_COMMENT" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_COMMENT_DETAIL" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_COMMENT_CLASSIFICATION" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_COMMENT_GLOBAL" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SUA_TOTAL_POINT" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_TREND" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="SUA_QUALITY_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUA_LOGISTIC_IMPROVEMENT_PLAN" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="COMMON.P_ASSESSMENT_VALUES" Method="P_ASSESSMENT_VALUES">
+    <Parameter Name="SUP_ID" Parameter="sUP_ID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="QUARTER" Parameter="qUARTER" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="PLANT" Parameter="pLANT" Type="System.String" DbType="VarChar(6)" />
+    <ElementType Name="P_ASSESSMENT_VALUESResult">
+      <Column Name="PPM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="QNC_COUNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CUSTOMER_CLAIM_COUNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LNC_COUNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LOGISTIC_RATE" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="DELAYS_UPPER_TO_X_DAYS_RATE" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="ORDER_HORIZON_USUAL" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="ORDER_HORIZON_REQUESTED" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="COMMON.P_QUARTER_LIST" Method="P_QUARTER_LIST">
+    <ElementType Name="P_QUARTER_LISTResult">
+      <Column Name="CAL_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="QUARTER_NAME" Type="System.String" DbType="VarChar(7)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="COMMON.P_ASSESSMENT_ORDER_HORIZON" Method="P_ASSESSMENT_ORDER_HORIZON">
+    <Parameter Name="SUP_ID" Parameter="sUP_ID" Type="System.Int16" DbType="SmallInt" />
+    <Parameter Name="QUARTER" Parameter="qUARTER" Type="System.String" DbType="Char(3)" />
+    <Parameter Name="PLANT" Parameter="pLANT" Type="System.String" DbType="VarChar(6)" />
+    <ElementType Name="P_ASSESSMENT_ORDER_HORIZONResult">
+      <Column Name="ORDER_HORIZON_LABEL" Type="System.String" DbType="VarChar(14) NOT NULL" CanBeNull="false" />
+      <Column Name="NB_ON_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NB_NOT_ON_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="PNS.P_SUPPLIER_LIST" Method="P_SUPPLIER_LIST_PNS">
+    <ElementType Name="P_SUPPLIER_LIST_PNSResult">
+      <Column Name="SUP_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SSC_ID" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUPPLIER_NAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="COMMON.P_SUPPLIER_LIST" Method="P_SUPPLIER_LIST_COMMUN">
+    <ElementType Name="P_SUPPLIER_LIST_COMMUNResult">
+      <Column Name="SUP_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SSC_ID" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUP_CODE" Type="System.String" DbType="VarChar(6)" CanBeNull="true" />
+      <Column Name="SUP_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="SERTA.P_SUPPLIER_LIST" Method="P_SUPPLIER_LIST_SERTA">
+    <ElementType Name="P_SUPPLIER_LIST_SERTAResult">
+      <Column Name="SUP_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SSC_ID" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="SUP_NAME" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

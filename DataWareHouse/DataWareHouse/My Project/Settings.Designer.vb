@@ -57,10 +57,20 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=W08R2-EAGLE;Initial Catalog=DW;User ID=sa")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=W08R2-EAGLE;Initial Catalog=DW;Integrated Security=True")>  _
         Public ReadOnly Property DWConnectionString() As String
             Get
                 Return CType(Me("DWConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=W08R2-EAGLE;Initial Catalog=DW;Integrated Security=True")>  _
+        Public ReadOnly Property DWConnectionString1() As String
+            Get
+                Return CType(Me("DWConnectionString1"),String)
             End Get
         End Property
     End Class

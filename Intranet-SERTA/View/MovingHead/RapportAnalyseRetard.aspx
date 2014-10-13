@@ -10,7 +10,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <rsweb:ReportViewer ID="ReportViewer1" runat="server" ProcessingMode="Remote" SizeToReportContent="true" CssClass="reportViewer">
-        <ServerReport ReportServerUrl="http://w08r2-EAGLE/ReportServer" ReportPath="/Supplier performance/GROUP/Moving ahead performance 1.9" />
+        <ServerReport ReportServerUrl="http://w08r2-EAGLE/ReportServer" ReportPath="/Supplier performance/Moving_ahead_performance" />
     </rsweb:ReportViewer>
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
 

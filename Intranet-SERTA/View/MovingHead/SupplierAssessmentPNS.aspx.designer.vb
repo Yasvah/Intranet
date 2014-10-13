@@ -266,6 +266,33 @@ Partial Public Class SupplierAssessmentPNS
     Protected WithEvents textBoxBonusPPM As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''Contrôle textBoxQualityImprovementPlan.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents textBoxQualityImprovementPlan As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Contrôle RangeValidator13.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents RangeValidator13 As Global.System.Web.UI.WebControls.RangeValidator
+
+    '''<summary>
+    '''Contrôle ValidatorCalloutExtender16.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents ValidatorCalloutExtender16 As Global.AjaxControlToolkit.ValidatorCalloutExtender
+
+    '''<summary>
     '''Contrôle LabelTotalQualite.
     '''</summary>
     '''<remarks>
@@ -273,42 +300,6 @@ Partial Public Class SupplierAssessmentPNS
     '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
     '''</remarks>
     Protected WithEvents LabelTotalQualite As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Contrôle LabelFirmOrderRequest.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelFirmOrderRequest As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Contrôle LabelFirmOrderValues.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelFirmOrderValues As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Contrôle LabelFirmOrderPoint.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelFirmOrderPoint As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''Contrôle LabelFirmOrderCurrent.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelFirmOrderCurrent As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Contrôle textboxLogisticRateValue.
@@ -338,15 +329,6 @@ Partial Public Class SupplierAssessmentPNS
     Protected WithEvents textboxLogisticRatePoint As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Contrôle LabelTargetRatePenality.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents LabelTargetRatePenality As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''Contrôle RangeValidator2.
     '''</summary>
     '''<remarks>
@@ -363,42 +345,6 @@ Partial Public Class SupplierAssessmentPNS
     '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
     '''</remarks>
     Protected WithEvents ValidatorCalloutExtender5 As Global.AjaxControlToolkit.ValidatorCalloutExtender
-
-    '''<summary>
-    '''Contrôle textboxFlexibilityPoint.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents textboxFlexibilityPoint As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''Contrôle RangeValidator3.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents RangeValidator3 As Global.System.Web.UI.WebControls.RangeValidator
-
-    '''<summary>
-    '''Contrôle ValidatorCalloutExtender6.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents ValidatorCalloutExtender6 As Global.AjaxControlToolkit.ValidatorCalloutExtender
-
-    '''<summary>
-    '''Contrôle ChartHorizonOrder.
-    '''</summary>
-    '''<remarks>
-    '''Champ généré automatiquement.
-    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-    '''</remarks>
-    Protected WithEvents ChartHorizonOrder As Global.System.Web.UI.DataVisualization.Charting.Chart
 
     '''<summary>
     '''Contrôle textboxDeliveryDelaysLevelValue.
@@ -446,6 +392,42 @@ Partial Public Class SupplierAssessmentPNS
     Protected WithEvents ValidatorCalloutExtender7 As Global.AjaxControlToolkit.ValidatorCalloutExtender
 
     '''<summary>
+    '''Contrôle textboxFlexibilityPoint.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents textboxFlexibilityPoint As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Contrôle RangeValidator3.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents RangeValidator3 As Global.System.Web.UI.WebControls.RangeValidator
+
+    '''<summary>
+    '''Contrôle ValidatorCalloutExtender6.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents ValidatorCalloutExtender6 As Global.AjaxControlToolkit.ValidatorCalloutExtender
+
+    '''<summary>
+    '''Contrôle ChartHorizonOrder.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents ChartHorizonOrder As Global.System.Web.UI.DataVisualization.Charting.Chart
+
+    '''<summary>
     '''Contrôle textboxDeliveryQualityValue.
     '''</summary>
     '''<remarks>
@@ -489,6 +471,33 @@ Partial Public Class SupplierAssessmentPNS
     '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
     '''</remarks>
     Protected WithEvents ValidatorCalloutExtender8 As Global.AjaxControlToolkit.ValidatorCalloutExtender
+
+    '''<summary>
+    '''Contrôle textBoxLogisticImprovementPlan.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents textBoxLogisticImprovementPlan As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Contrôle RangeValidator1.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents RangeValidator1 As Global.System.Web.UI.WebControls.RangeValidator
+
+    '''<summary>
+    '''Contrôle ValidatorCalloutExtender15.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents ValidatorCalloutExtender15 As Global.AjaxControlToolkit.ValidatorCalloutExtender
 
     '''<summary>
     '''Contrôle labelTotalLogistique.

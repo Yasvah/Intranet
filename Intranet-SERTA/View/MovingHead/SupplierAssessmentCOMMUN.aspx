@@ -83,7 +83,8 @@
                             <td colspan="2" class="cellule"">
                                 PNS
                             </td>
-                        <td colspan="2">SERTA
+                        <td colspan="2">
+                            SERTA
 
                         </td>
                     </tr>
@@ -108,7 +109,7 @@
                         <asp:Label ID="LabelPPM" runat="server" CssClass="precalcul">N/A</asp:Label>
                     </td>
                     <td class="cellule">
-                        <asp:TextBox runat="server" ID="textBoxIndicePPMNote" Enabled="false" CssClass="NumberBox"></asp:TextBox>/20<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="textBoxIndicePPMvalue" CssClass="Validator" Display="None" ErrorMessage="Champ incorrect :<br /> La valeur doit être un nombre positif." ValidationExpression="^(?=.*[0-9].*$)\d*$"></asp:RegularExpressionValidator>
+                        <asp:TextBox runat="server" ID="textBoxIndicePPMNote" CssClass="NumberBox"></asp:TextBox>/20<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="textBoxIndicePPMvalue" CssClass="Validator" Display="None" ErrorMessage="Champ incorrect :<br /> La valeur doit être un nombre positif." ValidationExpression="^(?=.*[0-9].*$)\d*$"></asp:RegularExpressionValidator>
                         <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" TargetControlID="RegularExpressionValidator1"></asp:ValidatorCalloutExtender>
                     </td>
                     <td>
@@ -126,7 +127,7 @@
                         <asp:Label ID="LabelPPMSERTA" runat="server" CssClass="precalcul">N/A</asp:Label>
                     </td>
                     <td>
-                        <asp:TextBox ID="textBoxIndicePPMNoteSERTA" runat="server" Enabled="false" CausesValidation="True" CssClass="NumberBox"></asp:TextBox>
+                        <asp:TextBox ID="textBoxIndicePPMNoteSERTA" runat="server"  CausesValidation="True" CssClass="NumberBox" Enabled="false"></asp:TextBox>
                         /20</td>
                 </tr>
                 <tr>
@@ -140,7 +141,7 @@
                         <asp:Label ID="LabelQncCount" runat="server" Text="N/A" CssClass="precalcul"></asp:Label>
                     </td>
                     <td class="cellule">
-                        <asp:TextBox ID="textBoxSinNBPoint" runat="server" Enabled="false" CssClass="NumberBox"></asp:TextBox>/20
+                        <asp:TextBox ID="textBoxSinNBPoint" runat="server" CssClass="NumberBox"></asp:TextBox>/20
                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="textBoxSinNBValue" CssClass="Validator" Display="None" ErrorMessage="Champ incorrect :<br /> La valeur doit être un nombre positif." ValidationExpression="^(?=.*[0-9].*$)\d*$"></asp:RegularExpressionValidator>
                         <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" TargetControlID="RegularExpressionValidator4"></asp:ValidatorCalloutExtender>
                     </td>
@@ -172,7 +173,7 @@
                         <asp:Label ID="LabelCustomerClaimCount" runat="server" Text="N/A" CssClass="precalcul"></asp:Label>
                     </td>
                     <td class="cellule">
-                        <asp:TextBox ID="textBoxCustomerClaimNBPoint" runat="server" Enabled="false" CssClass="NumberBox"></asp:TextBox>
+                        <asp:TextBox ID="textBoxCustomerClaimNBPoint" runat="server" CssClass="NumberBox"></asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" Display="None" ControlToValidate="textBoxCustomerClaimNBValue" CssClass="Validator" ErrorMessage="Champ incorrect :<br /> La valeur doit être un nombre positif." ValidationExpression="^(?=.*[0-9].*$)\d*$"></asp:RegularExpressionValidator>
                         <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" TargetControlID="RegularExpressionValidator5"></asp:ValidatorCalloutExtender>
                     </td>
@@ -219,7 +220,7 @@
                     </td>
                     <td></td>
                     <td class="cellule">
-                        <asp:TextBox ID="textBoxBonusPPM" Enabled="false" runat="server" CssClass="NumberBox"></asp:TextBox>
+                        <asp:TextBox ID="textBoxBonusPPM"  runat="server" CssClass="NumberBox"></asp:TextBox>
                     </td>
                     <td>&nbsp;</td>
                     <td class="cellule">
@@ -228,6 +229,25 @@
                     <td>&nbsp;</td>
                     <td>
                         <asp:TextBox ID="textBoxBonusPPMSERTA" runat="server" Enabled="false" CausesValidation="True" CssClass="NumberBox"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="Label">Improvement plan</span>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td class="cellule">
+                        <asp:TextBox ID="textBoxQualityImprovementPlan" runat="server" CssClass="NumberBox" AutoPostBack="false"></asp:TextBox>/10
+                        <asp:RangeValidator CssClass="Validator" ID="RangeValidator1" ControlToValidate="textBoxQualityImprovementPlan" MinimumValue="0" MaximumValue="10" Type="Integer" runat="server" ErrorMessage="Please enter a number" Display="None"></asp:RangeValidator>
+                        <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender16" runat="server" TargetControlID="RangeValidator13"></asp:ValidatorCalloutExtender>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td class="cellule">
+                        <asp:TextBox ID="textBoxQualityImprovementPlanPNS" runat="server" CssClass="NumberBox" AutoPostBack="false" Enabled="false"></asp:TextBox>/10    
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <asp:TextBox ID="textBoxQualityImprovementPlanSERTA" runat="server" CssClass="NumberBox" AutoPostBack="false" Enabled="false"></asp:TextBox>/10
                     </td>
                 </tr>
                 <tfoot>
@@ -271,25 +291,6 @@
                     </thead>
                     <tr>
                         <td>
-                            <span class="Label">Firm Order</span><br />
-                            Requested : &nbsp;
-                            <asp:Label ID="LabelFirmOrderRequest" runat="server" Text="N/A"></asp:Label>&nbsp;Week(s)<br />
-                            Current : &nbsp; <asp:Label ID="LabelFirmOrderCurrent" runat="server" Text="N/A"></asp:Label>
-                            &nbsp;Week(s)
-                        </td>
-                        <td>
-                            <asp:Label ID="LabelFirmOrderValues" runat="server" Text="N/A"></asp:Label>&nbsp;weeks    
-                        </td>
-                        <td class="cellule">
-                            <asp:Label ID="LabelFirmOrderPoint" runat="server" Text="N/A"></asp:Label>&nbsp;%
-                        </td>
-                        <td>&nbsp;</td>
-                        <td class="cellule">&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td>
                             <span class="Label">Service rate : Objectif 95% on time</span>
                             <span class="labelInfo">50% = 0 point</span>
                         </td>
@@ -299,9 +300,7 @@
                             <asp:Label ID="LabelDelaysUpTo10DaysRate" runat="server" CssClass="precalcul">N/A</asp:Label>
                         </td>
                         <td class="cellule">
-                            <asp:TextBox ID="textboxLogisticRatePoint" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>/25<br />
-                            Penalty : 
-                            <asp:Label ID="LabelTargetRatePenality" runat="server" Text="N/A"></asp:Label>&nbsp;pts
+                            <asp:TextBox ID="textboxLogisticRatePoint" runat="server" CssClass="NumberBox"></asp:TextBox>/25<br />
                                 <asp:RangeValidator CssClass="Validator" ID="RangeValidator13" ControlToValidate="textboxLogisticRateValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" Display="None" ErrorMessage="Please enter number between 0 and 100"></asp:RangeValidator>
                             <asp:ValidatorCalloutExtender ID="RangeValidator13_ValidatorCalloutExtender" runat="server" TargetControlID="RangeValidator13"></asp:ValidatorCalloutExtender>
                         </td>
@@ -312,9 +311,7 @@
                         </td>
                         <td class="cellule">
                             <asp:TextBox ID="textboxLogisticRatePointPNS" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
-                            /25<br />
-                            Penalty : 
-                            <asp:Label ID="LabelTargetRatePenalityPNS" runat="server" Text="N/A"></asp:Label>pts
+                            /25
                         </td>
                         <td>
                             <asp:TextBox ID="textboxLogisticRateValueSERTA" runat="server" CausesValidation="True" CssClass="NumberBox" Enabled="False"></asp:TextBox>
@@ -323,9 +320,41 @@
                         </td>
                         <td>
                             <asp:TextBox ID="textboxLogisticRatePointSERTA" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
-                            /25<br />
-                            Penalty : 
-                            <asp:Label ID="LabelTargetRatePenalitySERTA" runat="server" Text="N/A"></asp:Label>pts
+                            /25
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="Label">Delays penalty</span>
+                            <span class="labelInfo">2pts per day % of rate lines beyond 5 days</span>
+
+                        </td>
+                        <td>
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelValue" CausesValidation="True" runat="server" CssClass="NumberBox"></asp:TextBox>
+                            %
+                                <br />
+                            <asp:Label ID="LabelLogisticRate" runat="server" Text="N/A" CssClass="precalcul"></asp:Label>
+                        </td>
+                        <td class="cellule">
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelPoint" runat="server" CssClass="NumberBox"></asp:TextBox>
+                            <asp:RangeValidator CssClass="Validator" ID="RangeValidator14" ControlToValidate="textboxDeliveryDelaysLevelValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" ErrorMessage="Please enter number between 0 and 100" Display="None"></asp:RangeValidator>
+                            <asp:ValidatorCalloutExtender ID="RangeValidator14_ValidatorCalloutExtender" runat="server" TargetControlID="RangeValidator14"></asp:ValidatorCalloutExtender>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelValuePNS" runat="server" CausesValidation="True" CssClass="NumberBox" Enabled="False"></asp:TextBox>
+                            %&nbsp;<br />
+                            <asp:Label ID="LabelLogisticRatePNS" runat="server" CssClass="precalcul" Text="N/A"></asp:Label>
+                        </td>
+                        <td class="cellule">
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelPointPNS" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelValueSERTA" runat="server" CausesValidation="True" CssClass="NumberBox" Enabled="False"></asp:TextBox>
+                            %&nbsp;<br />
+                            <asp:Label ID="LabelLogisticRateSERTA" runat="server" CssClass="precalcul" Text="N/A"></asp:Label>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="textboxDeliveryDelaysLevelPointSERTA" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -353,15 +382,17 @@
                             /8&nbsp;</td>
                     </tr>
                     <tr>
-                        <td>&nbsp;</td>
-                        <td colspan="2">
-                            <asp:Chart ID="ChartHorizonOrder" runat="server" CssClass="graphique">
+                        <td colspan="3">
+                            <asp:Chart ID="ChartHorizonOrderCommun" runat="server" CssClass="graphique" Width="477px">
+                                <Legends>
+                                    <asp:Legend Name="legend"></asp:Legend>
+                                </Legends>
                                 <Titles>
                                     <asp:Title Name="Titre" Text="Horizon Order"></asp:Title>
                                 </Titles>
                                 <Series>
-                                    <asp:Series ChartType="Bar" Name="SeriesHorizonOrder" IsValueShownAsLabel="true">
-                                    </asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderOnTime" IsValueShownAsLabel="true" LegendText="On time" Color="LimeGreen"></asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderNotOnTime" IsValueShownAsLabel="true" LegendText ="Not on time" Color="Orange"></asp:Series>
                                 </Series>
                                 <ChartAreas>
                                     <asp:ChartArea Name="ChartArea1" BorderWidth="10">
@@ -379,8 +410,8 @@
                                     <asp:Title Name="Titre" Text="Horizon Order"></asp:Title>
                                 </Titles>
                                 <Series>
-                                    <asp:Series ChartType="Bar" Name="SeriesHorizonOrder" IsValueShownAsLabel="true" Color="OliveDrab">
-                                    </asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderOnTime" IsValueShownAsLabel="true" LegendText="On time" Color="LimeGreen"></asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderNotOnTime" IsValueShownAsLabel="true" LegendText="Not on time" Color="Orange"></asp:Series>
                                 </Series>
                                 <ChartAreas>
                                     <asp:ChartArea Name="ChartArea1" BorderWidth="10">
@@ -397,8 +428,8 @@
                                     <asp:Title Name="Titre" Text="Horizon Order"></asp:Title>
                                 </Titles>
                                 <Series>
-                                    <asp:Series ChartType="Bar" Name="SeriesHorizonOrder" IsValueShownAsLabel="true" Color="OrangeRed">
-                                    </asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderOnTime" IsValueShownAsLabel="true" LegendText="On time" Color="LimeGreen"></asp:Series>
+                                    <asp:Series ChartType="StackedBar" Name="SeriesHorizonOrderNotOnTime" IsValueShownAsLabel="true" LegendText="Not on time" Color="Orange"></asp:Series>
                                 </Series>
                                 <ChartAreas>
                                     <asp:ChartArea Name="ChartArea1" BorderWidth="10">
@@ -412,40 +443,6 @@
                     </tr>
                     <tr>
                         <td>
-                            <span class="Label">Delays penalty</span>
-                            <span class="labelInfo">2pts per day % of rate lines beyond 5 days</span>
-
-                        </td>
-                        <td>
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelValue" CausesValidation="True" runat="server" CssClass="NumberBox"></asp:TextBox>
-                            %
-                                <br />
-                            <asp:Label ID="LabelLogisticRate" runat="server" Text="N/A" CssClass="precalcul"></asp:Label>
-                        </td>
-                        <td class="cellule">
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelPoint" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
-                            <asp:RangeValidator CssClass="Validator" ID="RangeValidator14" ControlToValidate="textboxDeliveryDelaysLevelValue" MinimumValue="0" MaximumValue="100" Type="Integer" runat="server" ErrorMessage="Please enter number between 0 and 100" Display="None"></asp:RangeValidator>
-                            <asp:ValidatorCalloutExtender ID="RangeValidator14_ValidatorCalloutExtender" runat="server" TargetControlID="RangeValidator14"></asp:ValidatorCalloutExtender>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelValuePNS" runat="server" CausesValidation="True" CssClass="NumberBox" Enabled="False"></asp:TextBox>
-                            %&nbsp;<br />
-                            <asp:Label ID="LabelLogisticRatePNS" runat="server" CssClass="precalcul" Text="N/A"></asp:Label>
-                        </td>
-                        <td class="cellule">
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelPointPNS" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelValueSERTA" runat="server" CausesValidation="True" CssClass="NumberBox" Enabled="False"></asp:TextBox>
-                            %&nbsp;<br />
-                            <asp:Label ID="LabelLogisticRateSERTA" runat="server" CssClass="precalcul" Text="N/A"></asp:Label>
-                        </td>
-                        <td>
-                            <asp:TextBox ID="textboxDeliveryDelaysLevelPointSERTA" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
                             <span class="Label">Delivery quality</span>
                             <span class="labelInfo">2pts if no incident</span>
                         </td>
@@ -455,7 +452,7 @@
                             <asp:Label ID="LabelLNCCount" runat="server" CssClass="precalcul">N/A</asp:Label>
                         </td>
                         <td class="cellule">
-                            <asp:TextBox ID="textboxDeliveryQualityPoint" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>/2
+                            <asp:TextBox ID="textboxDeliveryQualityPoint" runat="server" CssClass="NumberBox"></asp:TextBox>/2
                                 <asp:RangeValidator CssClass="Validator" ID="RangeValidator15" ControlToValidate="textboxDeliveryQualityValue" MinimumValue="0" MaximumValue="1000" Type="Integer" runat="server" ErrorMessage="Please enter a number" Display="None"></asp:RangeValidator>
                             <asp:ValidatorCalloutExtender ID="RangeValidator15_ValidatorCalloutExtender" runat="server" TargetControlID="RangeValidator15"></asp:ValidatorCalloutExtender>
                         </td>
@@ -475,6 +472,28 @@
                         <td>
                             <asp:TextBox ID="textboxDeliveryQualityPointSERTA" runat="server" CssClass="NumberBox" Enabled="false"></asp:TextBox>
                             /2&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="Label">Improvement plan</span>
+                        </td>
+                        <td>
+                            &nbsp;</td>
+                        <td class="cellule">
+                            <asp:TextBox ID="textBoxLogisticImprovementPlan" runat="server" CssClass="NumberBox"  AutoPostBack="false"></asp:TextBox>/10
+                            <asp:RangeValidator CssClass="Validator" ID="RangeValidator2" ControlToValidate="textBoxLogisticImprovementPlan" MinimumValue="0" MaximumValue="10" Type="Integer" runat="server" ErrorMessage="Please enter a number" Display="None"></asp:RangeValidator>
+                            <asp:ValidatorCalloutExtender ID="ValidatorCalloutExtender15" runat="server" TargetControlID="RangeValidator1"></asp:ValidatorCalloutExtender>
+                        </td>
+                        <td>
+                            &nbsp;</td>
+                        <td class="cellule">
+                            <asp:TextBox ID="textBoxLogisticImprovementPlanPNS" runat="server" CssClass="NumberBox"  AutoPostBack="false" Enabled="false"></asp:TextBox>/10    
+                        </td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                             <asp:TextBox ID="textBoxLogisticImprovementPlanSERTA" runat="server" CssClass="NumberBox"  AutoPostBack="false" Enabled="false"></asp:TextBox>/10
+                        </td>
                     </tr>
                     <tfoot>
                         <tr>
@@ -760,6 +779,12 @@
         <script type="text/javascript" src="../../Script/jquery-2.0.3.js"></script>
         <script type="text/javascript" src="SupplierAssessment.js"></script>
         <script type="text/javascript">
+            //Evenement au moment de la fin du chargement
+            $(window).bind("load", function () {
+                TotalQuality();
+                TotalLogistique();
+                Totalcompetitiveness();
+            });
 
             //Gestion des evenements sur chaque champs modifié//
             //Changement Indice PPM
@@ -782,6 +807,11 @@
                 TotalQuality();//recalcule le total
             });
 
+            //Changement Nombre de probleme qualité
+            $('#<%=textBoxQualityImprovementPlan.ClientID%>').change(function () {
+                TotalQuality();//recalcule le total
+            });
+
             //Réactivité 
             $('#<%=textBoxActionPlanReactivity.ClientID%>').change(function () {
                 TotalQuality();//recalcule le total
@@ -789,9 +819,8 @@
 
             //Taux de service
             $('#<%=textboxLogisticRateValue.ClientID%>').change(function () {
-                $('#<%=textboxLogisticRatePoint.ClientID%>').val(tauxServiceAvecPenalite($('#<%=textboxLogisticRateValue.ClientID%>').val(), $('#<%=LabelFirmOrderPoint.ClientID%>').html()));
-                $('#<%=LabelTargetRatePenality.ClientID%>').html(tauxServiceAvecPenalite($('#<%=textboxLogisticRateValue.ClientID%>').val(), $('#<%=LabelFirmOrderPoint.ClientID%>').html()) - tauxService($('#<%=textboxLogisticRateValue.ClientID%>').val()));
-                TotalLogistique();//recalcule le total 
+                $('#<%=textboxLogisticRatePoint.ClientID%>').val(tauxService($('#<%=textboxLogisticRateValue.ClientID%>').val()));
+                TotalLogistique();//recalcule le total
             });
 
             //Flexibilité
@@ -808,6 +837,11 @@
             //Qualité de livraison
             $('#<%=textboxDeliveryQualityValue.ClientID%>').change(function () {
                 $('#<%=textboxDeliveryQualityPoint.ClientID%>').val(deliveryQuality($('#<%=textboxDeliveryQualityValue.ClientID%>').val()));
+                TotalLogistique();//recalcule le total
+            });
+
+            //Plan de progres logistique
+            $('#<%=textBoxLogisticImprovementPlan.ClientID%>').change(function () {
                 TotalLogistique();//recalcule le total
             });
 
@@ -841,7 +875,7 @@
                 Totalcompetitiveness();//recalcule le total
             });
 
-            //Calcule le total de la partie Quality
+            //Calcule le Sous total et total de la partie Quality
             TotalQuality = function () {
                 var PPMNote = parseInt($('#<%=textBoxIndicePPMNote.ClientID%>').val());
                 var CustomerNBPoint = parseInt($('#<%=textBoxCustomerClaimNBPoint.ClientID%>').val());
@@ -850,40 +884,45 @@
                 var ActionPlanReactivity = parseInt($('#<%=textBoxActionPlanReactivity.ClientID%>').val());
                 var TmpTotalQuality = PPMNote + CustomerNBPoint + SinNBPoint + BonusPPM + ActionPlanReactivity;
                 if (TmpTotalQuality < 0) {
-                    $('#<%=LabelTotalQualite.ClientID%>').html(0)
+                    TmpTotalQuality = 0;
                 }
-                else if (TmpTotalQuality > 45) {
-                    $('#<%=LabelTotalQualite.ClientID%>').html(45)
+
+                if ((TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val())) > 45) {
+                    $('#<%=LabelTotalQualite.ClientID%>').html(45);
+                }
+                else if ((TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val())) < 0) {
+                    $('#<%=LabelTotalQualite.ClientID%>').html(0);
                 }
                 else {
-                    $('#<%=LabelTotalQualite.ClientID%>').html(TmpTotalQuality)
+                    $('#<%=LabelTotalQualite.ClientID%>').html(TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val()));
                 }
+                //Appel Score total
                 TotalScore();//Appel le calcule du score total
             };
+
 
         //Calcule le total du score Logistique
         TotalLogistique = function () {
             var ServiceRate = parseInt(($('#<%=textboxLogisticRatePoint.ClientID%>').val()));
-            var flexibility = parseInt(($('#<%=textboxFlexibilityPoint.ClientID%>').val()));
-            var delaysPenality = parseInt(($('#<%=textboxDeliveryDelaysLevelPoint.ClientID%>').val()));
-            var deliveryQuality = parseInt(($('#<%=textboxDeliveryQualityPoint.ClientID%>').val()));
+                var flexibility = parseInt(($('#<%=textboxFlexibilityPoint.ClientID%>').val()));
+                var delaysPenality = parseInt(($('#<%=textboxDeliveryDelaysLevelPoint.ClientID%>').val()));
+                var deliveryQuality = parseInt(($('#<%=textboxDeliveryQualityPoint.ClientID%>').val()));
+                var ImprovementPlan = parseInt(($('#<%=textBoxLogisticImprovementPlan.ClientID%>').val()));
 
-            var TmpTotalLogistique = ServiceRate + flexibility + delaysPenality + deliveryQuality;
-            if (TmpTotalLogistique < 0) {
-                $('#<%=labelTotalLogistique.ClientID%>').html(0)
-            }
-            else if (TmpTotalLogistique > 35) {
-                $('#<%=labelTotalLogistique.ClientID%>').html(35)
-        }
-        else {
-            $('#<%=labelTotalLogistique.ClientID%>').html(TmpTotalLogistique)
-        }
-
+                var TmpTotalLogistique = ServiceRate + delaysPenality
+                if (TmpTotalLogistique < 0) {
+                    TmpTotalLogistique = 0
+                }
+                TmpTotalLogistique = TmpTotalLogistique + flexibility + deliveryQuality + ImprovementPlan
+                if (TmpTotalLogistique > 35) {
+                    TmpTotalLogistique = 35
+                }
+                $('#<%=labelTotalLogistique.ClientID%>').html(TmpTotalLogistique)
             TotalScore();//Appel le calcule du score total
-        };
-//Calcule le total du score competitivité
-Totalcompetitiveness = function () {
-    var Improvementplan = parseInt(($('#<%=TextBoxImprovmentPlan.ClientID%>').val()));
+            };
+        //Calcule le total du score competitivité
+        Totalcompetitiveness = function () {
+            var Improvementplan = parseInt(($('#<%=TextBoxImprovmentPlan.ClientID%>').val()));
     var BusinessRelationship = parseInt(($('#<%=TextBoxBusinessRelationship.ClientID%>').val()));
     var ReactivityOnCommercial = parseInt(($('#<%=TextBoxOffersReactivity.ClientID%>').val()));
     var QualityOfTechnical = parseInt(($('#<%=TextBoxTechnicalAnswerQuality.ClientID%>').val()));
@@ -896,10 +935,10 @@ Totalcompetitiveness = function () {
     }
     else if (TmpTotalcompetiviveness > 20) {
         $('#<%=LabelTatalCompetitiveness.ClientID%>').html(20)
-    }
-    else {
-        $('#<%=LabelTatalCompetitiveness.ClientID%>').html(TmpTotalcompetiviveness)
-    }
+        }
+        else {
+            $('#<%=LabelTatalCompetitiveness.ClientID%>').html(TmpTotalcompetiviveness)
+        }
 
     TotalScore();//Appel le calcule du score total
 };
@@ -917,10 +956,10 @@ TotalScore = function () {
     }
     else if (TmpTotalscore > 100) {
         $('#<%=LabelTotal.ClientID%>').html(100)
-    }
-    else {
-        $('#<%=LabelTotal.ClientID%>').html(TmpTotalscore)
-    }
+        }
+        else {
+            $('#<%=LabelTotal.ClientID%>').html(TmpTotalscore)
+        }
 };
 $(document).ready(TotalLogistique)
         </script>

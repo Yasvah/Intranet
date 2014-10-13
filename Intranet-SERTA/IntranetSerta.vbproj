@@ -188,14 +188,14 @@
     <Content Include="View\MigBaan\Fournisseurs\ReportFournisseursPasDansBaan.aspx" />
     <Content Include="View\MigBaan\Fournisseurs\ReportFournisseursAjouterDansBaan.aspx" />
     <Content Include="View\MigBaan\Fournisseurs\ReportFournisseursPresentDansQuelleTable.aspx" />
+    <Content Include="View\MovingHead\RapportAnalyseRetard.aspx" />
     <Content Include="View\MovingHead\SupplierAssessment.js" />
     <Content Include="View\MovingHead\SupplierAssessmentCOMMUN.aspx" />
     <Content Include="View\MovingHead\SupplierAssessmentPNS.aspx" />
-    <Content Include="View\MovingHead\SupplierAssessmentSERTA.aspx" />
     <Content Include="View\Home\Default.aspx" />
     <Content Include="index.html" />
-    <Content Include="View\MovingHead\RapportAnalyseRetard.aspx" />
     <Content Include="View\Comptabilite\RapportClientCompta.aspx" />
+    <Content Include="View\MovingHead\SupplierAssessmentSERTA.aspx" />
     <Content Include="View\Shared\Download.aspx" />
     <Content Include="View\Shared\ShowReport.aspx" />
     <Content Include="Web.config">
@@ -309,6 +309,13 @@
       <DependentUpon>ReportFournisseursPresentDansQuelleTable.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="View\MovingHead\RapportAnalyseRetard.aspx.designer.vb">
+      <DependentUpon>RapportAnalyseRetard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MovingHead\RapportAnalyseRetard.aspx.vb">
+      <DependentUpon>RapportAnalyseRetard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="View\MovingHead\SupplierAssessmentCOMMUN.aspx.designer.vb">
       <DependentUpon>SupplierAssessmentCOMMUN.aspx</DependentUpon>
     </Compile>
@@ -323,13 +330,6 @@
       <DependentUpon>SupplierAssessmentPNS.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\MovingHead\SupplierAssessmentSERTA.aspx.designer.vb">
-      <DependentUpon>SupplierAssessmentSERTA.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\MovingHead\SupplierAssessmentSERTA.aspx.vb">
-      <DependentUpon>SupplierAssessmentSERTA.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="View\Home\Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -337,18 +337,18 @@
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="View\MovingHead\RapportAnalyseRetard.aspx.designer.vb">
-      <DependentUpon>RapportAnalyseRetard.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="View\MovingHead\RapportAnalyseRetard.aspx.vb">
-      <DependentUpon>RapportAnalyseRetard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="View\Comptabilite\RapportClientCompta.aspx.designer.vb">
       <DependentUpon>RapportClientCompta.aspx</DependentUpon>
     </Compile>
     <Compile Include="View\Comptabilite\RapportClientCompta.aspx.vb">
       <DependentUpon>RapportClientCompta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\MovingHead\SupplierAssessmentSERTA.aspx.designer.vb">
+      <DependentUpon>SupplierAssessmentSERTA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\MovingHead\SupplierAssessmentSERTA.aspx.vb">
+      <DependentUpon>SupplierAssessmentSERTA.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="View\Shared\Download.aspx.designer.vb">
@@ -393,6 +393,7 @@
     <Content Include="View\Shared\App_LocalResources\SertaIntra.Master.resx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Trace\TextWriterOutput.log" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -401,6 +402,7 @@
     <None Include="My Project\PublishProfiles\Dev.pubxml" />
     <None Include="My Project\PublishProfiles\Intranet-SERTA-Dev.pubxml" />
     <None Include="My Project\PublishProfiles\IntranetSERTA-PROD.pubxml" />
+    <None Include="My Project\PublishProfiles\Intranet-SertaDev.pubxml" />
     <None Include="My Project\PublishProfiles\LocalFolder.pubxml" />
     <None Include="My Project\PublishProfiles\Production.pubxml" />
     <None Include="My Project\PublishProfiles\Serveur de Developpement.pubxml" />
@@ -440,7 +442,6 @@
   <ItemGroup>
     <Folder Include="App_Data\DownloadFile\" />
     <Folder Include="App_Data\ErrorLog\" />
-    <Folder Include="App_Data\Trace\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

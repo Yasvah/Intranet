@@ -5,12 +5,21 @@ Public Class SupplierAssessmentCOMMUN
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        'Permet de bloquer l'écriture tout en permettant la publication de la valeur
+        textBoxIndicePPMNote.Attributes.Add("readonly", "readonly")
+        textBoxSinNBPoint.Attributes.Add("readonly", "readonly")
+        textBoxCustomerClaimNBPoint.Attributes.Add("readonly", "readonly")
+        textboxLogisticRatePoint.Attributes.Add("readonly", "readonly")
+        textboxDeliveryDelaysLevelPoint.Attributes.Add("readonly", "readonly")
+        textBoxBonusPPM.Attributes.Add("readonly", "readonly")
+        textboxDeliveryQualityPoint.Attributes.Add("readonly", "readonly")
         ' Au premier chargement de la page je remplies ma listbox de fournisseur.
         If Not (IsPostBack) Then
             Try
                 ''Connexion de la source de donnée au listeBox Supplier(Fournisseur)
                 System.Diagnostics.Trace.WriteLine(Now + " | " + User.Identity.Name + " load form", Me.ToString)
-                DropDownListSupplier.DataSource = MgtSupplierIndicatorCOMMUN.getInstance.ListSupplier
+                DropDownListSupplier.DataSource = MgtSupplierIndicatorCOMMUN.getInstance.Supplier_list
                 DropDownListSupplier.DataTextField = "SUP_NAME"
                 DropDownListSupplier.DataValueField = "SUP_ID"
                 DropDownListSupplier.DataBind()
@@ -28,220 +37,222 @@ Public Class SupplierAssessmentCOMMUN
         Return p
     End Function
 
-    Private Sub chargeFormulaireCommun(lAssessment As AssessmentCOMMUN)
+    Private Sub chargeFormulaireCommun(lAssessment As T_SUP_ASSESSMENT_SUA_COMMON)
         Try
             If (IsNothing(lAssessment)) Then
-                Session("assessmentAfficherCOMMUN") = New AssessmentCOMMUN(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue)
+                System.Diagnostics.Trace.WriteLine("création")
+                Session("assessmentAfficherCOMMUN") = New T_SUP_ASSESSMENT_SUA_COMMON(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue)
             Else
+                System.Diagnostics.Trace.WriteLine("clonage")
                 Session("assessmentAfficherCOMMUN") = lAssessment.Clone
             End If
-            Dim assessmentAfficher As AssessmentCOMMUN = CType(Session("assessmentAfficherCOMMUN"), AssessmentCOMMUN)
+            Dim assessmentAfficher As T_SUP_ASSESSMENT_SUA_COMMON = CType(Session("assessmentAfficherCOMMUN"), T_SUP_ASSESSMENT_SUA_COMMON)
             '------------------------------------Affichage Commun -----------------------
             ''*****FieldSet Qualité ******
-            textBoxIndicePPMvalue.Text = assessmentAfficher.indicePPMValue
-            textBoxIndicePPMNote.Text = assessmentAfficher.indicePPMPoint
-            textBoxSinNBValue.Text = assessmentAfficher.sinNBValue
-            textBoxSinNBPoint.Text = assessmentAfficher.sinNBPoint
-            textBoxCustomerClaimNBValue.Text = assessmentAfficher.customerClaimNBValue
-            textBoxCustomerClaimNBPoint.Text = assessmentAfficher.customerClaimNBPoint
-            textBoxActionPlanReactivity.Text = assessmentAfficher.actionPlanReactivityPoint
-            textBoxBonusPPM.Text = assessmentAfficher.bonus500PPMPoint
-            LabelTotalQualite.Text = assessmentAfficher.TotalQuality
+            textBoxIndicePPMvalue.Text = IfNull(assessmentAfficher.SUA_INDICE_PPM_VALUE)
+            textBoxIndicePPMNote.Text = IfNull(assessmentAfficher.SUA_INDICE_PPM_POINT)
+            textBoxSinNBValue.Text = IfNull(assessmentAfficher.SUA_SIN_NB_VALUE)
+            textBoxSinNBPoint.Text = IfNull(assessmentAfficher.SUA_SIN_NB_POINT)
+            textBoxCustomerClaimNBValue.Text = IfNull(assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_VALUE)
+            textBoxCustomerClaimNBPoint.Text = IfNull(assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_POINT)
+            textBoxActionPlanReactivity.Text = IfNull(assessmentAfficher.SUA_ACTION_PLAN_REACTIVITY_POINT)
+            textBoxBonusPPM.Text = IfNull(assessmentAfficher.SUA_BONUS_500_PPM_POINT)
+            textBoxQualityImprovementPlan.Text = IIf(assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN Is Nothing, "0", assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN)
+            'LabelTotalQualite.Text = assessmentAfficher.SUA_
             ''****** FieldSet Logistique ********
-            textboxLogisticRateValue.Text = assessmentAfficher.logisticRateTarget95Value
-            textboxLogisticRatePoint.Text = assessmentAfficher.logisticRateTarget95WithPenalty
-            textboxFlexibilityPoint.Text = assessmentAfficher.flexibilityPoint
-            textboxDeliveryDelaysLevelValue.Text = assessmentAfficher.deliveryDelaysLevelValue
-            textboxDeliveryDelaysLevelPoint.Text = assessmentAfficher.deliveryDelaysLevelPoint
-            textboxDeliveryQualityValue.Text = assessmentAfficher.deliveryQualityValue
-            textboxDeliveryQualityPoint.Text = assessmentAfficher.deliveryQualityPoint
-            labelTotalLogistique.Text = assessmentAfficher.TotalLogistic
+            textboxLogisticRateValue.Text = IfNull(assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_VALUE)
+            textboxLogisticRatePoint.Text = IfNull(assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_POINT)
+            textboxFlexibilityPoint.Text = IfNull(assessmentAfficher.SUA_FLEXIBILITY_POINT)
+            textboxDeliveryDelaysLevelValue.Text = IfNull(assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_VALUE)
+            textboxDeliveryDelaysLevelPoint.Text = IfNull(assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_POINT)
+            textboxDeliveryQualityValue.Text = IfNull(assessmentAfficher.SUA_DELIVERY_QUALITY_VALUE)
+            textboxDeliveryQualityPoint.Text = IfNull(assessmentAfficher.SUA_DELIVERY_QUALITY_POINT)
+            textBoxLogisticImprovementPlan.Text = IIf(assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN Is Nothing, "0", assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN)
+            'labelTotalLogistique.Text = assessmentAfficher.SUA_
             ''******** FielSet Compétitivité ********
-            TextBoxImprovmentPlan.Text = assessmentAfficher.improvmentPlanPoint
-            TextBoxBusinessRelationship.Text = assessmentAfficher.businessRelationshipPoint
-            TextBoxFinancialSituation.Text = assessmentAfficher.financialSituationPoint
-            TextBoxOffersReactivity.Text = assessmentAfficher.offersReactivityPoint
-            TextBoxTechnicalAnswerQuality.Text = assessmentAfficher.technicalAnswerQualityPoint
-            TextBoxIsoCertification.Text = assessmentAfficher.isoCertificationPoint
-            LabelTatalCompetitiveness.Text = assessmentAfficher.TotalCompetitiveness
+            TextBoxImprovmentPlan.Text = IfNull(assessmentAfficher.SUA_IMPROVMENT_PLAN_POINT)
+            TextBoxBusinessRelationship.Text = IfNull(assessmentAfficher.SUA_BUSINESS_RELATIONSHIP_POINT)
+            TextBoxFinancialSituation.Text = IfNull(assessmentAfficher.SUA_FINANCIAL_SITUATION_POINT)
+            TextBoxOffersReactivity.Text = IfNull(assessmentAfficher.SUA_OFFERS_REACTIVITY_POINT)
+            TextBoxTechnicalAnswerQuality.Text = IfNull(assessmentAfficher.SUA_TECHNICAL_ANSWER_QUALITY_POINT)
+            TextBoxIsoCertification.Text = IfNull(assessmentAfficher.SUA_ISO_CERTFICATION_POINT)
+            'LabelTatalCompetitiveness.Text = assessmentAfficher.SUA_
             ''************* FielSet Notation *************
-            LabelTotal.Text = CInt(LabelTatalCompetitiveness.Text) + CInt(labelTotalLogistique.Text) + CInt(LabelTotalQualite.Text)
-            RadioButtonListTrend.SelectedValue = assessmentAfficher.trend
-            TextBoxCommentDetail.Text = assessmentAfficher.commentDetail
-            TextBoxCommentClassification.Text = assessmentAfficher.commentClassification
-            TextBoxCommentGlobal.Text = assessmentAfficher.commentGlobal
+            LabelTotal.Text = IfNull(assessmentAfficher.SUA_TOTAL_POINT)
+            RadioButtonListTrend.SelectedValue = assessmentAfficher.SUA_TREND
+            TextBoxCommentDetail.Text = assessmentAfficher.SUA_COMMENT_DETAIL
+            TextBoxCommentClassification.Text = assessmentAfficher.SUA_COMMENT_CLASSIFICATION
+            TextBoxCommentGlobal.Text = assessmentAfficher.SUA_COMMENT_GLOBAL
             '**************** Pré-calcule***************************
-            LabelPPM.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.PPM), 0, CInt(assessmentAfficher.PrecalculedValue.PPM))
-            LabelQncCount.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.QNC_COUNT), 0, assessmentAfficher.PrecalculedValue.QNC_COUNT)
-            LabelCustomerClaimCount.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.CUSTOMER_CLAIM_COUNT), 0, assessmentAfficher.PrecalculedValue.CUSTOMER_CLAIM_COUNT)
-            LabelLNCCount.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.LNC_COUNT), 0, CInt(assessmentAfficher.PrecalculedValue.LNC_COUNT))
-            If (IsNothing(assessmentAfficher.PrecalculedValue.LOGISTIC_RATE)) Then
-                LabelDelaysUpTo10DaysRate.Text = "0 %"
+            If assessmentAfficher.PreCalcule.PPM Is Nothing Then
+                LabelPPM.Text = "N/A"
             Else
-                LabelDelaysUpTo10DaysRate.Text = FormatPercent(assessmentAfficher.PrecalculedValue.LOGISTIC_RATE, 0)
+                LabelPPM.Text = CInt(assessmentAfficher.PreCalcule.PPM)
             End If
-            If IsNothing(assessmentAfficher.PrecalculedValue.DELAYS_UP_TO_DAYS_RATE) Then
-                LabelLogisticRate.Text = "0 %"
+            LabelQncCount.Text = IIf(IsNothing(assessmentAfficher.PreCalcule.QNC_COUNT), 0, assessmentAfficher.PreCalcule.QNC_COUNT)
+            LabelCustomerClaimCount.Text = IIf(IsNothing(assessmentAfficher.PreCalcule.CUSTOMER_CLAIM_COUNT), 0, assessmentAfficher.PreCalcule.CUSTOMER_CLAIM_COUNT)
+            LabelLNCCount.Text = IIf(IsNothing(assessmentAfficher.PreCalcule.LNC_COUNT), 0, assessmentAfficher.PreCalcule.LNC_COUNT)
+            If (IsNothing(assessmentAfficher.PreCalcule.LOGISTIC_RATE)) Then
+                LabelDelaysUpTo10DaysRate.Text = "N/A"
             Else
-                LabelLogisticRate.Text = FormatPercent(assessmentAfficher.PrecalculedValue.DELAYS_UP_TO_DAYS_RATE, 0)
+                LabelDelaysUpTo10DaysRate.Text = FormatPercent(assessmentAfficher.PreCalcule.LOGISTIC_RATE, 0)
             End If
-            LabelFirmOrderRequest.Text = assessmentAfficher.PrecalculedValue.FIRM_ORDER_REQUEST
-            LabelFirmOrderCurrent.Text = assessmentAfficher.PrecalculedValue.FIRM_ORDER_CURRENT
-            LabelFirmOrderValues.Text = assessmentAfficher.PrecalculedValue.FirmOrderValues
-            LabelFirmOrderPoint.Text = assessmentAfficher.PrecalculedValue.FirmOrderPoint
-
-            LabelTargetRatePenality.Text = assessmentAfficher.PenaltyPoint
-
-            ChartHorizonOrder.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("< 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_GREATER_THAN_12))
-            ChartHorizonOrder.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("11 - 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_11_TO_12))
-            ChartHorizonOrder.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("9 - 10 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_9_TO_10))
-            ChartHorizonOrder.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("7 - 8 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_7_TO_8))
-            ChartHorizonOrder.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("5 - 6 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_5_TO_6))
-            ChartHorizonOrder.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("3 - 4 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_3_TO_4))
-            ChartHorizonOrder.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("0 - 2 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_0_TO_2))
-
+            If IsNothing(assessmentAfficher.PreCalcule.DELAYS_UPPER_TO_X_DAYS_RATE) Then
+                LabelLogisticRate.Text = "N/A"
+            Else
+                LabelLogisticRate.Text = FormatPercent(assessmentAfficher.PreCalcule.DELAYS_UPPER_TO_X_DAYS_RATE, 0)
+            End If
+            '*********************************** Graphique **********************************************************
+            For Each uneLigne In assessmentAfficher.OrderHorizon
+                ChartHorizonOrderCommun.Series("SeriesHorizonOrderOnTime").Points.Add(nouveauPoint(uneLigne.ORDER_HORIZON_LABEL, uneLigne.NB_ON_TIME))
+                ChartHorizonOrderCommun.Series("SeriesHorizonOrderNotOnTime").Points.Add(nouveauPoint(uneLigne.ORDER_HORIZON_LABEL, uneLigne.NB_NOT_ON_TIME))
+            Next
 
         Catch ex As Exception
             Throw ex
         End Try
     End Sub
 
-    Private Sub chargeFormulairePNS(lAssessment As AssessmentPNS)
+    Private Sub chargeFormulairePNS(lAssessment As T_SUP_ASSESSMENT_SUA_PNS)
         Try
             If (IsNothing(lAssessment)) Then
-                Session("assessmentAfficherPNS") = New AssessmentPNS(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue)
+                Session("assessmentAfficherPNS") = New T_SUP_ASSESSMENT_SUA_PNS(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue)
             Else
                 Session("assessmentAfficherPNS") = lAssessment.Clone
             End If
             ''*****FieldSet Qualité ******
-            Dim assessmentAfficher As AssessmentPNS = CType(Session("assessmentAfficherPNS"), AssessmentPNS)
-            textBoxIndicePPMvaluePNS.Text = assessmentAfficher.indicePPMValue
-            textBoxIndicePPMNotePNS.Text = assessmentAfficher.indicePPMPoint
-            textBoxSinNBValuePNS.Text = assessmentAfficher.sinNBValue
-            textBoxSinNBPointPNS.Text = assessmentAfficher.sinNBPoint
-            textBoxCustomerClaimNBValuePNS.Text = assessmentAfficher.customerClaimNBValue
-            textBoxCustomerClaimNBPointPNS.Text = assessmentAfficher.customerClaimNBPoint
-            textBoxActionPlanReactivityPNS.Text = assessmentAfficher.actionPlanReactivityPoint
-            textBoxBonusPPMPNS.Text = assessmentAfficher.bonus500PPMPoint
-            LabelTotalQualitePNS.Text = assessmentAfficher.TotalQuality
+            Dim assessmentAfficher As T_SUP_ASSESSMENT_SUA_PNS = CType(Session("assessmentAfficherPNS"), T_SUP_ASSESSMENT_SUA_PNS)
+            textBoxIndicePPMvaluePNS.Text = IfNull(assessmentAfficher.SUA_INDICE_PPM_VALUE)
+            textBoxIndicePPMNotePNS.Text = IfNull(assessmentAfficher.SUA_INDICE_PPM_POINT)
+            textBoxSinNBValuePNS.Text = IfNull(assessmentAfficher.SUA_SIN_NB_VALUE)
+            textBoxSinNBPointPNS.Text = IfNull(assessmentAfficher.SUA_SIN_NB_POINT)
+            textBoxCustomerClaimNBValuePNS.Text = IfNull(assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_VALUE)
+            textBoxCustomerClaimNBPointPNS.Text = IfNull(assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_POINT)
+            textBoxActionPlanReactivityPNS.Text = IfNull(assessmentAfficher.SUA_ACTION_PLAN_REACTIVITY_POINT)
+            textBoxBonusPPMPNS.Text = IfNull(assessmentAfficher.SUA_BONUS_500_PPM_POINT)
+            textBoxQualityImprovementPlanPNS.Text = IIf(assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN Is Nothing, "0", assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN)
+            'LabelTotalQualite.Text = assessmentAfficher.SUA_
             ''****** FieldSet Logistique ********
-            textboxLogisticRateValuePNS.Text = assessmentAfficher.logisticRateTarget95Value
-            textboxLogisticRatePointPNS.Text = assessmentAfficher.logisticRateTarget95WithPenalty
-            textboxFlexibilityPointPNS.Text = assessmentAfficher.flexibilityPoint
-            textboxDeliveryDelaysLevelValuePNS.Text = assessmentAfficher.deliveryDelaysLevelValue
-            textboxDeliveryDelaysLevelPointPNS.Text = assessmentAfficher.deliveryDelaysLevelPoint
-            textboxDeliveryQualityValuePNS.Text = assessmentAfficher.deliveryQualityValue
-            textboxDeliveryQualityPointPNS.Text = assessmentAfficher.deliveryQualityPoint
-            labelTotalLogistiquePNS.Text = assessmentAfficher.TotalLogistic
+            textboxLogisticRateValuePNS.Text = IfNull(assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_VALUE)
+            textboxLogisticRatePointPNS.Text = IfNull(assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_POINT)
+            textboxFlexibilityPointPNS.Text = IfNull(assessmentAfficher.SUA_FLEXIBILITY_POINT)
+            textboxDeliveryDelaysLevelValuePNS.Text = IfNull(assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_VALUE)
+            textboxDeliveryDelaysLevelPointPNS.Text = IfNull(assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_POINT)
+            textboxDeliveryQualityValuePNS.Text = IfNull(assessmentAfficher.SUA_DELIVERY_QUALITY_VALUE)
+            textboxDeliveryQualityPointPNS.Text = IfNull(assessmentAfficher.SUA_DELIVERY_QUALITY_POINT)
+            textBoxLogisticImprovementPlanPNS.Text = IIf(assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN Is Nothing, "0", assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN)
+            'labelTotalLogistique.Text = assessmentAfficher.SUA_
             ''******** FielSet Compétitivité ********
-            TextBoxImprovmentPlanPNS.Text = assessmentAfficher.improvmentPlanPoint
-            TextBoxBusinessRelationshipPNS.Text = assessmentAfficher.businessRelationshipPoint
-            TextBoxFinancialSituationPNS.Text = assessmentAfficher.financialSituationPoint
-            TextBoxOffersReactivityPNS.Text = assessmentAfficher.offersReactivityPoint
-            TextBoxTechnicalAnswerQualityPNS.Text = assessmentAfficher.technicalAnswerQualityPoint
-            TextBoxIsoCertificationPNS.Text = assessmentAfficher.isoCertificationPoint
-            LabelTatalCompetitivenessPNS.Text = assessmentAfficher.TotalCompetitiveness
+            TextBoxImprovmentPlanPNS.Text = IfNull(assessmentAfficher.SUA_IMPROVMENT_PLAN_POINT)
+            TextBoxBusinessRelationshipPNS.Text = IfNull(assessmentAfficher.SUA_BUSINESS_RELATIONSHIP_POINT)
+            TextBoxFinancialSituationPNS.Text = IfNull(assessmentAfficher.SUA_FINANCIAL_SITUATION_POINT)
+            TextBoxOffersReactivityPNS.Text = IfNull(assessmentAfficher.SUA_OFFERS_REACTIVITY_POINT)
+            TextBoxTechnicalAnswerQualityPNS.Text = IfNull(assessmentAfficher.SUA_TECHNICAL_ANSWER_QUALITY_POINT)
+            TextBoxIsoCertificationPNS.Text = IfNull(assessmentAfficher.SUA_ISO_CERTFICATION_POINT)
+            'LabelTatalCompetitiveness.Text = assessmentAfficher.SUA_
             ''************* FielSet Notation *************
-            LabelTotalPNS.Text = CInt(LabelTatalCompetitiveness.Text) + CInt(labelTotalLogistique.Text) + CInt(LabelTotalQualite.Text)
-            RadioButtonListTrendPNS.SelectedValue = assessmentAfficher.trend
-            TextBoxCommentDetailPNS.Text = assessmentAfficher.commentDetail
-            TextBoxCommentClassificationPNS.Text = assessmentAfficher.commentClassification
-            TextBoxCommentGlobalPNS.Text = assessmentAfficher.commentGlobal
+            LabelTotalPNS.Text = assessmentAfficher.SUA_TOTAL_POINT
+            RadioButtonListTrendPNS.SelectedValue = assessmentAfficher.SUA_TREND
+            TextBoxCommentDetailPNS.Text = assessmentAfficher.SUA_COMMENT_DETAIL
+            TextBoxCommentClassificationPNS.Text = assessmentAfficher.SUA_COMMENT_CLASSIFICATION
+            TextBoxCommentGlobalPNS.Text = assessmentAfficher.SUA_COMMENT_GLOBAL
             '**************** Pré-calcule***************************
-            LabelPPMPNS.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.PPM), 0, CInt(assessmentAfficher.PrecalculedValue.PPM))
-            LabelQncCountPNS.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.QNC_COUNT), 0, assessmentAfficher.PrecalculedValue.QNC_COUNT)
-            LabelCustomerClaimCountPNS.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.CUSTOMER_CLAIM_COUNT), 0, assessmentAfficher.PrecalculedValue.CUSTOMER_CLAIM_COUNT)
-            LabelLNCCountPNS.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.LNC_COUNT), 0, CInt(assessmentAfficher.PrecalculedValue.LNC_COUNT))
-            If (IsNothing(assessmentAfficher.PrecalculedValue.LOGISTIC_RATE)) Then
-                LabelDelaysUpTo10DaysRatePNS.Text = "0 %"
+            If assessmentAfficher.PreCalcule.PPM Is Nothing Then
+                LabelPPMPNS.Text = "N/A"
             Else
-                LabelDelaysUpTo10DaysRatePNS.Text = FormatPercent(assessmentAfficher.PrecalculedValue.LOGISTIC_RATE, 0)
+                LabelPPMPNS.Text = CInt(assessmentAfficher.PreCalcule.PPM)
             End If
-            If IsNothing(assessmentAfficher.PrecalculedValue.DELAYS_UP_TO_DAYS_RATE) Then
-                LabelLogisticRatePNS.Text = "0 %"
+            LabelQncCountPNS.Text = IIf(IsNothing(assessmentAfficher.PreCalcule.QNC_COUNT), 0, assessmentAfficher.PreCalcule.QNC_COUNT)
+            LabelCustomerClaimCountPNS.Text = IIf(IsNothing(assessmentAfficher.PreCalcule.CUSTOMER_CLAIM_COUNT), 0, assessmentAfficher.PreCalcule.CUSTOMER_CLAIM_COUNT)
+            LabelLNCCountPNS.Text = IIf(IsNothing(assessmentAfficher.PreCalcule.LNC_COUNT), 0, assessmentAfficher.PreCalcule.LNC_COUNT)
+            If (IsNothing(assessmentAfficher.PreCalcule.LOGISTIC_RATE)) Then
+                LabelDelaysUpTo10DaysRatePNS.Text = "N/A"
             Else
-                LabelLogisticRatePNS.Text = FormatPercent(assessmentAfficher.PrecalculedValue.DELAYS_UP_TO_DAYS_RATE, 0)
+                LabelDelaysUpTo10DaysRatePNS.Text = FormatPercent(assessmentAfficher.PreCalcule.LOGISTIC_RATE, 0)
             End If
-
-            LabelTargetRatePenalityPNS.Text = assessmentAfficher.PenaltyPoint
-
-            ChartHorizonOrderPNS.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("< 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_GREATER_THAN_12))
-            ChartHorizonOrderPNS.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("11 - 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_11_TO_12))
-            ChartHorizonOrderPNS.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("9 - 10 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_9_TO_10))
-            ChartHorizonOrderPNS.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("7 - 8 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_7_TO_8))
-            ChartHorizonOrderPNS.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("5 - 6 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_5_TO_6))
-            ChartHorizonOrderPNS.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("3 - 4 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_3_TO_4))
-            ChartHorizonOrderPNS.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("0 - 2 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_0_TO_2))
+            If IsNothing(assessmentAfficher.PreCalcule.DELAYS_UPPER_TO_X_DAYS_RATE) Then
+                LabelLogisticRatePNS.Text = "N/A"
+            Else
+                LabelLogisticRatePNS.Text = FormatPercent(assessmentAfficher.PreCalcule.DELAYS_UPPER_TO_X_DAYS_RATE, 0)
+            End If
+            '*********************************** Graphique **********************************************************
+            For Each uneLigne In assessmentAfficher.OrderHorizon
+                ChartHorizonOrderPNS.Series("SeriesHorizonOrderOnTime").Points.Add(nouveauPoint(uneLigne.ORDER_HORIZON_LABEL, uneLigne.NB_ON_TIME))
+                ChartHorizonOrderPNS.Series("SeriesHorizonOrderNotOnTime").Points.Add(nouveauPoint(uneLigne.ORDER_HORIZON_LABEL, uneLigne.NB_NOT_ON_TIME))
+            Next
 
         Catch ex As Exception
             Throw ex
         End Try
     End Sub
 
-    Private Sub chargeFormulaireSERTA(lAssessment As AssessmentSERTA)
+    Private Sub chargeFormulaireSERTA(lAssessment As T_SUP_ASSESSMENT_SUA_SERTA)
         Try
             If (IsNothing(lAssessment)) Then
-                Session("assessmentAfficherSERTA") = New AssessmentSERTA(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue)
+                Session("assessmentAfficherSERTA") = New T_SUP_ASSESSMENT_SUA_SERTA(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue)
             Else
                 Session("assessmentAfficherSERTA") = lAssessment.Clone
             End If
             ''*****FieldSet Qualité ******
-            Dim assessmentAfficher As AssessmentSERTA = CType(Session("assessmentAfficherSERTA"), AssessmentSERTA)
-            textBoxIndicePPMvalueSERTA.Text = assessmentAfficher.indicePPMValue
-            textBoxIndicePPMNoteSERTA.Text = assessmentAfficher.indicePPMPoint
-            textBoxSinNBValueSERTA.Text = assessmentAfficher.sinNBValue
-            textBoxSinNBPointSERTA.Text = assessmentAfficher.sinNBPoint
-            textBoxCustomerClaimNBValueSERTA.Text = assessmentAfficher.customerClaimNBValue
-            textBoxCustomerClaimNBPointSERTA.Text = assessmentAfficher.customerClaimNBPoint
-            textBoxActionPlanReactivitySERTA.Text = assessmentAfficher.actionPlanReactivityPoint
-            textBoxBonusPPMSERTA.Text = assessmentAfficher.bonus500PPMPoint
-            LabelTotalQualiteSERTA.Text = assessmentAfficher.TotalQuality
+            Dim assessmentAfficher As T_SUP_ASSESSMENT_SUA_SERTA = CType(Session("assessmentAfficherSERTA"), T_SUP_ASSESSMENT_SUA_SERTA)
+            textBoxIndicePPMvalueSERTA.Text = IfNull(assessmentAfficher.SUA_INDICE_PPM_VALUE)
+            textBoxIndicePPMNoteSERTA.Text = IfNull(assessmentAfficher.SUA_INDICE_PPM_POINT)
+            textBoxSinNBValueSERTA.Text = IfNull(assessmentAfficher.SUA_SIN_NB_VALUE)
+            textBoxSinNBPointSERTA.Text = IfNull(assessmentAfficher.SUA_SIN_NB_POINT)
+            textBoxCustomerClaimNBValueSERTA.Text = IfNull(assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_VALUE)
+            textBoxCustomerClaimNBPointSERTA.Text = IfNull(assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_POINT)
+            textBoxActionPlanReactivitySERTA.Text = IfNull(assessmentAfficher.SUA_ACTION_PLAN_REACTIVITY_POINT)
+            textBoxBonusPPMSERTA.Text = IfNull(assessmentAfficher.SUA_BONUS_500_PPM_POINT)
+            textBoxQualityImprovementPlanSERTA.Text = IIf(assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN Is Nothing, "0", assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN)
+            'LabelTotalQualite.Text = assessmentAfficher.SUA_
             ''****** FieldSet Logistique ********
-            textboxLogisticRateValueSERTA.Text = assessmentAfficher.logisticRateTarget95Value
-            textboxLogisticRatePointSERTA.Text = assessmentAfficher.logisticRateTarget95WithPenalty
-            textboxFlexibilityPointSERTA.Text = assessmentAfficher.flexibilityPoint
-            textboxDeliveryDelaysLevelValueSERTA.Text = assessmentAfficher.deliveryDelaysLevelValue
-            textboxDeliveryDelaysLevelPointSERTA.Text = assessmentAfficher.deliveryDelaysLevelPoint
-            textboxDeliveryQualityValueSERTA.Text = assessmentAfficher.deliveryQualityValue
-            textboxDeliveryQualityPointSERTA.Text = assessmentAfficher.deliveryQualityPoint
-            labelTotalLogistiqueSERTA.Text = assessmentAfficher.TotalLogistic
+            textboxLogisticRateValueSERTA.Text = IfNull(assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_VALUE)
+            textboxLogisticRatePointSERTA.Text = IfNull(assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_POINT)
+            textboxFlexibilityPointSERTA.Text = IfNull(assessmentAfficher.SUA_FLEXIBILITY_POINT)
+            textboxDeliveryDelaysLevelValueSERTA.Text = IfNull(assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_VALUE)
+            textboxDeliveryDelaysLevelPointSERTA.Text = IfNull(assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_POINT)
+            textboxDeliveryQualityValueSERTA.Text = IfNull(assessmentAfficher.SUA_DELIVERY_QUALITY_VALUE)
+            textboxDeliveryQualityPointSERTA.Text = IfNull(assessmentAfficher.SUA_DELIVERY_QUALITY_POINT)
+            textBoxLogisticImprovementPlanSERTA.Text = IIf(assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN Is Nothing, "0", assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN)
+            'labelTotalLogistique.Text = assessmentAfficher.SUA_
             ''******** FielSet Compétitivité ********
-            TextBoxImprovmentPlanSERTA.Text = assessmentAfficher.improvmentPlanPoint
-            TextBoxBusinessRelationshipSERTA.Text = assessmentAfficher.businessRelationshipPoint
-            TextBoxFinancialSituationSERTA.Text = assessmentAfficher.financialSituationPoint
-            TextBoxOffersReactivitySERTA.Text = assessmentAfficher.offersReactivityPoint
-            TextBoxTechnicalAnswerQualitySERTA.Text = assessmentAfficher.technicalAnswerQualityPoint
-            TextBoxIsoCertificationSERTA.Text = assessmentAfficher.isoCertificationPoint
-            LabelTatalCompetitivenessSERTA.Text = assessmentAfficher.TotalCompetitiveness
+            TextBoxImprovmentPlanSERTA.Text = IfNull(assessmentAfficher.SUA_IMPROVMENT_PLAN_POINT)
+            TextBoxBusinessRelationshipSERTA.Text = IfNull(assessmentAfficher.SUA_BUSINESS_RELATIONSHIP_POINT)
+            TextBoxFinancialSituationSERTA.Text = IfNull(assessmentAfficher.SUA_FINANCIAL_SITUATION_POINT)
+            TextBoxOffersReactivitySERTA.Text = IfNull(assessmentAfficher.SUA_OFFERS_REACTIVITY_POINT)
+            TextBoxTechnicalAnswerQualitySERTA.Text = IfNull(assessmentAfficher.SUA_TECHNICAL_ANSWER_QUALITY_POINT)
+            TextBoxIsoCertificationSERTA.Text = IfNull(assessmentAfficher.SUA_ISO_CERTFICATION_POINT)
+            'LabelTatalCompetitiveness.Text = assessmentAfficher.SUA_
             ''************* FielSet Notation *************
-            RadioButtonListTrendSERTA.SelectedValue = assessmentAfficher.trend
-            TextBoxCommentDetailSERTA.Text = assessmentAfficher.commentDetail
-            TextBoxCommentClassificationSERTA.Text = assessmentAfficher.commentClassification
-            TextBoxCommentGlobalSERTA.Text = assessmentAfficher.commentGlobal
+            LabelTotalSERTA.Text = assessmentAfficher.SUA_TOTAL_POINT
+            RadioButtonListTrendSERTA.SelectedValue = assessmentAfficher.SUA_TREND
+            TextBoxCommentDetailSERTA.Text = assessmentAfficher.SUA_COMMENT_DETAIL
+            TextBoxCommentClassificationSERTA.Text = assessmentAfficher.SUA_COMMENT_CLASSIFICATION
+            TextBoxCommentGlobalSERTA.Text = assessmentAfficher.SUA_COMMENT_GLOBAL
             '**************** Pré-calcule***************************
-            LabelPPMSERTA.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.PPM), 0, CInt(assessmentAfficher.PrecalculedValue.PPM))
-            LabelQncCountSERTA.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.QNC_COUNT), 0, assessmentAfficher.PrecalculedValue.QNC_COUNT)
-            LabelCustomerClaimCountSERTA.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.CUSTOMER_CLAIM_COUNT), 0, assessmentAfficher.PrecalculedValue.CUSTOMER_CLAIM_COUNT)
-            LabelLNCCountSERTA.Text = IIf(IsNothing(assessmentAfficher.PrecalculedValue.LNC_COUNT), 0, CInt(assessmentAfficher.PrecalculedValue.LNC_COUNT))
-            If (IsNothing(assessmentAfficher.PrecalculedValue.LOGISTIC_RATE)) Then 'La fonction ToString("P") de la classe Double transforme et % le chiffre
-                LabelDelaysUpTo10DaysRateSERTA.Text = "0 %"
+            If assessmentAfficher.PreCalcule.PPM Is Nothing Then
+                LabelPPMSERTA.Text = "N/A"
             Else
-                LabelDelaysUpTo10DaysRateSERTA.Text = FormatPercent(assessmentAfficher.PrecalculedValue.LOGISTIC_RATE, 0)
+                LabelPPMSERTA.Text = CInt(assessmentAfficher.PreCalcule.PPM)
             End If
-            If IsNothing(assessmentAfficher.PrecalculedValue.DELAYS_UP_TO_DAYS_RATE) Then
-                LabelLogisticRateSERTA.Text = "0 %"
+            LabelQncCountSERTA.Text = IIf(IsNothing(assessmentAfficher.PreCalcule.QNC_COUNT), 0, assessmentAfficher.PreCalcule.QNC_COUNT)
+            LabelCustomerClaimCountSERTA.Text = IIf(IsNothing(assessmentAfficher.PreCalcule.CUSTOMER_CLAIM_COUNT), 0, assessmentAfficher.PreCalcule.CUSTOMER_CLAIM_COUNT)
+            LabelLNCCountSERTA.Text = IIf(IsNothing(assessmentAfficher.PreCalcule.LNC_COUNT), 0, assessmentAfficher.PreCalcule.LNC_COUNT)
+            If (IsNothing(assessmentAfficher.PreCalcule.LOGISTIC_RATE)) Then
+                LabelDelaysUpTo10DaysRateSERTA.Text = "N/A"
             Else
-                LabelLogisticRateSERTA.Text = FormatPercent(assessmentAfficher.PrecalculedValue.DELAYS_UP_TO_DAYS_RATE, 0)
+                LabelDelaysUpTo10DaysRateSERTA.Text = FormatPercent(assessmentAfficher.PreCalcule.LOGISTIC_RATE, 0)
             End If
-            LabelTargetRatePenalitySERTA.Text = assessmentAfficher.PenaltyPoint
-
-            ChartHorizonOrderSERTA.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("< 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_GREATER_THAN_12))
-            ChartHorizonOrderSERTA.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("11 - 12 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_11_TO_12))
-            ChartHorizonOrderSERTA.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("9 - 10 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_9_TO_10))
-            ChartHorizonOrderSERTA.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("7 - 8 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_7_TO_8))
-            ChartHorizonOrderSERTA.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("5 - 6 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_5_TO_6))
-            ChartHorizonOrderSERTA.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("3 - 4 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_3_TO_4))
-            ChartHorizonOrderSERTA.Series("SeriesHorizonOrder").Points.Add(nouveauPoint("0 - 2 sem", assessmentAfficher.PrecalculedValue.ORDER_HORIZON_PERCENTAGE_0_TO_2))
+            If IsNothing(assessmentAfficher.PreCalcule.DELAYS_UPPER_TO_X_DAYS_RATE) Then
+                LabelLogisticRateSERTA.Text = "N/A"
+            Else
+                LabelLogisticRateSERTA.Text = FormatPercent(assessmentAfficher.PreCalcule.DELAYS_UPPER_TO_X_DAYS_RATE, 0)
+            End If
+            '*********************************** Graphique **********************************************************
+            For Each uneLigne In assessmentAfficher.OrderHorizon
+                ChartHorizonOrderSERTA.Series("SeriesHorizonOrderOnTime").Points.Add(nouveauPoint(uneLigne.ORDER_HORIZON_LABEL, uneLigne.NB_ON_TIME))
+                ChartHorizonOrderSERTA.Series("SeriesHorizonOrderNotOnTime").Points.Add(nouveauPoint(uneLigne.ORDER_HORIZON_LABEL, uneLigne.NB_NOT_ON_TIME))
+            Next
 
         Catch ex As Exception
             Throw ex
@@ -252,27 +263,39 @@ Public Class SupplierAssessmentCOMMUN
 
     Private Sub sauvegardeFormulaire()
         Try
-            Dim assessmentAfficher As AssessmentCOMMUN = (CType(Session("assessmentAfficherCOMMUN"), AssessmentCOMMUN))
-            assessmentAfficher.indicePPMValue = textBoxIndicePPMvalue.Text
-            assessmentAfficher.sinNBValue = textBoxSinNBValue.Text
-            assessmentAfficher.customerClaimNBValue = textBoxCustomerClaimNBValue.Text
-            assessmentAfficher.actionPlanReactivityPoint = textBoxActionPlanReactivity.Text
-            assessmentAfficher.logisticRateTarget95Value = textboxLogisticRateValue.Text
-            assessmentAfficher.flexibilityPoint = textboxFlexibilityPoint.Text
-            assessmentAfficher.deliveryDelaysLevelValue = textboxDeliveryDelaysLevelValue.Text
-            assessmentAfficher.deliveryQualityValue = textboxDeliveryQualityValue.Text
-            ''******** FielSet Compétitivité ********
-            assessmentAfficher.improvmentPlanPoint = TextBoxImprovmentPlan.Text
-            assessmentAfficher.businessRelationshipPoint = TextBoxBusinessRelationship.Text
-            assessmentAfficher.financialSituationPoint = TextBoxFinancialSituation.Text
-            assessmentAfficher.offersReactivityPoint = TextBoxOffersReactivity.Text
-            assessmentAfficher.technicalAnswerQualityPoint = TextBoxTechnicalAnswerQuality.Text
-            assessmentAfficher.isoCertificationPoint = TextBoxIsoCertification.Text
-            ''************* FielSet Notation *************
-            assessmentAfficher.trend = RadioButtonListTrend.SelectedValue
-            assessmentAfficher.commentDetail = TextBoxCommentDetail.Text
-            assessmentAfficher.commentClassification = TextBoxCommentClassification.Text
-            assessmentAfficher.commentGlobal = TextBoxCommentGlobal.Text
+            Dim assessmentAfficher As T_SUP_ASSESSMENT_SUA_COMMON = (CType(Session("assessmentAfficherCOMMUN"), T_SUP_ASSESSMENT_SUA_COMMON))
+            assessmentAfficher.SUP_ID = DropDownListSupplier.SelectedValue
+            assessmentAfficher.SUA_QUARTER = DropDownListTrimestre.SelectedValue
+            assessmentAfficher.SUA_ACTION_PLAN_REACTIVITY_POINT = textBoxActionPlanReactivity.Text
+            assessmentAfficher.SUA_BONUS_500_PPM_POINT = textBoxBonusPPM.Text
+            assessmentAfficher.SUA_BUSINESS_RELATIONSHIP_POINT = TextBoxBusinessRelationship.Text
+            ' assessmentAfficher.SUA_COMMENT =
+            assessmentAfficher.SUA_COMMENT_CLASSIFICATION = TextBoxCommentClassification.Text
+            assessmentAfficher.SUA_COMMENT_DETAIL = TextBoxCommentDetail.Text
+            assessmentAfficher.SUA_COMMENT_GLOBAL = TextBoxCommentGlobal.Text
+            assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_POINT = textBoxCustomerClaimNBPoint.Text
+            assessmentAfficher.SUA_CUSTOMER_CLAIM_NB_VALUE = textBoxCustomerClaimNBValue.Text
+            assessmentAfficher.SUA_DELIVERY_QUALITY_POINT = textboxDeliveryQualityPoint.Text
+            assessmentAfficher.SUA_DELIVERY_QUALITY_VALUE = textboxDeliveryDelaysLevelValue.Text
+            assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_POINT = textboxDeliveryDelaysLevelPoint.Text
+            assessmentAfficher.SUA_DELIVERY_DELAYS_LEVEL_VALUE = textboxDeliveryDelaysLevelValue.Text
+            assessmentAfficher.SUA_FINANCIAL_SITUATION_POINT = TextBoxFinancialSituation.Text
+            assessmentAfficher.SUA_FLEXIBILITY_POINT = textboxFlexibilityPoint.Text
+            assessmentAfficher.SUA_IMPROVMENT_PLAN_POINT = TextBoxImprovmentPlan.Text
+            assessmentAfficher.SUA_INDICE_PPM_POINT = textBoxIndicePPMNote.Text
+            assessmentAfficher.SUA_INDICE_PPM_VALUE = textBoxIndicePPMvalue.Text
+            assessmentAfficher.SUA_ISO_CERTFICATION_POINT = TextBoxIsoCertification.Text
+            assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_POINT = textboxLogisticRatePoint.Text
+            assessmentAfficher.SUA_LOGISTIC_RATE_TARGET_95_VALUE = textboxLogisticRateValue.Text
+            assessmentAfficher.SUA_OFFERS_REACTIVITY_POINT = TextBoxOffersReactivity.Text
+            assessmentAfficher.SUA_SIN_NB_POINT = textBoxSinNBPoint.Text
+            assessmentAfficher.SUA_SIN_NB_VALUE = textBoxSinNBValue.Text
+            assessmentAfficher.SUA_TECHNICAL_ANSWER_QUALITY_POINT = TextBoxTechnicalAnswerQuality.Text
+            assessmentAfficher.SUA_TOTAL_POINT = LabelTotal.Text
+            assessmentAfficher.SUA_TREND = RadioButtonListTrend.SelectedValue
+            assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN = textBoxLogisticImprovementPlan.Text
+            assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN = textBoxQualityImprovementPlan.Text
+
         Catch ex As Exception
             Throw ex
         End Try
@@ -304,11 +327,11 @@ Public Class SupplierAssessmentCOMMUN
     'Save click
     Protected Sub btSave_Click(sender As Object, e As EventArgs) Handles btSave.Click
         Try
-            If Not IsNothing(CType(Session("assessmentAfficherCOMMUN"), AssessmentCOMMUN)) Then
+            If Not IsNothing(CType(Session("assessmentAfficherCOMMUN"), T_SUP_ASSESSMENT_SUA_COMMON)) Then
                 System.Diagnostics.Trace.WriteLine(Now + " | " + User.Identity.Name + " request save a assessement. ID : " + DropDownListSupplier.SelectedValue + " Quarter : " + DropDownListTrimestre.SelectedValue, Me.ToString)
                 sauvegardeFormulaire()
-                MgtSupplierIndicatorCOMMUN.getInstance.Save(CType(Session("assessmentAfficherCOMMUN"), AssessmentCOMMUN))
-                chargeFormulaireCommun(CType(Session("assessmentAfficherCOMMUN"), AssessmentCOMMUN))
+                MgtSupplierIndicatorCOMMUN.getInstance.Save(CType(Session("assessmentAfficherCOMMUN"), T_SUP_ASSESSMENT_SUA_COMMON))
+                chargeFormulaireCommun(CType(Session("assessmentAfficherCOMMUN"), T_SUP_ASSESSMENT_SUA_COMMON))
                 chargeFormulairePNS(MgtSupplierIndicatorPNS.getInstance.recherche(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue))
                 chargeFormulaireSERTA(MgtSupplierIndicatorSERTA.getInstance.recherche(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue))
             End If
@@ -320,7 +343,6 @@ Public Class SupplierAssessmentCOMMUN
     Protected Sub btDelete_Click(sender As Object, e As EventArgs) Handles btDelete.Click
         System.Diagnostics.Trace.WriteLine(Now + " | " + User.Identity.Name + " request delete a supplier. ID : " + DropDownListSupplier.SelectedValue + " Quarter : " + DropDownListTrimestre.SelectedValue, Me.ToString)
         MgtSupplierIndicatorCOMMUN.getInstance.delete(MgtSupplierIndicatorCOMMUN.getInstance.recherche(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue))
-        MgtSupplierIndicatorCOMMUN.getInstance.ListAssessment.Remove(MgtSupplierIndicatorCOMMUN.getInstance.recherche(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue))
         chargeFormulaireCommun(MgtSupplierIndicatorCOMMUN.getInstance.recherche(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue))
         chargeFormulairePNS(MgtSupplierIndicatorPNS.getInstance.recherche(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue))
         chargeFormulaireSERTA(MgtSupplierIndicatorSERTA.getInstance.recherche(DropDownListSupplier.SelectedValue, DropDownListTrimestre.SelectedValue))
@@ -334,6 +356,19 @@ Public Class SupplierAssessmentCOMMUN
     '        Throw ex
     '    End Try
     'End Sub
+    ''' <summary>
+    ''' Retourne 0 si la valeur est null
+    ''' </summary>
+    ''' <param name="Objet"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Private Function IfNull(Objet As Object)
+        If Objet Is Nothing Then
+            Return 0
+        Else
+            Return Objet
+        End If
+    End Function
 #End Region
 
 End Class

@@ -4,87 +4,37 @@
     ''' Variable utiliser pour le data context (Objet DAL)
     ''' </summary>
     ''' <remarks></remarks>
-    Private BaseSupplierAssessment As dbSupplierIndicatorDataContext = New dbSupplierIndicatorDataContext()
+    Private BaseSupplierAssessment As dbSupplier_IndicatorDataContext = New dbSupplier_IndicatorDataContext()
 
     ''' <summary>
-    ''' Retourne tout la liste des categories de fournisseur
+    ''' Retourne la liste des fournisseurs
     ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
     ''' <remarks></remarks>
-    Public ReadOnly Property Category() As System.Data.Linq.ISingleResult(Of P_CATEGORY_LISTResult)
+    Private _supplier_list As String
+    Public ReadOnly Property Supplier_list() As System.Data.Linq.ISingleResult(Of P_SUPPLIER_LIST_COMMUNResult)
         Get
-            Try
-                Return BaseSupplierAssessment.P_CATEGORY_LIST
-            Catch ex As Exception
-                Throw ex
-            End Try
-        End Get
-    End Property
-    ''' <summary>
-    ''' Retourne tout la liste des sous-categories de fournisseur
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Public ReadOnly Property SubCategory() As System.Data.Linq.ISingleResult(Of P_SUB_CATEGORY_LISTResult)
-        Get
-            Try
-                Return BaseSupplierAssessment.P_SUB_CATEGORY_LIST
-            Catch ex As Exception
-                Throw ex
-            End Try
+            Return BaseSupplierAssessment.P_SUPPLIER_LIST_COMMUN
         End Get
     End Property
 
-    Dim _listAssessment As List(Of AssessmentCOMMUN) = New List(Of AssessmentCOMMUN)
+    Dim _listAssessment As List(Of T_SUP_ASSESSMENT_SUA_COMMON)
     ''' <summary>
     ''' Liste des score enregistré dans la base de donnée
     ''' </summary>
     ''' <value></value>
     ''' <returns>Retourne une liste de type assessment</returns>
     ''' <remarks></remarks>
-    ReadOnly Property ListAssessment As List(Of AssessmentCOMMUN)
+    ReadOnly Property ListAssessment As List(Of T_SUP_ASSESSMENT_SUA_COMMON)
         Get
             Try
                 _listAssessment.Clear()
-                Dim query = From listeAssessment In BaseSupplierAssessment.SUP_ASSESSMENT_COMMUN
+                Dim query = From listeAssessment In BaseSupplierAssessment.T_SUP_ASSESSMENT_SUA_COMMON
                        Select listeAssessment
 
                 For Each item In query
-                    _listAssessment.Add(CAsessement(item))
+                    _listAssessment.Add(item)
                 Next
                 Return _listAssessment
-            Catch ex As Exception
-                Throw ex
-            End Try
-        End Get
-    End Property
-    ''' <summary>
-    ''' Liste des fournisseurs
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks>Retourne le resultat de la procédure stocker Supplier_list</remarks>
-    Public ReadOnly Property ListSupplier As System.Data.Linq.ISingleResult(Of P_ASSESSMENT_SUPPLIER_LISTResult)
-        Get
-            Try
-                Return BaseSupplierAssessment.P_Supplier_list_Commun()
-            Catch ex As Exception
-                Throw ex
-            End Try
-        End Get
-    End Property
-    ''' <summary>
-    ''' Retourne la liste des Supplier avec leur sous catégorie
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Public ReadOnly Property ListSupplier2 As System.Data.Linq.ISingleResult(Of P_SUPPLIER_LISTResult3)
-        Get
-            Try
-                Return BaseSupplierAssessment.P_SUPPLIER_LIST()
             Catch ex As Exception
                 Throw ex
             End Try
@@ -103,57 +53,12 @@
 #End Region
 #Region "Méthode"
     ''' <summary>
-    ''' Converti la classe SUP_ASSESSMENT_??? en Assessment
-    ''' </summary>
-    ''' <param name="Assessment"></param>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Private Function CAsessement(Assessment As SUP_ASSESSMENT_COMMUN) As AssessmentCOMMUN
-        Try
-            Return New AssessmentCOMMUN(IIf(IsDBNull(Assessment.SUA_ID), 0, Assessment.SUA_ID), _
-                                  (IIf(IsDBNull(Assessment.SUP_ID), 0, Assessment.SUP_ID)), _
-                                  (IIf(IsDBNull(Assessment.SUA_QUARTER), 0, Assessment.SUA_QUARTER)), _
-                                  (IIf(IsDBNull(Assessment.SUA_INDICE_PPM_VALUE), 0, Assessment.SUA_INDICE_PPM_VALUE)), _
-                                  (IIf(IsDBNull(Assessment.SUA_INDICE_PPM_POINT), 0, Assessment.SUA_INDICE_PPM_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_SIN_NB_VALUE), 0, Assessment.SUA_SIN_NB_VALUE)), _
-                                  (IIf(IsDBNull(Assessment.SUA_SIN_NB_POINT), 0, Assessment.SUA_SIN_NB_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_CUSTOMER_CLAIM_NB_VALUE), 0, Assessment.SUA_CUSTOMER_CLAIM_NB_VALUE)), _
-                                  (IIf(IsDBNull(Assessment.SUA_CUSTOMER_CLAIM_NB_POINT), 0, Assessment.SUA_CUSTOMER_CLAIM_NB_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_ACTION_PLAN_REACTIVITY_POINT), 0, Assessment.SUA_ACTION_PLAN_REACTIVITY_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_BONUS_500_PPM_POINT), 0, Assessment.SUA_BONUS_500_PPM_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_LOGISTIC_RATE_TARGET_95_VALUE), 0, Assessment.SUA_LOGISTIC_RATE_TARGET_95_VALUE)), _
-                                  (IIf(IsDBNull(Assessment.SUA_LOGISTIC_RATE_TARGET_95_POINT), 0, Assessment.SUA_LOGISTIC_RATE_TARGET_95_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_FLEXIBILITY_POINT), 0, Assessment.SUA_FLEXIBILITY_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_DELIVERY_DELAYS_LEVEL_VALUE), 0, Assessment.SUA_DELIVERY_DELAYS_LEVEL_VALUE)), _
-                                  (IIf(IsDBNull(Assessment.SUA_DELIVERY_DELAYS_LEVEL_POINT), 0, Assessment.SUA_DELIVERY_DELAYS_LEVEL_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_DELIVERY_QUALITY_VALUE), 0, Assessment.SUA_DELIVERY_QUALITY_VALUE)), _
-                                  (IIf(IsDBNull(Assessment.SUA_DELIVERY_QUALITY_POINT), 0, Assessment.SUA_DELIVERY_QUALITY_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_PRICE_COMPETITIVENESS_VALUE), 0, Assessment.SUA_PRICE_COMPETITIVENESS_VALUE)), _
-                                  (IIf(IsDBNull(Assessment.SUA_PRICE_COMPETITIVENESS_POINT), 0, Assessment.SUA_PRICE_COMPETITIVENESS_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_IMPROVMENT_PLAN_POINT), 0, Assessment.SUA_IMPROVMENT_PLAN_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_BUSINESS_RELATIONSHIP_POINT), 0, Assessment.SUA_BUSINESS_RELATIONSHIP_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_FINANCIAL_SITUATION_POINT), 0, Assessment.SUA_FINANCIAL_SITUATION_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_OFFERS_REACTIVITY_POINT), 0, Assessment.SUA_OFFERS_REACTIVITY_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_TECHNICAL_ANSWER_QUALITY_POINT), 0, Assessment.SUA_TECHNICAL_ANSWER_QUALITY_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_ISO_CERTFICATION_POINT), 0, Assessment.SUA_ISO_CERTFICATION_POINT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_COMMENT), 0, Assessment.SUA_COMMENT)), _
-                                  (IIf(IsDBNull(Assessment.SUA_COMMENT_DETAIL), 0, Assessment.SUA_COMMENT_DETAIL)), _
-                                  (IIf(IsDBNull(Assessment.SUA_COMMENT_CLASSIFICATION), 0, Assessment.SUA_COMMENT_CLASSIFICATION)), _
-                                  (IIf(IsDBNull(Assessment.SUA_COMMENT_GLOBAL), 0, Assessment.SUA_COMMENT_GLOBAL)), _
-                                  (IIf(IsDBNull(Assessment.SUA_TOTAL_POINT), 0, Assessment.SUA_TOTAL_POINT)), _
-                                  CInt((IIf(IsDBNull(Assessment.SUA_TREND), 0, Assessment.SUA_TREND.ToString))))
-        Catch ex As Exception
-            Throw ex
-        End Try
-
-    End Function
-    ''' <summary>
     ''' Function qui sauvegarde un assessment
     ''' </summary>
     ''' <param name="assessment"></param>
     ''' <remarks>Met à jour le score si il exist, sinon crée une insertion</remarks>
-    Public Sub Save(assessment As AssessmentCOMMUN)
-        If Not IsNothing(recherche(assessment.idSupplier, assessment.quarter)) Then
+    Public Sub Save(assessment As T_SUP_ASSESSMENT_SUA_COMMON)
+        If Not IsNothing(recherche(assessment.SUP_ID, assessment.SUA_QUARTER)) Then
             Update(assessment)
         Else
             Insert(assessment)
@@ -164,44 +69,9 @@
     ''' </summary>
     ''' <param name="Assessment"></param>
     ''' <remarks></remarks>
-    Public Sub Insert(Assessment As AssessmentCOMMUN)
+    Public Sub Insert(Assessment As T_SUP_ASSESSMENT_SUA_COMMON)
         Try
-            Dim nouveauAssessment As SUP_ASSESSMENT_COMMUN = New SUP_ASSESSMENT_COMMUN
-            With nouveauAssessment
-                .SUP_ID = Assessment.idSupplier
-                .SUA_QUARTER = Assessment.quarter
-                .SUA_FORM = Assessment.form
-                .SUA_INDICE_PPM_VALUE = Assessment.indicePPMValue
-                .SUA_INDICE_PPM_POINT = Assessment.indicePPMPoint
-                .SUA_SIN_NB_VALUE = Assessment.sinNBValue
-                .SUA_SIN_NB_POINT = Assessment.sinNBPoint
-                .SUA_CUSTOMER_CLAIM_NB_VALUE = Assessment.customerClaimNBValue
-                .SUA_CUSTOMER_CLAIM_NB_POINT = Assessment.customerClaimNBPoint
-                .SUA_ACTION_PLAN_REACTIVITY_POINT = Assessment.actionPlanReactivityPoint
-                .SUA_BONUS_500_PPM_POINT = Assessment.bonus500PPMPoint
-                .SUA_LOGISTIC_RATE_TARGET_95_VALUE = Assessment.logisticRateTarget95Value
-                .SUA_LOGISTIC_RATE_TARGET_95_POINT = Assessment.logisticRateTarget95WithPenalty
-                .SUA_FLEXIBILITY_POINT = Assessment.flexibilityPoint
-                .SUA_DELIVERY_DELAYS_LEVEL_VALUE = Assessment.deliveryDelaysLevelValue
-                .SUA_DELIVERY_DELAYS_LEVEL_POINT = Assessment.deliveryDelaysLevelPoint
-                .SUA_DELIVERY_QUALITY_VALUE = Assessment.deliveryQualityValue
-                .SUA_DELIVERY_QUALITY_POINT = Assessment.deliveryQualityPoint
-                .SUA_PRICE_COMPETITIVENESS_VALUE = Assessment.priceCompetitivenessValue
-                .SUA_PRICE_COMPETITIVENESS_POINT = Assessment.priceCompetitivenessPoint
-                .SUA_IMPROVMENT_PLAN_POINT = Assessment.improvmentPlanPoint
-                .SUA_BUSINESS_RELATIONSHIP_POINT = Assessment.businessRelationshipPoint
-                .SUA_FINANCIAL_SITUATION_POINT = Assessment.financialSituationPoint
-                .SUA_OFFERS_REACTIVITY_POINT = Assessment.offersReactivityPoint
-                .SUA_TECHNICAL_ANSWER_QUALITY_POINT = Assessment.technicalAnswerQualityPoint
-                .SUA_ISO_CERTFICATION_POINT = Assessment.isoCertificationPoint
-                .SUA_COMMENT = Assessment.comment
-                .SUA_COMMENT_CLASSIFICATION = Assessment.commentClassification
-                .SUA_COMMENT_DETAIL = Assessment.commentDetail
-                .SUA_COMMENT_GLOBAL = Assessment.commentGlobal
-                .SUA_TOTAL_POINT = Assessment.totalPoint
-                .SUA_TREND = CStr(Assessment.trend)
-            End With
-            BaseSupplierAssessment.SUP_ASSESSMENT_COMMUN.InsertOnSubmit(nouveauAssessment)
+            BaseSupplierAssessment.T_SUP_ASSESSMENT_SUA_COMMON.InsertOnSubmit(Assessment)
             BaseSupplierAssessment.SubmitChanges()
             System.Diagnostics.Trace.WriteLine(Now + " | " + " Assessement INSERT : " + Assessment.ToString, Me.ToString)
         Catch ex As Exception
@@ -213,47 +83,48 @@
     ''' </summary>
     ''' <param name="Assessment"></param>
     ''' <remarks></remarks>
-    Public Sub Update(Assessment As AssessmentCOMMUN)
+    Public Sub Update(Assessment As T_SUP_ASSESSMENT_SUA_COMMON)
         Try
-            Dim modificationAssessment = From unAssessment In BaseSupplierAssessment.SUP_ASSESSMENT_COMMUN
-                                                                 Where unAssessment.SUA_ID = Assessment.id
-                                                                 Select unAssessment
+            Dim modificationAssessment As T_SUP_ASSESSMENT_SUA_COMMON = (From unAssessment In BaseSupplierAssessment.T_SUP_ASSESSMENT_SUA_COMMON
+                                                                Where unAssessment.SUP_ID = Assessment.SUP_ID And unAssessment.SUA_QUARTER = Assessment.SUA_QUARTER
+                                                                Select unAssessment).First
 
-            For Each unAssessment In modificationAssessment
-                With unAssessment
-                    .SUA_FORM = Assessment.form
-                    .SUA_INDICE_PPM_VALUE = Assessment.indicePPMValue
-                    .SUA_INDICE_PPM_POINT = Assessment.indicePPMPoint
-                    .SUA_SIN_NB_VALUE = Assessment.sinNBValue
-                    .SUA_SIN_NB_POINT = Assessment.sinNBPoint
-                    .SUA_CUSTOMER_CLAIM_NB_VALUE = Assessment.customerClaimNBValue
-                    .SUA_CUSTOMER_CLAIM_NB_POINT = Assessment.customerClaimNBPoint
-                    .SUA_ACTION_PLAN_REACTIVITY_POINT = Assessment.actionPlanReactivityPoint
-                    .SUA_BONUS_500_PPM_POINT = Assessment.bonus500PPMPoint
-                    .SUA_LOGISTIC_RATE_TARGET_95_VALUE = Assessment.logisticRateTarget95Value
-                    .SUA_LOGISTIC_RATE_TARGET_95_POINT = Assessment.logisticRateTarget95WithPenalty
-                    .SUA_FLEXIBILITY_POINT = Assessment.flexibilityPoint
-                    .SUA_DELIVERY_DELAYS_LEVEL_VALUE = Assessment.deliveryDelaysLevelValue
-                    .SUA_DELIVERY_DELAYS_LEVEL_POINT = Assessment.deliveryDelaysLevelPoint
-                    .SUA_DELIVERY_QUALITY_VALUE = Assessment.deliveryQualityValue
-                    .SUA_DELIVERY_QUALITY_POINT = Assessment.deliveryQualityPoint
-                    .SUA_PRICE_COMPETITIVENESS_VALUE = Assessment.priceCompetitivenessValue
-                    .SUA_PRICE_COMPETITIVENESS_POINT = Assessment.priceCompetitivenessPoint
-                    .SUA_IMPROVMENT_PLAN_POINT = Assessment.improvmentPlanPoint
-                    .SUA_BUSINESS_RELATIONSHIP_POINT = Assessment.businessRelationshipPoint
-                    .SUA_FINANCIAL_SITUATION_POINT = Assessment.financialSituationPoint
-                    .SUA_OFFERS_REACTIVITY_POINT = Assessment.offersReactivityPoint
-                    .SUA_TECHNICAL_ANSWER_QUALITY_POINT = Assessment.technicalAnswerQualityPoint
-                    .SUA_ISO_CERTFICATION_POINT = Assessment.isoCertificationPoint
-                    .SUA_COMMENT = Assessment.comment
-                    .SUA_COMMENT_CLASSIFICATION = Assessment.commentClassification
-                    .SUA_COMMENT_DETAIL = Assessment.commentDetail
-                    .SUA_COMMENT_GLOBAL = Assessment.commentGlobal
-                    .SUA_TOTAL_POINT = Assessment.totalPoint
-                    .SUA_TREND = CStr(Assessment.trend)
-                End With
-            Next
+            With modificationAssessment
+                '.SUA_FORM = Assessment.SUA_FORM
+                .SUA_INDICE_PPM_VALUE = Assessment.SUA_INDICE_PPM_VALUE
+                .SUA_INDICE_PPM_POINT = Assessment.SUA_INDICE_PPM_POINT
+                .SUA_SIN_NB_VALUE = Assessment.SUA_SIN_NB_VALUE
+                .SUA_SIN_NB_POINT = Assessment.SUA_SIN_NB_POINT
+                .SUA_CUSTOMER_CLAIM_NB_VALUE = Assessment.SUA_CUSTOMER_CLAIM_NB_VALUE
+                .SUA_CUSTOMER_CLAIM_NB_POINT = Assessment.SUA_CUSTOMER_CLAIM_NB_POINT
+                .SUA_ACTION_PLAN_REACTIVITY_POINT = Assessment.SUA_ACTION_PLAN_REACTIVITY_POINT
+                .SUA_BONUS_500_PPM_POINT = Assessment.SUA_BONUS_500_PPM_POINT
+                .SUA_LOGISTIC_RATE_TARGET_95_VALUE = Assessment.SUA_LOGISTIC_RATE_TARGET_95_VALUE
+                .SUA_LOGISTIC_RATE_TARGET_95_POINT = Assessment.SUA_LOGISTIC_RATE_TARGET_95_POINT
+                .SUA_FLEXIBILITY_POINT = Assessment.SUA_FLEXIBILITY_POINT
+                .SUA_DELIVERY_DELAYS_LEVEL_VALUE = Assessment.SUA_DELIVERY_DELAYS_LEVEL_VALUE
+                .SUA_DELIVERY_DELAYS_LEVEL_POINT = Assessment.SUA_DELIVERY_DELAYS_LEVEL_POINT
+                .SUA_DELIVERY_QUALITY_VALUE = Assessment.SUA_DELIVERY_QUALITY_VALUE
+                .SUA_DELIVERY_QUALITY_POINT = Assessment.SUA_DELIVERY_QUALITY_POINT
+                .SUA_PRICE_COMPETITIVENESS_VALUE = Assessment.SUA_PRICE_COMPETITIVENESS_VALUE
+                .SUA_PRICE_COMPETITIVENESS_POINT = Assessment.SUA_PRICE_COMPETITIVENESS_POINT
+                .SUA_IMPROVMENT_PLAN_POINT = Assessment.SUA_IMPROVMENT_PLAN_POINT
+                .SUA_BUSINESS_RELATIONSHIP_POINT = Assessment.SUA_BUSINESS_RELATIONSHIP_POINT
+                .SUA_FINANCIAL_SITUATION_POINT = Assessment.SUA_FINANCIAL_SITUATION_POINT
+                .SUA_OFFERS_REACTIVITY_POINT = Assessment.SUA_OFFERS_REACTIVITY_POINT
+                .SUA_TECHNICAL_ANSWER_QUALITY_POINT = Assessment.SUA_TECHNICAL_ANSWER_QUALITY_POINT
+                .SUA_ISO_CERTFICATION_POINT = Assessment.SUA_ISO_CERTFICATION_POINT
+                .SUA_COMMENT = Assessment.SUA_COMMENT
+                .SUA_COMMENT_CLASSIFICATION = Assessment.SUA_COMMENT_CLASSIFICATION
+                .SUA_COMMENT_DETAIL = Assessment.SUA_COMMENT_DETAIL
+                .SUA_COMMENT_GLOBAL = Assessment.SUA_COMMENT_GLOBAL
+                .SUA_TOTAL_POINT = Assessment.SUA_TOTAL_POINT
+                .SUA_TREND = Assessment.SUA_TREND
+                .SUA_QUALITY_IMPROVEMENT_PLAN = Assessment.SUA_QUALITY_IMPROVEMENT_PLAN
+                .SUA_LOGISTIC_IMPROVEMENT_PLAN = Assessment.SUA_LOGISTIC_IMPROVEMENT_PLAN
+            End With
             BaseSupplierAssessment.SubmitChanges()
+
             System.Diagnostics.Trace.WriteLine(Now + " | " + " Assessement UPDATE : " + Assessment.ToString, Me.ToString)
         Catch ex As Exception
             Throw ex
@@ -265,13 +136,13 @@
     ''' <param name="Id">identifient du score</param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Overloads Function recherche(Id As Integer) As AssessmentCOMMUN
+    Public Overloads Function recherche(Id As Integer) As T_SUP_ASSESSMENT_SUA_COMMON
         Try
-            Dim trouverAssessment = From unAssessment In BaseSupplierAssessment.SUP_ASSESSMENT_COMMUN
+            Dim trouverAssessment = From unAssessment In BaseSupplierAssessment.T_SUP_ASSESSMENT_SUA_COMMON
             Where unAssessment.SUA_ID = Id
                               Select unAssessment
             If trouverAssessment.Any Then
-                Return CAsessement(trouverAssessment.First)
+                Return trouverAssessment.First
             Else
                 Return Nothing
             End If
@@ -280,24 +151,27 @@
         End Try
     End Function
     ''' <summary>
-    ''' Recherche un score das la liste des scores
+    ''' Recherche un score dans la liste des scores
     ''' </summary>
     ''' <param name="IdSupplier">Identificateur du fournisseur</param>
     ''' <param name="quarter">Numéro du trimestre</param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Overloads Function recherche(IdSupplier As Integer, quarter As Integer) As AssessmentCOMMUN
+    Public Overloads Function recherche(IdSupplier As Integer, quarter As Integer) As T_SUP_ASSESSMENT_SUA_COMMON
         Try
-            Dim trouverAssessment = From unAssessment In BaseSupplierAssessment.SUP_ASSESSMENT_COMMUN
+            Dim trouverAssessment = From unAssessment In BaseSupplierAssessment.T_SUP_ASSESSMENT_SUA_COMMON
                                 Where unAssessment.SUP_ID = IdSupplier And unAssessment.SUA_QUARTER = quarter
                                Select unAssessment
             If trouverAssessment.Any Then
-                Return CAsessement(trouverAssessment.First)
+                System.Diagnostics.Trace.WriteLine(trouverAssessment.First)
+                Return trouverAssessment.First
             Else
+                System.Diagnostics.Trace.WriteLine("Rien trouvé")
                 Return Nothing
             End If
         Catch ex As Exception
             Throw ex
+            System.Diagnostics.Trace.WriteLine(ex)
         End Try
     End Function
     ''' <summary>
@@ -305,15 +179,15 @@
     ''' </summary>
     ''' <param name="Assessment">Assessment à supprimer</param>
     ''' <remarks></remarks>
-    Public Sub delete(Assessment As AssessmentCOMMUN)
+    Public Sub delete(Assessment As T_SUP_ASSESSMENT_SUA_COMMON)
         Try
             If Not IsNothing(Assessment) Then
-                Dim SupprimerAssessment = From unAssessment In BaseSupplierAssessment.SUP_ASSESSMENT_COMMUN
-                                                                Where unAssessment.SUA_ID = Assessment.id
+                Dim SupprimerAssessment = From unAssessment In BaseSupplierAssessment.T_SUP_ASSESSMENT_SUA_COMMON
+                                                                Where unAssessment.SUA_ID = Assessment.SUA_ID
                                                                 Select unAssessment
 
                 For Each unAssessment In SupprimerAssessment
-                    BaseSupplierAssessment.SUP_ASSESSMENT_COMMUN.DeleteOnSubmit(unAssessment)
+                    BaseSupplierAssessment.T_SUP_ASSESSMENT_SUA_COMMON.DeleteOnSubmit(unAssessment)
                 Next
                 BaseSupplierAssessment.SubmitChanges()
                 System.Diagnostics.Trace.WriteLine(Now + " | " + " Assessement DELETE : " + Assessment.ToString, Me.ToString)
