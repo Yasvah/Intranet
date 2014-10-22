@@ -48,6 +48,9 @@
         <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Supervision/Bras de vissage/Tableau_de_bord"  title="Tableau de bord" roles="SERTA\groupe Info, SERTA\Groupe Appli Supervision BrasVissage"/>
       </siteMapNode>
     </siteMapNode>
+    <siteMapNode title="Maintenance"  description="Indicateur maintenance" roles="SERTA\groupe Info, SERTA\Groupe Appli Maintenance Indicateur">
+        <siteMapNode url="~/View/Shared/ShowReport.aspx?reportPath=/Maintenance/MTBF" title="Indicateur Maintenance" description="Analyse temps maintenance" roles="SERTA\groupe Info, SERTA\Groupe Appli Maintenance Indicateur" />
+    </siteMapNode>
     <siteMapNode title="Migration Baan"  description="Migration de Baan" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan">
       <siteMapNode title="Fournisseurs"  description="Aide Migration Baan sur les fournisseurs" roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan">
         <siteMapNode url="~/View/MigBaan/Fournisseurs/ReportFournisseursMatch.aspx" title="Rapport Correspondance fournisseurs Baan et Sage" description="Rapport correspondance Baan et Sage." roles="SERTA\groupe Info, SERTA\Groupe Appli DataWareHouse Indicateur MigrationBaan" />

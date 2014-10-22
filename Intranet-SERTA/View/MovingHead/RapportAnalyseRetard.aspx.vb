@@ -59,7 +59,7 @@ Public Class RapportAnalyseRetard
         If Quarter < 121 Then 'Pour évite bug hors limite du trimestre pour le rapport 
             Quarter = 121
         End If
-        Return "01" + "/" + Right("0" + CInt(Right(Quarter, 1)) * 3 - 2, 2) + "/" + "20" + Left(Quarter, 2) + "  00:00:00"
+        Return "01" + "/" + Right("0" + CInt(Right(Quarter, 1)) * 3, 2) + "/" + "20" + Left(Quarter, 2) + "  00:00:00"
     End Function
 
 End Class
