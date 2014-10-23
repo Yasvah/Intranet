@@ -14,6 +14,7 @@ Public Class SupplierAssessmentCOMMUN
         textboxDeliveryDelaysLevelPoint.Attributes.Add("readonly", "readonly")
         textBoxBonusPPM.Attributes.Add("readonly", "readonly")
         textboxDeliveryQualityPoint.Attributes.Add("readonly", "readonly")
+        textboxTotal.Attributes.Add("readonly", "readonly")
         ' Au premier chargement de la page je remplies ma listbox de fournisseur.
         If Not (IsPostBack) Then
             Try
@@ -78,7 +79,7 @@ Public Class SupplierAssessmentCOMMUN
             TextBoxIsoCertification.Text = IfNull(assessmentAfficher.SUA_ISO_CERTFICATION_POINT)
             'LabelTatalCompetitiveness.Text = assessmentAfficher.SUA_
             ''************* FielSet Notation *************
-            LabelTotal.Text = IfNull(assessmentAfficher.SUA_TOTAL_POINT)
+            textboxTotal.Text = IfNull(assessmentAfficher.SUA_TOTAL_POINT)
             RadioButtonListTrend.SelectedValue = assessmentAfficher.SUA_TREND
             TextBoxCommentDetail.Text = assessmentAfficher.SUA_COMMENT_DETAIL
             TextBoxCommentClassification.Text = assessmentAfficher.SUA_COMMENT_CLASSIFICATION
@@ -291,7 +292,7 @@ Public Class SupplierAssessmentCOMMUN
             assessmentAfficher.SUA_SIN_NB_POINT = textBoxSinNBPoint.Text
             assessmentAfficher.SUA_SIN_NB_VALUE = textBoxSinNBValue.Text
             assessmentAfficher.SUA_TECHNICAL_ANSWER_QUALITY_POINT = TextBoxTechnicalAnswerQuality.Text
-            assessmentAfficher.SUA_TOTAL_POINT = LabelTotal.Text
+            assessmentAfficher.SUA_TOTAL_POINT = TextboxTotal.Text
             assessmentAfficher.SUA_TREND = RadioButtonListTrend.SelectedValue
             assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN = textBoxLogisticImprovementPlan.Text
             assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN = textBoxQualityImprovementPlan.Text

@@ -518,7 +518,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <td>&nbsp;</td>
+                            <td></td>
                             <td>Group</td>
                             <td>PNS</td>
                             <td>SERTA</td>
@@ -673,7 +673,7 @@
                     <tr>
                         <td><span class="Label">Total score</span></td>
                         <td class="cellule">
-                            <asp:Label ID="LabelTotal" runat="server"></asp:Label>
+                            <asp:TextBox ID="textboxTotal" runat="server" CssClass="NumberBox"  AutoPostBack="false"></asp:TextBox>
                             /100</td>
                         <td class="cellule">
                             <asp:Label ID="LabelTotalPNS" runat="server"></asp:Label>
@@ -887,10 +887,10 @@
                     TmpTotalQuality = 0;
                 }
 
-                if ((TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val())) > 45) {
-                    $('#<%=LabelTotalQualite.ClientID%>').html(45);
-                }
-                else if ((TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val())) < 0) {
+                //if ((TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val())) > 45) {
+                //    $('#<%=LabelTotalQualite.ClientID%>').html(45);
+                //}
+                if ((TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val())) < 0) {
                     $('#<%=LabelTotalQualite.ClientID%>').html(0);
                 }
                 else {
@@ -914,9 +914,9 @@
                     TmpTotalLogistique = 0
                 }
                 TmpTotalLogistique = TmpTotalLogistique + flexibility + deliveryQuality + ImprovementPlan
-                if (TmpTotalLogistique > 35) {
-                    TmpTotalLogistique = 35
-                }
+                //if (TmpTotalLogistique > 35) { //Le sous total peux dépasser ça valeur maximaux.
+                //    TmpTotalLogistique = 35
+                //}
                 $('#<%=labelTotalLogistique.ClientID%>').html(TmpTotalLogistique)
             TotalScore();//Appel le calcule du score total
             };
@@ -952,13 +952,13 @@ TotalScore = function () {
 
     var TmpTotalscore = totalQuality + totalLogistic + totalcompetitiness;
     if (TmpTotalscore < 0) {
-        $('#<%=LabelTotal.ClientID%>').html(0)
+        $('#<%=textboxTotal.ClientID%>').val(0)
     }
     else if (TmpTotalscore > 100) {
-        $('#<%=LabelTotal.ClientID%>').html(100)
+        $('#<%=textboxTotal.ClientID%>').val(100)
         }
         else {
-            $('#<%=LabelTotal.ClientID%>').html(TmpTotalscore)
+        $('#<%=textboxTotal.ClientID%>').val(TmpTotalscore)
         }
 };
 $(document).ready(TotalLogistique)
