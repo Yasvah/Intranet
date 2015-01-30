@@ -266,6 +266,15 @@ Partial Public Class SupplierAssessmentSERTA
     Protected WithEvents textBoxBonusPPM As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''Contrôle checkBoxImprovement.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents checkBoxImprovement As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
     '''Contrôle textBoxQualityImprovementPlan.
     '''</summary>
     '''<remarks>

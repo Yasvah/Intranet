@@ -158,7 +158,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><span class="Label">Plan de progrès</span></td>
+                            <td><span class="Label">Plan de progrès</span> <asp:CheckBox runat="server" ID="checkBoxImprovement" /> enable</td>
                             <td></td>
                             <td>
                                 <asp:TextBox ID="textBoxQualityImprovementPlan" runat="server" CssClass="NumberBox"  AutoPostBack="false"></asp:TextBox>/10

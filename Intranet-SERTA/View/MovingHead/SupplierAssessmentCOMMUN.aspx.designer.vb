@@ -464,6 +464,15 @@ Partial Public Class SupplierAssessmentCOMMUN
     Protected WithEvents textBoxBonusPPMSERTA As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''Contrôle checkBoxImprovement.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents checkBoxImprovement As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
     '''Contrôle textBoxQualityImprovementPlan.
     '''</summary>
     '''<remarks>
@@ -903,6 +912,15 @@ Partial Public Class SupplierAssessmentCOMMUN
     '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
     '''</remarks>
     Protected WithEvents textboxDeliveryQualityPointSERTA As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Contrôle checkBoxImprovementPlanLogistic.
+    '''</summary>
+    '''<remarks>
+    '''Champ généré automatiquement.
+    '''Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
+    '''</remarks>
+    Protected WithEvents checkBoxImprovementPlanLogistic As Global.System.Web.UI.WebControls.CheckBox
 
     '''<summary>
     '''Contrôle textBoxLogisticImprovementPlan.

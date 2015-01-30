@@ -164,7 +164,11 @@ Public Class SupplierAssessmentPNS
             assessmentAfficher.SUA_TOTAL_POINT = LabelTotal.Text
             assessmentAfficher.SUA_TREND = RadioButtonListTrend.SelectedValue
             assessmentAfficher.SUA_LOGISTIC_IMPROVEMENT_PLAN = textBoxLogisticImprovementPlan.Text
-            assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN = textBoxQualityImprovementPlan.Text
+            If textBoxQualityImprovementPlan.Text = "" Then
+                assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN = Nothing
+            Else
+                assessmentAfficher.SUA_QUALITY_IMPROVEMENT_PLAN = CByte(textBoxQualityImprovementPlan.Text)
+            End If
         Catch ex As Exception
             Throw ex
         End Try

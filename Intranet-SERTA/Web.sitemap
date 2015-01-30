@@ -4,8 +4,10 @@
   <siteMapNode resourceKey="homePage" title="HomePage" url="~/View/Home/Default.aspx" roles="*" >
     <siteMapNode title="Moving Ahead" description="Liste des rapports" roles="SERTA\Groupe Appli MovingAhead Formulaire PNS, SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info">
       <siteMapNode title="Formulaire" description="Formulaire Moving Ahead" roles="SERTA\Groupe Appli MovingAhead Formulaire PNS, SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info">
+        <!--  Ces formulaires ne sont plus maintenu
         <siteMapNode url="~/View/MovingHead/SupplierAssessmentSERTA.aspx" title="Formulaire Supplier Performance SERTA" roles="SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info" />
         <siteMapNode url="~/View/MovingHead/SupplierAssessmentPNS.aspx" title="Formulaire Supplier Performance PNS" roles="SERTA\Groupe Appli MovingAhead Formulaire PNS, SERTA\Groupe Info" />
+        -->
         <siteMapNode url="~/View/MovingHead/SupplierAssessmentCOMMUN.aspx" title="Formulaire Supplier Performance COMMUN" roles="SERTA\Groupe Appli MovingAhead Formulaire PNS, SERTA\Groupe Appli MovingAhead Formulaire SERTA, SERTA\Groupe Info" />
       </siteMapNode>
       <!--

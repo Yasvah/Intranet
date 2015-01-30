@@ -233,7 +233,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <span class="Label">Improvement plan</span>
+                        <span class="Label">Improvement plan</span> <asp:CheckBox runat="server" ID="checkBoxImprovement" /> enable
                     </td>
                     <td>&nbsp;</td>
                     <td class="cellule">
@@ -475,7 +475,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <span class="Label">Improvement plan</span>
+                            <span class="Label">Improvement plan</span> <asp:CheckBox runat="server" ID="checkBoxImprovementPlanLogistic" /> enable
                         </td>
                         <td>
                             &nbsp;</td>
@@ -784,6 +784,9 @@
                 TotalQuality();
                 TotalLogistique();
                 Totalcompetitiveness();
+                $('#<%=textBoxIndicePPMvalue.ClientID%>').trigger("change");
+                $('#<%=textBoxSinNBValue.ClientID%>').trigger("change");
+                $('#<%=textBoxCustomerClaimNBValue.ClientID%>').trigger("change");
             });
 
             //Gestion des evenements sur chaque champs modifié//
@@ -840,6 +843,60 @@
                 TotalLogistique();//recalcule le total
             });
 
+            
+           
+            //Acivation d'un plan de progres Quality
+            $('#<%=checkBoxImprovement.ClientID%>').change(function () {
+                if ($('#<%=checkBoxImprovement.ClientID%>').is(":checked")) {
+                    $('#<%=textBoxQualityImprovementPlan.ClientID%>').val(0)
+                    $('#<%=textBoxQualityImprovementPlan.ClientID%>').prop('disabled', false);
+                    TotalQuality();
+                }
+                else {
+                    $('#<%=textBoxQualityImprovementPlan.ClientID%>').val('')
+                    $('#<%=textBoxQualityImprovementPlan.ClientID%>').prop('disabled', true);
+                    TotalQuality();
+                }
+                
+            });
+
+            // Checkbox au chargement activation ou non.
+            if ($('#<%=textBoxQualityImprovementPlan.ClientID%>').val() == '') {
+                $('#<%=textBoxQualityImprovementPlan.ClientID%>').prop('disabled', true);
+                $('#<%=checkBoxImprovement.ClientID%>').prop('checked', false);
+            }
+            else {
+                $('#<%=textBoxQualityImprovementPlan.ClientID%>').prop('disabled', false);
+                $('#<%=checkBoxImprovement.ClientID%>').prop('checked', true);
+            }
+
+           
+            //Acivation d'un plan d'un plan de progres Logistic
+            $('#<%=checkBoxImprovementPlanLogistic.ClientID%>').change(function () {
+                if ($('#<%=checkBoxImprovementPlanLogistic.ClientID%>').is(":checked")) {
+                    $('#<%=textBoxLogisticImprovementPlan.ClientID%>').val(0)
+                    $('#<%=textBoxLogisticImprovementPlan.ClientID%>').prop('disabled', false);
+                    TotalQuality();
+                }
+                else {
+                    $('#<%=textBoxLogisticImprovementPlan.ClientID%>').val('')
+                    $('#<%=textBoxLogisticImprovementPlan.ClientID%>').prop('disabled', true);
+                    TotalQuality();
+                }
+
+            });
+
+            // Checkbox au chargement activation ou non.
+            if ($('#<%=textBoxLogisticImprovementPlan.ClientID%>').val() == '') {
+                $('#<%=textBoxLogisticImprovementPlan.ClientID%>').prop('disabled', true);
+                $('#<%=checkBoxImprovementPlanLogistic.ClientID%>').prop('checked', false);
+            }
+            else {
+                $('#<%=textBoxLogisticImprovementPlan.ClientID%>').prop('disabled', false);
+                $('#<%=checkBoxImprovementPlanLogistic.ClientID%>').prop('checked', true);
+            }
+
+            //checkBoxImprovementPlanLogistic
             //Plan de progres logistique
             $('#<%=textBoxLogisticImprovementPlan.ClientID%>').change(function () {
                 TotalLogistique();//recalcule le total
@@ -882,19 +939,24 @@
                 var SinNBPoint = parseInt($('#<%=textBoxSinNBPoint.ClientID%>').val());
                 var BonusPPM = parseInt($('#<%=textBoxBonusPPM.ClientID%>').val());
                 var ActionPlanReactivity = parseInt($('#<%=textBoxActionPlanReactivity.ClientID%>').val());
+                var QualityImprovementPlan = parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val())
                 var TmpTotalQuality = PPMNote + CustomerNBPoint + SinNBPoint + BonusPPM + ActionPlanReactivity;
                 if (TmpTotalQuality < 0) {
                     TmpTotalQuality = 0;
                 }
+                if ($('#<%=textBoxQualityImprovementPlan.ClientID%>').val() == '') {
+                    QualityImprovementPlan = 0;
+                }
+
 
                 //if ((TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val())) > 45) {
                 //    $('#<%=LabelTotalQualite.ClientID%>').html(45);
                 //}
-                if ((TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val())) < 0) {
+                if ((TmpTotalQuality + QualityImprovementPlan) < 0) {
                     $('#<%=LabelTotalQualite.ClientID%>').html(0);
                 }
                 else {
-                    $('#<%=LabelTotalQualite.ClientID%>').html(TmpTotalQuality + parseInt($('#<%=textBoxQualityImprovementPlan.ClientID%>').val()));
+                    $('#<%=LabelTotalQualite.ClientID%>').html(TmpTotalQuality + QualityImprovementPlan);
                 }
                 //Appel Score total
                 TotalScore();//Appel le calcule du score total
@@ -904,10 +966,10 @@
         //Calcule le total du score Logistique
         TotalLogistique = function () {
             var ServiceRate = parseInt(($('#<%=textboxLogisticRatePoint.ClientID%>').val()));
-                var flexibility = parseInt(($('#<%=textboxFlexibilityPoint.ClientID%>').val()));
-                var delaysPenality = parseInt(($('#<%=textboxDeliveryDelaysLevelPoint.ClientID%>').val()));
-                var deliveryQuality = parseInt(($('#<%=textboxDeliveryQualityPoint.ClientID%>').val()));
-                var ImprovementPlan = parseInt(($('#<%=textBoxLogisticImprovementPlan.ClientID%>').val()));
+            var flexibility = parseInt(($('#<%=textboxFlexibilityPoint.ClientID%>').val()));
+            var delaysPenality = parseInt(($('#<%=textboxDeliveryDelaysLevelPoint.ClientID%>').val()));
+            var deliveryQuality = parseInt(($('#<%=textboxDeliveryQualityPoint.ClientID%>').val()));
+            var ImprovementPlan = parseInt(($('#<%=textBoxLogisticImprovementPlan.ClientID%>').val()));
 
                 var TmpTotalLogistique = ServiceRate + delaysPenality
                 if (TmpTotalLogistique < 0) {
@@ -923,25 +985,25 @@
         //Calcule le total du score competitivité
         Totalcompetitiveness = function () {
             var Improvementplan = parseInt(($('#<%=TextBoxImprovmentPlan.ClientID%>').val()));
-    var BusinessRelationship = parseInt(($('#<%=TextBoxBusinessRelationship.ClientID%>').val()));
-    var ReactivityOnCommercial = parseInt(($('#<%=TextBoxOffersReactivity.ClientID%>').val()));
-    var QualityOfTechnical = parseInt(($('#<%=TextBoxTechnicalAnswerQuality.ClientID%>').val()));
-    var ISOCertification = parseInt(($('#<%=TextBoxIsoCertification.ClientID%>').val()));
-    var FinancialSupplierHealth = parseInt(($('#<%=TextBoxFinancialSituation.ClientID%>').val()));
+            var BusinessRelationship = parseInt(($('#<%=TextBoxBusinessRelationship.ClientID%>').val()));
+            var ReactivityOnCommercial = parseInt(($('#<%=TextBoxOffersReactivity.ClientID%>').val()));
+            var QualityOfTechnical = parseInt(($('#<%=TextBoxTechnicalAnswerQuality.ClientID%>').val()));
+            var ISOCertification = parseInt(($('#<%=TextBoxIsoCertification.ClientID%>').val()));
+            var FinancialSupplierHealth = parseInt(($('#<%=TextBoxFinancialSituation.ClientID%>').val()));
 
-    var TmpTotalcompetiviveness = Improvementplan + BusinessRelationship + ReactivityOnCommercial + QualityOfTechnical + ISOCertification + FinancialSupplierHealth;
-    if (TmpTotalcompetiviveness < 0) {
-        $('#<%=LabelTatalCompetitiveness.ClientID%>').html(0)
-    }
-    else if (TmpTotalcompetiviveness > 20) {
-        $('#<%=LabelTatalCompetitiveness.ClientID%>').html(20)
-        }
-        else {
-            $('#<%=LabelTatalCompetitiveness.ClientID%>').html(TmpTotalcompetiviveness)
-        }
+            var TmpTotalcompetiviveness = Improvementplan + BusinessRelationship + ReactivityOnCommercial + QualityOfTechnical + ISOCertification + FinancialSupplierHealth;
+            if (TmpTotalcompetiviveness < 0) {
+                $('#<%=LabelTatalCompetitiveness.ClientID%>').html(0)
+            }
+            else if (TmpTotalcompetiviveness > 20) {
+                $('#<%=LabelTatalCompetitiveness.ClientID%>').html(20)
+                }
+                else {
+                    $('#<%=LabelTatalCompetitiveness.ClientID%>').html(TmpTotalcompetiviveness)
+                }
 
-    TotalScore();//Appel le calcule du score total
-};
+            TotalScore();//Appel le calcule du score total
+        };
 
 //Calcule La somme Total de tout les scores      
 
